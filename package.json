@@ -1,0 +1,19 @@
+{
+  "name": "team-magpie-scave",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ijaspreetbhatti/Team-Magpie-Scave.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ijaspreetbhatti/Team-Magpie-Scave/issues"
+  },
+  "homepage": "https://github.com/ijaspreetbhatti/Team-Magpie-Scave#readme"
+}
