@@ -13,5 +13,5 @@ async function getNames(db) {
 getNames(database).then(printNames);
 
 function printNames(namesList) {
-    console.log(namesList)
+    console.log('Name List:', namesList);
 }
