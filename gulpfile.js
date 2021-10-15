@@ -54,6 +54,6 @@ async function watch() {
     gulp.watch('src', gulp.series([html, js]));
 };
 
-exports.serve = gulp.series(watch, browserSyncRunner);
+exports.serve = gulp.series(html, js, watch, browserSyncRunner);
 exports.watch = watch;
 exports.default = build;

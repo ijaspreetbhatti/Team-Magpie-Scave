@@ -4,6 +4,7 @@ const { SourceMapDevToolPlugin } = require("webpack");
 module.exports = {
     entry: {
         main: './src/index.js',
+        login: './src/app/login/login.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

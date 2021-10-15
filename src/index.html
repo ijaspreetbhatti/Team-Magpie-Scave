@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scave</title>
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" defer></script>
 </head>
 <body>
-    @@include('./app/components/header.html')
+    @@include('./app/components/header/header.html')
+    <div id="login">@@include('./app/login/login.html')</div>
 </body>
 </html>
