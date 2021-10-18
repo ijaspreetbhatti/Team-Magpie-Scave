@@ -1,1 +1,1 @@
-import 'list.scss'
+import './list.scss';
