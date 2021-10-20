@@ -1,8 +1,69 @@
-.list-container{
-    background-color: aqua;
+// Listing Mobile
+.list-container {
+    .list-card {
+        background-color: cornsilk;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        border-radius: 8px;
+        border: 1px solid gray;
+        padding: 16px;
+        margin: 16px 24px;
 
-    h1{
-        font-weight: bold;
-        font-family: digital-7;
+        .list-info {
+            display: flex;
+            align-content: center;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h3 {
+                margin: 0;
+                font-size: 16px;
+            }
+
+            .list-sub-info {
+                .category,
+                .condition {
+                    font-size: 12px;
+                    color: gray;
+                }
+            }
+
+            .distance {
+                font-size: 10px;
+                color: gray;
+            }
+        }
+
+        .img {
+            width: 88px;
+            height: 88px;
+            background-color: mediumturquoise;
+        }
     }
 }
+
+// .list-container{
+//     background-color: burlywood;
+//     border: 1px solid black;
+//     border-radius: 8px;
+
+//     .list-card{
+//         display: flex;
+//         flex-direction: row;
+//         width: 342px;
+//         height: 120px;
+//     }
+
+//     .img{
+//         width: 88px;
+//         height: 88px;
+
+//         .dummy-pic{
+//             width: 88px;
+//             height: 88px;
+//             background-color: cadetblue;
+//             margin: 16px;
+//         }
+//     }
+// }
