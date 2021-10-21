@@ -1,0 +1,31 @@
+.create-account {
+    background: red;
+        .header {
+            .logo {
+                height: 56px;
+            }
+            h1#signup {
+                font-size: 24px;
+                margin-left: 20px;
+            }
+        }
+
+        input {
+            width: 85%;
+        }
+
+        .create-account div.container {
+            margin: 20px;
+            p {
+                text-align: center;
+            }
+        }
+
+        .policy {
+            width: 342px;
+            p {
+                font-size: 12px;
+                padding: 5px 20px;
+            }
+        }
+    }
