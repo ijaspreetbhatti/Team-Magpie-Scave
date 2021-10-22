@@ -1,13 +1,89 @@
-div.login-box {
-    background-color: aquamarine;
-    text-align: center;
-    padding: 10px;
-    border-radius: 15px;
-    height: 100%;
-    width: 100%;
+// #90A4AE -Grey2
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+
+* {
+    font-style: 'Poppins';
 }
 
-.clickButton {
-    background: red;
-    color: white;
+* {
+    margin: 0;
+}
+
+.login-box{
+    .logo {
+        height: 56px;
+        border-bottom: #CFD8DC solid 1px;
+        text-align: center;
+    }
+        h1 {
+        margin-left: 24px;
+        margin-top: 24px;
+        font-size: 24px;
+        }
+    
+    
+
+    form {
+        .container, .btn {
+            margin: 32px 23px 0 25px;
+        }
+
+        label, input {
+            display: block;
+        }
+
+        label {
+        font-size: 12px;
+        }
+
+        input {
+        width: 342px;
+        height: 34px;
+        border-radius:8px;
+        border: #90A4AE solid 1px;
+        padding: 0;
+        }
+
+        div.btn input {
+            background: #00bcd4;
+            border-color: #00bcd4;
+        }
+
+        input[value="Sign in"] {
+            font-size: 12px;
+            color: white;
+        }
+
+        .btn p {
+            margin-top: 4px;
+            text-align: center;
+            span {
+                font-weight: bold;
+            }
+            a {
+                text-decoration: none;
+            }
+        }
+
+        div {
+            margin: 20px;
+        }
+
+        div p {
+            font-size: 10px;
+        }
+    }
+
+footer {
+    height: 56px;
+    border-top: 1px solid #CFD8DC;
+    margin-top: 400px;
+    
+    p {
+        text-align: center;
+        margin: 21px 24px;
+        font-size: 10px;
+        color: #607D8B;
+    }
+}
 }

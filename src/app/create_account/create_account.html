@@ -1,0 +1,55 @@
+<div class="create-account">
+    <header class="header">
+        <div class="logo">Logo Image</div>
+        <h1 id="signup">Create account</h1>
+    </header>
+    <form method="post">
+        <div class="container">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" />
+        </div>
+
+        <div class="container">
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" />
+        </div>
+
+        <div class="container">
+            <label for="email">Email</label>
+            <input type="email" id="SU_email" />
+        </div>
+
+        <div class="container">
+            <label for="phone">Phone number</label>
+            <input type="text" id="phone" placeholder="(000) 000-0000" />
+        </div>
+
+        <div class="container">
+            <label for="pass">Password</label>
+            <input
+                type="password"
+                id="SU_pass"
+                placeholder="Strong password with at least 8 characteres"
+            />
+        </div>
+
+        <div class="policy">
+            <p>
+                By creating account you agree to our Terms and Conditions and
+                Privacy Policy
+            </p>
+
+        </div>
+        
+        <div class="container signup-btn">
+            <input type="submit" value="Create account" id="signup-btn"/>
+            <p>Already have an account? <a href=".login-box"><span> Sign in</span></a></p>
+        </div>
+    </form>
+
+    <footer>
+        <p>Scave · Magpie &copy; Copyright 2021. All rights reserved.</p>
+    </footer>
+
+    <script src="./js/create_account.js" defer></script>
+</div>
