@@ -1,31 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+
+* {
+    font-style: 'Poppins';
+}
+
+* {
+    margin: 0;
+}
+
 .create-account {
-    background: red;
         .header {
             .logo {
                 height: 56px;
-            }
-            h1#signup {
-                font-size: 24px;
-                margin-left: 20px;
-            }
-        }
-
-        input {
-            width: 85%;
-        }
-
-        .create-account div.container {
-            margin: 20px;
-            p {
+                border-bottom: #CFD8DC solid 1px;
                 text-align: center;
             }
+            h1 {
+                margin-left: 24px;
+                margin-top: 24px;
+                font-size: 24px;
+                }
         }
 
-        .policy {
-            width: 342px;
-            p {
+        form {
+            .container, .btn {
+                margin: 32px 23px 0 25px;
+            }
+
+            label, input {
+                display: block;
+            }
+
+            label {
+                color: #263238;
                 font-size: 12px;
-                padding: 5px 20px;
+                margin-bottom: 4px;
+            }
+            
+            input {
+                width: 342px;
+                height: 34px;
+                border: #90A4AE solid 1px;
+                border-radius: 8px;
+                padding: 0;
+            }
+
+            ::placeholder {
+                color: #90A4AE;
+                font-size: 12px;
+                padding: 7px auto 7px 15px;
+            }
+            
+            .policy {
+                width: 342px;
+                height: 36px;
+                margin: 20px 24px;
+                p {
+                    font-size: 12px;
+                    color: #263238;
+                }
+            }
+
+            #signup-btn {
+                border-color: #00bcd4;
+                background: #00bcd4;
+                font-size: 12px;
+                color: white;
+            }
+            .signup-btn p {
+                font-size: 10px;
+                color: #263238;
+                text-align: center;
+                width: 169px;
+                height: 14px;
+                margin: 4px 110px 120px 110px;
+                span {
+                    font-weight: bold;
+                }
+                a {
+                    text-decoration: none;
+                }
+            }
+            
+        }
+
+        footer {
+            height: 56px;
+            border-top: 1px solid #CFD8DC;
+            
+            p {
+                text-align: center;
+                margin: 21px 24px;
+                font-size: 10px;
+                color: #607D8B;
             }
         }
+
     }
