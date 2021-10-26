@@ -66,13 +66,15 @@
 
   a {
       text-decoration: none;
-      color: $grey5;
-      font-style: $h3;
       display: flex; 
-      font-weight: 400;
+      // font-weight: 400;
       
      img {
         margin-right: 12px;
+      }
+
+      .menuLink:active {
+        font-style: $h3;
       }
     }
 }
@@ -83,6 +85,18 @@
   width: 100%; 
   text-align: left; 
   margin-left: 24px;
+
+  h2 {
+    margin: 24px 0 0 0;
+    padding: 0;
+  }
+
+  h4 {
+    margin: 4px 0 20px 0;
+    font-weight: 400;
+  }
+
+
 }
   
 #navItems {
