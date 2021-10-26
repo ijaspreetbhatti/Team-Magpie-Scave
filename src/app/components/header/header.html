@@ -1,4 +1,58 @@
-<header>
-    <img src="../icons/scave_logo.svg" alt="Scave Logo">
-    <h1>Scave</h1>
-</header> -->
+<script defer>
+    function toggleNav() {
+
+        const nav = document.getElementById("navItems");
+
+        if (nav.style.display === "none") {
+            nav.style.display = "block";
+        } else {
+            nav.style.display = "none";
+        }
+    };
+</script>
+
+<div class="header">
+    <div class="leftNav">
+        <nav class="navIcon">
+            <img src="https://res.cloudinary.com/scave2021/image/upload/v1635194656/scave/menu_nwj6fg.svg" alt="menu icon" class="hamburgerMenu" onclick="toggleNav()"> 
+
+            <div id="navItems" class="overlay">
+
+                <div class="menuOverlay">
+                    
+                    <h2>John Doe</h2>
+                    <h4>johndoe@gmail.com</h4>
+
+                    <a href="#">
+                        <img class="menuIcon" id="home" src="https://res.cloudinary.com/scave2021/image/upload/v1635194653/scave/home_wblbdi.svg">
+                        <h3>Home</h3>
+                    </a>
+                    <a href="#">
+                        <img class="menuIcon" id="acccount" src="https://res.cloudinary.com/scave2021/image/upload/v1635194651/scave/account_h87zpz.svg">
+                        <h3>Account</h3>
+                    </a>
+                    <a href="#">
+                        <img class="menuIcon" id="savedItems" src="https://res.cloudinary.com/scave2021/image/upload/v1635194649/scave/saved_uts4c4.svg">
+                        <h3>Saved Items</h3>
+                    </a>
+                    <a href="#">
+                        <img class="menuIcon" id="yourListings" src="https://res.cloudinary.com/scave2021/image/upload/v1635194656/scave/listings_qycdkg.svg">
+                        <h3>Your Listings</h3> 
+                        </a>
+                    <a href="#">
+                        <img class="menuIcon" id="logOut" src="https://res.cloudinary.com/scave2021/image/upload/v1635194656/scave/logout_bjqpjg.svg">
+                        <h3>Log Out</h3>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <img id='mainLogo' src="https://res.cloudinary.com/scave2021/image/upload/v1635194721/scave/scaveLogo_he3m5p.svg" alt="Scave Logo">
+    </div>
+
+    <div class="rightNav">
+        <img src="https://res.cloudinary.com/scave2021/image/upload/v1635194649/scave/search_bkk9ug.svg" alt="Search Icon" id="headerSearch">
+        <div id="listItem">
+            <p>List Item</p> 
+            <img id="plus" src="https://res.cloudinary.com/scave2021/image/upload/v1635208469/scave/add_icon_white_strrzt.svg"></div>
+        </div>
+</div>

@@ -1,0 +1,18 @@
+.btnMap {
+    background: $white;
+    border-radius: 8px;
+    font: $small-text;
+}
+
+.mapOverlay {
+    // z-index: 2;
+    height: auto;
+    width: auto;
+}
+
+#map {
+    height: 100%;
+    position: absolute;
+	// z-index: 1;
+    background-repeat: no-repeat;
+}

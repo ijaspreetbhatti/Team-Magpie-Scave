@@ -1,0 +1,91 @@
+#header {
+  align-content: center;
+  border-bottom: 1px solid $grey1;
+}
+
+#mainLogo {
+    width: 94px;
+    height: auto;
+    align-self: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 24px;
+    align-content: center;
+
+    .leftNav, .rightNav {
+      display: flex;
+      align-items: center;
+    }
+
+    #listItem {
+      background-color: $primary;
+      color: $white;
+      border: none;
+      border-radius: 8px;
+      height: 34px;
+      width: 97px;
+      display: flex;
+      justify-content: center;
+      margin-left: 24px;
+
+      p {
+        align-self: center;
+        justify-self: center;
+        padding-right: 6px;
+      }
+    }
+
+    #plus {
+      height: 10px;
+      width: 10px;
+      align-self: center;
+      justify-self: center;
+      padding: 0;
+      margin: 0;
+    }
+}
+
+.hamburgerMenu {
+    margin: 6px 24px 0 0;
+    z-index: 3;
+  }
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed; 
+  z-index: 1;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  background-color: $white; 
+  overflow-x: hidden; 
+
+  a {
+      text-decoration: none;
+      color: $grey5;
+      font-style: $h3;
+      display: flex; 
+      font-weight: 400;
+      
+     img {
+        margin-right: 12px;
+      }
+    }
+}
+  
+.menuOverlay {
+  position: relative;
+  top: auto; 
+  width: 100%; 
+  text-align: left; 
+  margin-left: 24px;
+}
+  
+#navItems {
+  width: 60%;
+  display: none;
+}
