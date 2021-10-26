@@ -48,6 +48,15 @@
     }
 }
 
+#listItem:hover {
+  background-color: $primary-variant-mid;
+}
+
+#listItem:active {
+  background-color: $primary-variant-dark;
+}
+
+
 .hamburgerMenu {
     margin: 6px 24px 0 0;
     z-index: 3;
@@ -67,7 +76,6 @@
   a {
       text-decoration: none;
       display: flex; 
-      // font-weight: 400;
       
      img {
         margin-right: 12px;
