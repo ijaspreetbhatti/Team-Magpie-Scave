@@ -1,14 +1,20 @@
 <!-- Output div for map -->
-<div id="map"></div>
+<div id="map">
+    <div class="mapOverlay">
+        <button id="mapView" class="btnMap">Map View</button>
+        <button id="listView" class="btnMap">List View</button>
+    </div>
+</div>
 
 <!-- Show map with current location -->
 <div>
-    <script>
+        <script>
         let map, infoWindow;
 
         function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
             // center: { lat: -34.397, lng: 150.644 },
+            disableDefaultUI: true,
             zoom: 14,
         });
         infoWindow = new google.maps.InfoWindow();
@@ -49,7 +55,7 @@
         infoWindow.open(map);
         }
     </script>
-
+    
     <!-- Google maps API plugin with function callback  -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9kUNFLXOEwSFaH5JedhaGV1MMKXxB50o&callback=initMap"></script>
 </div>
