@@ -5,7 +5,6 @@
 }
 
 .mapOverlay {
-    // z-index: 2;
     height: auto;
     width: auto;
 }
@@ -13,6 +12,26 @@
 #map {
     height: 100%;
     position: absolute;
-	// z-index: 1;
     background-repeat: no-repeat;
+}
+
+.viewBtn {
+    background: $white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    color: $grey5;
+    width: 83px;
+    height: 34px;
+    text-align: center;
+    margin: 12px 24px 12px 8px;
+    
+    h4 {
+        margin: 0;
+        padding: 8px;
+    }
+}
+
+.mapView {
+    margin-right: 0;
 }
