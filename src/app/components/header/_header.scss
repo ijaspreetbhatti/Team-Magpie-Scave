@@ -80,11 +80,11 @@
      img {
         margin-right: 12px;
       }
-
-      .menuLink:active {
-        font-style: $h3;
-      }
     }
+}
+
+.menuLink:hover {
+  font-weight: 600;
 }
   
 .menuOverlay {
