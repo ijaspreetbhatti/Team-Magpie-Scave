@@ -1,5 +1,4 @@
 import './create_account.scss';
-import { database } from "../services/firebase-service";
 
 console.log('read');
 
