@@ -1,5 +1,11 @@
 import './login.scss'
 import { database } from "../services/firebase-service";
+import { getAuth } from "firebase/firebase-auth";
+
+
+const auth = getAuth(database);
+const db = firebase.firestore();
+
 
 // document.getElementById('clickbtn').addEventListener('click', clickLogin);
 
