@@ -6,6 +6,35 @@
 <!-- Show map with current location -->
 <div>
     <script>
+        const goods = [
+            {
+                title: "Desk1",
+                lat: 49.2837282522517,
+                lng: -123.13221810895666,
+                icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
+                category: "Home Good",
+                condition: "Like New",
+                distance: "1200m"
+            },
+            {
+                title: "Desk2",
+                lat: 49.274321281824186,
+                lng:  -123.14981339887272,
+                icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
+                category: "Home Good",
+                condition: "Like New",
+                distance: "1200m"
+            },
+            {
+                title: "Desk3",
+                lat: 49.266648793197206,
+                lng: -123.10621141215385,
+                icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
+                category: "Home Good",
+                condition: "Like New",
+                distance: "1200m"
+            }
+        ];
 
         // Create List Button
         function addListView(buttonDiv, map) {
@@ -31,8 +60,20 @@
             });
         };
 
+        // Create Filter Button
+        function addFilter(buttonDiv, map) {
+            const filterUI = document.createElement("div");
+            filterUI.className = 'viewBtn filter'; 
+            filterUI.innerHTML = `<h4>Filter</h4> <img src="https://res.cloudinary.com/scave2021/image/upload/v1635194653/scave/down_shsgxq.svg">`;
+            buttonDiv.appendChild(filterUI);
+        
+            filterUI.addEventListener("click", () => {
+            console.log('click');
+            });
+        };
+
         // initiate map var
-        let map;
+        let map, i;
 
         // initiate map func
         function initMap() {
@@ -51,6 +92,11 @@
 
             addMapView(mapDiv, map);
             map.controls[google.maps.ControlPosition.TOP_RIGHT].push(mapDiv);
+
+            const filterDiv = document.createElement("div");
+
+            addFilter(filterDiv, map);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(filterDiv);
 
             // load center of map based on user location
         window.addEventListener("load", () => {
@@ -73,6 +119,23 @@
                 // Browser doesn't support Geolocation
                 handleLocationError(false, map.getCenter());
             }
+
+            for (i = 0; i < goods.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(goods[i].lat, goods[i].lng),
+                icon: goods[i].icon,
+                title: goods[i].title,
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function() {
+                // return function() {
+                    console.log('click');
+                // infowindow.setContent(goods[i].title);
+                // infowindow.open(map, marker);
+                // }
+            }))
+            }
         });
         }
 
@@ -91,6 +154,6 @@
 
 
     
-    <!-- Google maps API plugin with function callback  -->
+    // <!-- Google maps API plugin with function callback  -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9kUNFLXOEwSFaH5JedhaGV1MMKXxB50o&callback=initMap"></script>
 </div>
