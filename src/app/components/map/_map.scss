@@ -30,6 +30,14 @@
         margin: 0;
         padding: 8px;
     }
+
+    svg {
+        fill: $grey5;
+        padding: 0;
+        margin: 0;
+        margin: 0 4px;
+        max-width: 10px;
+    }
 }
 
 .viewBtn:active {
@@ -37,6 +45,10 @@
 
     h4 {
         color: $white;
+    }
+
+    svg {
+        fill: $white;
     }
 }
 
@@ -47,12 +59,6 @@
 
     h4 {
         padding: 8px 0 8px 8px;
-    }
-
-    img {
-        padding: 0;
-        margin: 0;
-        max-width: 20px;
     }
 }
 
