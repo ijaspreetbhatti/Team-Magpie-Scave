@@ -111,3 +111,17 @@
   width: 60%;
   display: none;
 }
+
+
+// Desktop
+
+@media screen and (min-width: 1000px) {
+  .hamburgerMenu {
+    display: none;
+  }
+
+  #navItems {
+    display: block;
+    width: 20%;
+  }
+}

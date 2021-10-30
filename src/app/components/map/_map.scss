@@ -66,3 +66,13 @@
 .mapView {
     margin-right: 0;
 }
+
+
+// Desktop
+
+@media screen and (min-width: 1000px) {
+    #map {
+        width: 80%;
+        float: right;
+    }
+}
