@@ -1,5 +1,9 @@
 import './login.scss'
 import { database } from "../services/firebase-service";
+import { getAuth } from "firebase/auth";
+
+
+const auth = getAuth(database);
 
 // document.getElementById('clickbtn').addEventListener('click', clickLogin);
 
@@ -26,4 +30,3 @@ button.addEventListener('click', (e) => {
         alert("Your email or password is wrong.")
     }
 })
- 

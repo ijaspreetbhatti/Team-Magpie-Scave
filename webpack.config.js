@@ -7,6 +7,8 @@ module.exports = {
         login: './src/app/login/login.js',
         list: './src/app/components/listing/list.js',
         create_account: './src/app/create_account/create_account.js',
+        menu_account: './src/app/menu/account/menu_account.js',
+        notification: './src/app/menu/notification/notification.js',
         map: './src/app/components/map/map.js',
     },
     output: {
