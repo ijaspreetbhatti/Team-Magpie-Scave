@@ -3,94 +3,11 @@
     <div class="mapOverlay"></div>
 </div>
 
+<!-- <script src="../listing/list.js"></script> -->
+
 <!-- Show map with current location -->
 <div>
-    <script>
-
-        // Create List Button
-        function addListView(buttonDiv, map) {
-            const listUI = document.createElement("div");
-            listUI.className = 'viewBtn';
-            listUI.innerHTML = `<h4>List View</h4>`;
-            buttonDiv.appendChild(listUI);
-        
-            listUI.addEventListener("click", () => {
-            console.log('click');
-            });
-        };
-
-        // Create Map Button
-        function addMapView(buttonDiv, map) {
-            const mapUI = document.createElement("div");
-            mapUI.className = 'viewBtn mapView';
-            mapUI.innerHTML = `<h4>Map View</h4>`;
-            buttonDiv.appendChild(mapUI);
-        
-            mapUI.addEventListener("click", () => {
-            console.log('click');
-            });
-        };
-
-        // initiate map var
-        let map;
-
-        // initiate map func
-        function initMap() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                disableDefaultUI: true,
-                zoom: 14,
-            });
-
-            // create map UI buttons from above funcs
-            const listDiv = document.createElement("div");
-
-            addListView(listDiv, map);
-            map.controls[google.maps.ControlPosition.TOP_RIGHT].push(listDiv);
-
-            const mapDiv = document.createElement("div");
-
-            addMapView(mapDiv, map);
-            map.controls[google.maps.ControlPosition.TOP_RIGHT].push(mapDiv);
-
-            // load center of map based on user location
-        window.addEventListener("load", () => {
-            // Try HTML5 geolocation.
-            if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                    };
-                        map.setCenter(pos);
-                    },
-                    
-                    () => {
-                        handleLocationError(true, map.getCenter());
-                    }
-            );
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, map.getCenter());
-            }
-        });
-        }
-
-        function handleLocationError(browserHasGeolocation, pos) {
-            infoWindow.setPosition(pos);
-            infoWindow.setContent(
-                browserHasGeolocation
-                ? "Error: The Geolocation service failed."
-                : "Error: Your browser doesn't support geolocation."
-        );
-            infoWindow.open(map);
-        }
-    </script>
-    
-
-
-
-    
     <!-- Google maps API plugin with function callback  -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9kUNFLXOEwSFaH5JedhaGV1MMKXxB50o&callback=initMap"></script>
+    <script src="js/map.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9kUNFLXOEwSFaH5JedhaGV1MMKXxB50o&callback=initMap"></script>
 </div>

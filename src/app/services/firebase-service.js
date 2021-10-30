@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from "firebase/firestore/lite";
+import { collection, doc, setDoc, getDocs } from "firebase/firestore/lite";
 
 // Set the configuration for your app
 // TODO: Replace with your project's config object
@@ -16,3 +17,20 @@ const app = initializeApp(firebaseConfig);
 
 // Get a reference to the database service
 export const db = getFirestore(app);
+
+export async function getAllListings() {
+    const listingsCollection = collection(db, 'listings');
+    const listingsSnapshot = await getDocs(listingsCollection);
+    const listingsList = listingsSnapshot.docs.map(doc => doc.data());
+    return listingsList;
+};
+
+export async function saveListing(listing) {
+    console.log("Saving");
+    await setDoc(doc(collection(db, 'listings')), listing);
+};
+
+export async function updateListing(id, listing) {
+    console.log("Updating");
+    // await setDoc(doc(collection(db, 'listings')), listing);
+};

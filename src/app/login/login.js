@@ -30,4 +30,3 @@ button.addEventListener('click', (e) => {
         alert("Your email or password is wrong.")
     }
 })
- 
