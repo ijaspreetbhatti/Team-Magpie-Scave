@@ -84,7 +84,7 @@ export function hello() {
 }
 // initiate map func
 function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
+    const map = new google.maps.Map(document.getElementById("map"), {
         disableDefaultUI: true,
         zoom: 14,
     });
@@ -118,14 +118,15 @@ function initMap() {
                     map.setCenter(pos);
                 },
 
-                () => {
-                    handleLocationError(true, map.getCenter());
-                }
+                // () => {
+                //     handleLocationError(true, map.getCenter());
+                // }
             );
 
         } else {
             // Browser doesn't support Geolocation
-            handleLocationError(false, map.getCenter());
+            console.log('Location Error');
+            // handleLocationError(false, map.getCenter());
         }
 
         for (i = 0; i < goods.length; i++) {
@@ -148,12 +149,12 @@ function initMap() {
 }
 window.initMap = initMap;
 
-function handleLocationError(browserHasGeolocation, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(
-        browserHasGeolocation
-            ? "Error: The Geolocation service failed."
-            : "Error: Your browser doesn't support geolocation."
-    );
-    infoWindow.open(map);
-}
+// function handleLocationError(browserHasGeolocation, pos) {
+//     infoWindow.setPosition(pos);
+//     infoWindow.setContent(
+//         browserHasGeolocation
+//             ? "Error: The Geolocation service failed."
+//             : "Error: Your browser doesn't support geolocation."
+//     );
+//     infoWindow.open(map);
+// }
