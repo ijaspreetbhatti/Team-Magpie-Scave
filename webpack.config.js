@@ -6,7 +6,8 @@ module.exports = {
         main: './src/index.js',
         login: './src/app/login/login.js',
         list: './src/app/components/listing/list.js',
-        create_account: './src/app/create_account/create_account.js'
+        create_account: './src/app/create_account/create_account.js',
+        map: './src/app/components/map/map.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -42,5 +43,5 @@ module.exports = {
         new SourceMapDevToolPlugin({
             filename: "[file].map"
         }),
-    ]
+    ],
 };
