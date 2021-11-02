@@ -65,9 +65,14 @@ imgs.appendChild(mySlides);
 document.querySelector('.mySlides').addEventListener('click', mySlidesHandler);
 
 function mySlidesHandler(e) {
+    getInfo();
     setFeaturedImg(e);
     addOpacity(e);
     deleteOpacity(e);
+}
+
+function getInfo() {
+    
 }
 
 function setFeaturedImg(e) {
