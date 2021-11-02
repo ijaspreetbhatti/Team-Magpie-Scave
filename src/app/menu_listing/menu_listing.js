@@ -56,10 +56,10 @@ if (goods.length < 1) {
           <div class="line"></div>
               <div class="button">
                   <div class="btn1">
-                      <button id="editbtn" class="editbtn">Edit</button>
+                      <button id="editBtn" class="editBtn">Edit</button>
                   </div>
                   <div class="btn2">
-                      <button id="deletebtn" class="deletebtn">Delete</button>
+                      <a class="deleteBtn" id="deleteBtn" href="#popUp">Delete</a>
                   </div>
               </div>
       </div>
