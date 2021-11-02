@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+}
+
+.menu_account {
+        form {
+            .container, .acc-btn {
+                margin: 32px 23px 0 25px;
+            }
+
+            label, input {
+                display: block;
+            }
+
+            label {
+                color: #263238;
+                font-size: 12px;
+                margin-bottom: 4px;
+            }
+            
+            input {
+                width: 342px;
+                height: 34px;
+                border: #90A4AE solid 1px;
+                border-radius: 8px;
+                padding: 0;
+            }
+
+            ::placeholder {
+                color: #90A4AE;
+                font-size: 12px;
+                padding: 7px auto 7px 15px;
+            }
+
+            #save-btn {
+                border-color: #00bcd4;
+                background: #00bcd4;
+                font-size: 12px;
+                color: white;
+            }
+        }
+    }

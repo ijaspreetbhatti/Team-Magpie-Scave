@@ -1,5 +1,20 @@
 import './login.scss'
-import { database } from "../services/firebase-service";
+import { app } from "../services/firebase-service";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+const auth = getAuth(app);
+function loginAccount(email, password) {
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            console.log(userCredential);
+            const user = userCredential.user;
+        })
+        .catch((error) => {
+            console.log(error);
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
+}
 
 // document.getElementById('clickbtn').addEventListener('click', clickLogin);
 
@@ -18,12 +33,5 @@ button.addEventListener('click', (e) => {
     console.log("clicked");
     const email = document.getElementById('email').value;
     const pass = document.getElementById('pass').value;
-
-    if (email === "magpie@mylangara.ca" && pass === "scave") {
-        alert("You have successfully logged in.");
-        location.reload();
-    } else {
-        alert("Your email or password is wrong.")
-    }
+    loginAccount(email, pass);
 })
- 

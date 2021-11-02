@@ -1,7 +1,12 @@
 import './main.scss';
-import { database } from "./app/services/firebase-service";
-import { collection, getDocs } from 'firebase/firestore/lite';
-import * as $ from 'jquery';
+import { getAllListings } from "./app/services/firebase-service";
+
+(() => {
+    getAllListings().then((listings) => {
+        console.log(listings);
+    });
+}) ()
+
 
 // Get a list of names from your database
 // async function getNames(db) {

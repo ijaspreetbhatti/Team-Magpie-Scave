@@ -7,7 +7,10 @@ module.exports = {
         login: './src/app/login/login.js',
         list: './src/app/components/listing/list.js',
         create_account: './src/app/create_account/create_account.js',
-        item_details: './src/app/components/item_details/item_details.js'
+        item_details: './src/app/components/item_details/item_details.js',
+        menu_account: './src/app/menu/account/menu_account.js',
+        notification: './src/app/menu/notification/notification.js',
+        map: './src/app/components/map/map.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -43,5 +46,5 @@ module.exports = {
         new SourceMapDevToolPlugin({
             filename: "[file].map"
         }),
-    ]
+    ],
 };

@@ -3,6 +3,8 @@
 @import 'app/components/listing/list';
 @import 'app/components/map/map';
 @import 'app/components/header/header';
+@import 'app/menu/notification/notification.scss';
+@import 'app/menu/notification/empty.scss';
 
 html, body {
     height: 100%;
