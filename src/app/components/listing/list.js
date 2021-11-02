@@ -58,4 +58,3 @@ goods.forEach(function(good) {
     `        
 })
 
-console.log(goods)

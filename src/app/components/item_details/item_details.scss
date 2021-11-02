@@ -1,18 +1,20 @@
 .item_details {
     margin: 24px;
-    h1 {
-        font-size: 24px;
-        margin: 0;
-    }
+    .content-info {
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
 
-    .content-header {
-        display: flex;
-        margin-top: 4px;
+        .content-header {
+            display: flex;
+            margin-top: 4px;
 
-        .sub-info {
-            margin-right: 16px;
-            color: #455a64;
-            font-size: 12px;
+            .sub-info {
+                margin-right: 16px;
+                color: #455a64;
+                font-size: 12px;
+            }
         }
 
         .hours {
@@ -23,6 +25,7 @@
 
     .btn-area {
         margin-top: 16px;
+        margin-bottom: 32px;
 
         .save {
             background-color: #00bcd4;
@@ -54,26 +57,46 @@
         }
     }
 
+    .thumbnail {
+        width: 100%;
+        height: 194px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        margin-bottom: 8px;
+
+        img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+        }
+    }
+
     .imgs {
         max-width: 100%;
         position: relative;
         margin: auto;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
 
         .mySlides {
-            margin-right: 8px;
+            width: 100%;
+            height: auto;
+            .opacity {
+                opacity: 50%;
+            }
 
-            img {
-                width: 100%;
-                height: auto;
+            .img {
+                margin-right: 8px;
+                cursor: pointer;
+                width: 62px;
+                height: 62px;
                 border-radius: 4px;
             }
-        }
-
-        .mySlides:last-child {
-            margin-right: 0;
+            .img:last-child {
+                margin-right: 0px;
+            }
         }
     }
 
