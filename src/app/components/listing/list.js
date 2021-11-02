@@ -11,8 +11,8 @@ const goods = [
     {
         title: "Desk2",
         category: "Home Good",
-        condition: "Like New",
-        distance: "1200m"
+        condition: "Old",
+        distance: "10m"
     },
 
     {
@@ -58,4 +58,3 @@ goods.forEach(function(good) {
     `        
 })
 
-console.log(goods)
