@@ -2,30 +2,40 @@ import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
 import { searchBox, hits } from 'instantsearch.js/es/widgets';
 
-console.log('hello');
 
 const searchClient = algoliasearch('W5144GWNC7', '007a65abffcee913949d61c3aa980ed8');
+const index = searchClient.initIndex('Scave');
 
 const search = instantsearch({
-  indexName: 'listings',
+  indexName: 'Scave',
   searchClient,
 });
 
-search.addWidgets([
-  searchBox({
-    container: "#searchInput"
-  }),
+// only query string
 
-  hits({
-    container: "#searchListings"
-  })
-]);
+document.getElementById('searchSubmit').addEventListener('click', () => {
+    searchFunc();
+    console.log('searched');
+})
 
-// search.start();
 
+
+const searchFunc = () => {
+        let searchItem = document.getElementById('searchInput').value;
+
+        index.search(searchItem).then(({ hits }) => {
+        console.log(hits);
+        console.log('searching')
+    });
+}
+
+
+search.start();
+
+
+// Search input display and hide functions and Nav Display Func
 
 function toggleSearch() {
-
 
     const width = window.matchMedia("(min-width: 1000px)");
 
@@ -103,14 +113,6 @@ function closeSearch() {
 
 window.closeSearch = closeSearch;
 
-const searchIn = () => {
-    document.getElementById("searchSubmit").addEventListener("click", function() {
-        alert('searched!');
-    })
-}
-
-window.searchIn = searchIn;
-
 function toggleNav() {
 
     const nav = document.getElementById("navItems");
@@ -124,7 +126,8 @@ function toggleNav() {
 
 window.toggleNav = toggleNav;
 
-function headerFix(x) {
+// Adjust header display when screen width changes
+function headerFix(width) {
 
     const search = document.getElementById("headerSearch");
     const addItem = document.getElementById("listItem");
@@ -158,6 +161,8 @@ function headerFix(x) {
     }
 }
 
-const width = window.matchMedia("(min-width: 1000px)")
-headerFix(width) // Call listener function at run time
-width.addListener(headerFix) // Attach listener function on state changes
+const width = window.matchMedia("(min-width: 1000px)");
+
+headerFix(width);
+
+width.addListener(headerFix)
