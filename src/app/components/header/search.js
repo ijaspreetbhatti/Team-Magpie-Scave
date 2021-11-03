@@ -18,8 +18,6 @@ document.getElementById('searchSubmit').addEventListener('click', () => {
     console.log('searched');
 })
 
-
-
 const searchFunc = () => {
         let searchItem = document.getElementById('searchInput').value;
 
