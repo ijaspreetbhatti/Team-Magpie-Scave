@@ -10,6 +10,7 @@ module.exports = {
         menu_account: './src/app/menu/account/menu_account.js',
         notification: './src/app/menu/notification/notification.js',
         map: './src/app/components/map/map.js',
+        search: './src/app/components/header/search.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
