@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js');
 const browserSync = require('browser-sync').create();
+const copy = require('gulp-copy');
 
 const paths = {
     scripts: {
@@ -48,12 +49,30 @@ async function js() {
 async function build() {
     html();
     js();
+    copyManifest();
+    copyIcons();
+    copyServiceWorker();
+}
+
+async function copyManifest() {
+    gulp.src('./src/magpie.scave.webmanifest')
+    .pipe(gulp.dest('./dist'));
+}
+
+async function copyIcons() {
+    gulp.src('./src/icons/*.png')
+    .pipe(gulp.dest('./dist/icons'));
+}
+
+async function copyServiceWorker() {
+    gulp.src('./src/sw.js')
+    .pipe(gulp.dest('./dist/js'));
 }
 
 async function watch() {
     gulp.watch('src', gulp.series([html, js]));
 };
 
-exports.serve = gulp.series(html, js, watch, browserSyncRunner);
+exports.serve = gulp.series(build, watch, browserSyncRunner);
 exports.watch = watch;
 exports.default = build;

@@ -11,11 +11,12 @@ module.exports = {
         notification: './src/app/menu/notification/notification.js',
         map: './src/app/components/map/map.js',
         search: './src/app/components/header/search.js',
+        item_details: './src/app/components/item_details/item_details.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "[name].js",
-        sourceMapFilename: "[name].js.map"
+        sourceMapFilename: "[name].js.map",
     },
     mode: 'development',
     devtool: "source-map",

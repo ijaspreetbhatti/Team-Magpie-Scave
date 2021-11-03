@@ -1,12 +1,17 @@
 // Listing Mobile
+
 .list-container {
+    margin-top: 82px;
+    .list-card:first-child {
+        margin-top: 0;
+    }
+
     .list-card {
-        background-color: cornsilk;
         justify-content: space-between;
         display: flex;
         flex-direction: row;
         border-radius: 8px;
-        border: 1px solid gray;
+        border: 1px solid #cfd8dc;
         padding: 16px;
         margin: 16px 24px;
 
@@ -39,6 +44,7 @@
             width: 88px;
             height: 88px;
             background-color: mediumturquoise;
+            border-radius: 4px;
         }
     }
 }
