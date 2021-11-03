@@ -1,3 +1,4 @@
+import './app/components/header/search';
 import './main.scss';
 import { getAllListings } from "./app/services/firebase-service";
 
