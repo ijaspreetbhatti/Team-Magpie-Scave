@@ -12,4 +12,10 @@ html, body {
     background-color: $white;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-container {
+    flex-grow: 1;
 }
