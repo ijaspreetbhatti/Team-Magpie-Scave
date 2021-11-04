@@ -35,21 +35,21 @@ search.start();
 
 // Main Varibales for funcs
 const leftNav = document.getElementById('leftNav');
-const search = document.getElementById("headerSearch");
+const startSearch = document.getElementById("headerSearch");
 const addItem = document.getElementById("listItem");
 
 const searchInput = document.getElementById("searchInput");
 const enter = document.getElementById("searchSubmit");
 const close = document.getElementById("closeSearch");
 
-function toggleSearch(leftNav, search, addItem, searchInput, enter, close) {
+function toggleSearch(leftNav, startSearch, addItem, searchInput, enter, close) {
 
     const width = window.matchMedia("(min-width: 1000px)");
 
     console.log('click');
 
-    if (!width.matches && search.style.display === "flex") {
-        search.style.display = "none";
+    if (!width.matches && startSearch.style.display === "flex") {
+        startSearch.style.display = "none";
         addItem.style.display = "none";
         leftNav.style.display = "none";
 
@@ -57,7 +57,7 @@ function toggleSearch(leftNav, search, addItem, searchInput, enter, close) {
         searchInput.style.display = "block";
         enter.style.display = "block";
     } else {
-        search.style.display = "flex";
+        startSearch.style.display = "flex";
         addItem.style.display = "flex";
         leftNav.style.display = "flex";
 
@@ -67,14 +67,14 @@ function toggleSearch(leftNav, search, addItem, searchInput, enter, close) {
     }
 };
 
-window.toggleSearch = toggleSearch(leftNav, search, addItem, searchInput, enter, close);
+window.toggleSearch = toggleSearch(leftNav, startSearch, addItem, searchInput, enter, close);
 
-function closeSearch(leftNav, search, addItem, searchInput, enter, close) {
+function closeSearch(leftNav, startSearch, addItem, searchInput, enter, close) {
 
     const width = window.matchMedia("(min-width: 1000px)");
 
-    if (!width.matches && search.style.display === "none") {
-        search.style.display = "flex";
+    if (!width.matches && startSearch.style.display === "none") {
+        startSearch.style.display = "flex";
         addItem.style.display = "flex";
         leftNav.style.display = "flex";
 
@@ -82,7 +82,7 @@ function closeSearch(leftNav, search, addItem, searchInput, enter, close) {
         enter.style.display = "none";
         close.style.display = "none";
     } else if(width.matches) {
-        search.style.display = "none";
+        startSearch.style.display = "none";
         addItem.style.display = "flex";
         leftNav.style.display = "flex";
         
@@ -92,7 +92,7 @@ function closeSearch(leftNav, search, addItem, searchInput, enter, close) {
     }
 }
 
-window.closeSearch = closeSearch(leftNav, search, addItem, searchInput, enter, close);
+window.closeSearch = closeSearch(leftNav, startSearch, addItem, searchInput, enter, close);
 
 function toggleNav() {
 
@@ -108,18 +108,18 @@ function toggleNav() {
 window.toggleNav = toggleNav;
 
 // Adjust header display when screen width changes
-function headerFix(width, leftNav, search, addItem, searchInput, enter, close) {
+function headerFix(width, leftNav, startSearch, addItem, searchInput, enter, close) {
 
     if (width.matches) { // If media query matches
         leftNav.style.display = "flex";
-        search.style.display = "none";
+        startSearch.style.display = "none";
         addItem.style.display = "flex";
 
         searchInput.style.display = "flex";
         enter.style.display = "flex";
         close.style.display = "none";
-    } else if (!width.matches && search.style.display === "none") {
-        search.style.display = "flex";
+    } else if (!width.matches && startSearch.style.display === "none") {
+        startSearch.style.display = "flex";
         leftNav.style.display = "flex";
         addItem.style.display = "flex";
 
@@ -131,6 +131,6 @@ function headerFix(width, leftNav, search, addItem, searchInput, enter, close) {
 
 const width = window.matchMedia("(min-width: 1000px)");
 
-headerFix(width, leftNav, search, addItem, searchInput, enter, close);
+headerFix(width, leftNav, startSearch, addItem, searchInput, enter, close);
 
 width.addListener(headerFix)
