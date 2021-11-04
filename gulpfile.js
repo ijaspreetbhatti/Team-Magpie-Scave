@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js');
 const browserSync = require('browser-sync').create();
-const copy = require('gulp-copy');
 
 const paths = {
     scripts: {
