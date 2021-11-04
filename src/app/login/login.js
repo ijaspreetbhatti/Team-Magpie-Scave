@@ -8,6 +8,8 @@ function loginAccount(email, password) {
         .then((userCredential) => {
             console.log(userCredential);
             const user = userCredential.user;
+            localStorage.setItem('user', user);
+            location.replace('/');
         })
         .catch((error) => {
             console.log(error);
@@ -15,14 +17,6 @@ function loginAccount(email, password) {
             const errorMessage = error.message;
         });
 }
-
-// document.getElementById('clickbtn').addEventListener('click', clickLogin);
-
-// function clickLogin () {
-//     console.log('clickLogin');
-// }
-
-console.log("loaded");
 
 const loginForm = document.getElementById("login_form");
 const button = document.getElementById("btn");
@@ -35,3 +29,14 @@ button.addEventListener('click', (e) => {
     const pass = document.getElementById('pass').value;
     loginAccount(email, pass);
 })
+
+let currentUser;
+
+function checkLoginState() {
+    currentUser = localStorage.getItem('user');
+    if(currentUser) {
+        location.replace('/');
+    }
+}
+
+checkLoginState();
