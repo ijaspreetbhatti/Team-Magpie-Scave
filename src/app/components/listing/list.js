@@ -1,4 +1,31 @@
 import './list.scss';
+import {getAllListings} from '../../services/firebase-service';
+
+let listings = [];
+
+getAllListings().then((res) => {
+    listings = res;
+    populateListings();
+})
+
+function populateListings(){
+    listings.forEach(function(listing) {
+        listContainer.innerHTML += `
+        <div class="list-card">
+            <div class="list-info">
+            <div class="list-sub-info">
+                <h3>${listing.title}</h3>
+                <span class="category">${listing.category}</span>
+                <span>.</span>
+                <span class="condition">${listing.condition}</span>
+            </div>
+            <span class="distance">${listing.distance}</span>
+            </div>
+            <div class="img"></div>
+        </div>
+        `        
+    })
+}
 
 const goods = [
     {
@@ -40,21 +67,5 @@ const goods = [
 let listContainer = document.querySelector('.list-container');
 
 
-goods.forEach(function(good) {
 
-    listContainer.innerHTML += `
-    <div class="list-card">
-        <div class="list-info">
-        <div class="list-sub-info">
-            <h3>${good.title}</h3>
-            <span class="category">${good.category}</span>
-            <span>.</span>
-            <span class="condition">${good.condition}</span>
-        </div>
-        <span class="distance">${good.distance}</span>
-        </div>
-        <div class="img"></div>
-    </div>
-    `        
-})
 

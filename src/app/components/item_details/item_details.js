@@ -65,14 +65,26 @@ imgs.appendChild(mySlides);
 document.querySelector('.mySlides').addEventListener('click', mySlidesHandler);
 
 function mySlidesHandler(e) {
-    getInfo();
+    getInfo(e);
     setFeaturedImg(e);
     addOpacity(e);
     deleteOpacity(e);
 }
 
-function getInfo() {
-    
+function getInfo(e) {
+    goods.forEach(function(good) {
+    containerHeader.innerHTML = `
+    <h1>${good.title}</h1>
+    <div class="content-header">
+        <div class="sub-info">
+            <span class="category">${good.category}</span>
+            <span>.</span>
+            <span class="condition">${good.condition}</span>
+        </div>
+        <span class="hours">${good.hour}</span>
+    </div>
+    `
+})
 }
 
 function setFeaturedImg(e) {
