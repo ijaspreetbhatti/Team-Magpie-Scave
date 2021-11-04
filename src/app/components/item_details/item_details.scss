@@ -1,0 +1,110 @@
+.item_details {
+    margin: 24px;
+    .content-info {
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .content-header {
+            display: flex;
+            margin-top: 4px;
+
+            .sub-info {
+                margin-right: 16px;
+                color: #455a64;
+                font-size: 12px;
+            }
+        }
+
+        .hours {
+            color: #607d8b;
+            font-size: 10px;
+        }
+    }
+
+    .btn-area {
+        margin-top: 16px;
+        margin-bottom: 32px;
+
+        .save {
+            background-color: #00bcd4;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            margin-right: 8px;
+        }
+
+        .collected {
+            border: none;
+            padding: 8px 16px;
+            color: #263238;
+            background-color: #ffffff;
+        }
+
+        .save:hover {
+            background-color: #006064;
+            cursor: pointer;
+        }
+    }
+
+    .description {
+        border-bottom: 1px solid #cfd8dc;
+        p {
+            line-height: 18px;
+            padding-bottom: 32px;
+        }
+    }
+
+    .thumbnail {
+        width: 100%;
+        height: 194px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        margin-bottom: 8px;
+
+        img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+        }
+    }
+
+    .imgs {
+        max-width: 100%;
+        position: relative;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .mySlides {
+            width: 100%;
+            height: auto;
+            .opacity {
+                opacity: 50%;
+            }
+
+            .img {
+                margin-right: 8px;
+                cursor: pointer;
+                width: 62px;
+                height: 62px;
+                border-radius: 4px;
+            }
+            .img:last-child {
+                margin-right: 0px;
+            }
+        }
+    }
+
+    .map {
+        margin-top: 32px;
+        width: 100%;
+        height: 138px;
+        background-color: green;
+        border-radius: 4px;
+    }
+}

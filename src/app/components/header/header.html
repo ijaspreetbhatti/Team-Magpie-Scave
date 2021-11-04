@@ -1,20 +1,9 @@
-<script defer>
-    function toggleNav() {
-
-        const nav = document.getElementById("navItems");
-
-        if (nav.style.display === "none") {
-            nav.style.display = "block";
-        } else {
-            nav.style.display = "none";
-        }
-    };
-</script>
+<script type="javascript" src="./js/search.js" defer></script>
 
 <div class="header">
     <div class="leftNav">
         <nav class="navIcon">
-            <img src="https://res.cloudinary.com/scave2021/image/upload/v1635194656/scave/menu_nwj6fg.svg" alt="menu icon" class="hamburgerMenu" onclick="toggleNav()"> 
+            <img src="https://res.cloudinary.com/scave2021/image/upload/v1635194656/scave/menu_nwj6fg.svg" alt="menu icon" class="hamburgerMenu" id="hamburger" onclick="toggleNav()"> 
 
             <div id="navItems" class="overlay">
 
@@ -50,12 +39,16 @@
     </div>
 
     <div class="rightNav">
-        <img src="https://res.cloudinary.com/scave2021/image/upload/v1635194649/scave/search_bkk9ug.svg" alt="Search Icon" id="headerSearch">
+        <img src="https://res.cloudinary.com/scave2021/image/upload/v1635194649/scave/search_bkk9ug.svg" alt="Search Icon" id="headerSearch" onclick="toggleSearch()">
         
+        
+        <img src="https://res.cloudinary.com/scave2021/image/upload/v1635194651/scave/close_fefjnv.svg" id="closeSearch" onclick="closeSearch()">
         <input type="text" id="searchInput">
+        <input type="button" id="searchSubmit">
 
         <div id="listItem">
             <p>List Item</p> 
             <img id="plus" src="https://res.cloudinary.com/scave2021/image/upload/v1635208469/scave/add_icon_white_strrzt.svg"></div>
         </div>
+        <div id="searchListings"></div>
 </div>
