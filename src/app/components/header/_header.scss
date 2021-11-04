@@ -2,32 +2,26 @@
   align-content: center;
   border-bottom: 1px solid $grey1;
 }
-
 #mainLogo {
     width: 94px;
     height: auto;
     align-self: center;
 }
-
 .header {
     display: flex;
     justify-content: space-between;
     margin: 12px 24px;
     align-content: center;
-
     .leftNav, .rightNav {
       display: flex;
     }
-
     .rightNav {
       width: 100%;
       justify-content: flex-end;
     }
-
     #headerSearch {
       max-width: 25px;
     }
-
     #listItem {
       background-color: $primary;
       color: $white;
@@ -38,14 +32,12 @@
       display: flex;
       justify-content: center;
       margin-left: 24px;
-
       p {
         align-self: center;
         justify-self: center;
         padding-right: 6px;
       }
     }
-
     #plus {
       height: 10px;
       width: 10px;
@@ -55,21 +47,16 @@
       margin: 0;
     }
 }
-
 #listItem:hover {
   background-color: $primary-variant-mid;
 }
-
 #listItem:active {
   background-color: $primary-variant-dark;
 }
-
-
 .hamburgerMenu {
     margin: 6px 24px 0 0;
     z-index: 3;
   }
-
 .overlay {
   height: 100%;
   width: 0;
@@ -80,7 +67,6 @@
   bottom: 0;
   background-color: $white; 
   overflow-x: hidden; 
-
   a {
       text-decoration: none;
       display: flex; 
@@ -90,7 +76,6 @@
       }
     }
 }
-
 .menuLink:hover {
   font-weight: 600;
 }
@@ -101,12 +86,10 @@
   width: 100%; 
   text-align: left; 
   margin-left: 24px;
-
   h2 {
     margin: 24px 0 0 0;
     padding: 0;
   }
-
   h4 {
     margin: 4px 0 20px 0;
     font-weight: 400;
@@ -117,7 +100,6 @@
   width: 60%;
   display: none;
 }
-
 #searchInput {
   background: $white;
   background-image: url("https://res.cloudinary.com/scave2021/image/upload/v1635194649/scave/search_bkk9ug.svg");
@@ -125,27 +107,23 @@
   background-size: 20px 20px;
   background-position: 3% center;
   padding: 4px;
-  padding-left: 5%;
+  padding-left: 28px;
   border: 1px solid $grey2;
   border-radius: 8px;
   display: none;
 }
-
 // Desktop
 @media screen and (min-width: 1000px) {
   .hamburgerMenu {
     display: none;
   }
-
   #navItems {
     display: block;
     width: 20%;
   }
-
   #searchInput {
     display: block;
   }
-
   #listItem {
     width: auto;
   }
