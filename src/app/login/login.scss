@@ -1,8 +1,9 @@
-// #90A4AE -Grey2
+@import '../../_variables.scss';
+@import '../../_font_styles.scss';
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
-    font-style: "Poppins";
+    font-family: $font-family;
 }
 
 * {
