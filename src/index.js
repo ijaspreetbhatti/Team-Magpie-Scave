@@ -12,4 +12,13 @@ function checkLoginState() {
     }
 }
 
+function signOut() {
+    localStorage.removeItem('user');
+    location.replace('/');
+}
+
+logOut.addEventListener('click', ()=> {
+    signOut();
+});
+
 checkLoginState();
