@@ -43,26 +43,20 @@ function toggleSearch() {
     const search = document.getElementById("headerSearch");
     const addItem = document.getElementById("listItem");
 
-    const searchInput = document.getElementById("searchInput");
-    const enter = document.getElementById("searchSubmit");
-    const close = document.getElementById("closeSearch");
+    const searchArea = document.getElementById('search');
 
     if (!width.matches && search.style.display === "flex") {
         search.style.display = "none";
         addItem.style.display = "none";
         leftNav.style.display = "none";
 
-        close.style.display = "block";
-        searchInput.style.display = "block";
-        enter.style.display = "block";
+        searchArea.style.display = 'flex';
     } else {
         search.style.display = "flex";
         addItem.style.display = "flex";
         leftNav.style.display = "flex";
 
-        searchInput.style.display = "none";
-        enter.style.display = "none";
-        close.style.display = "none";
+        searchArea.style.display = 'none';
     }
 };
 
@@ -76,26 +70,20 @@ function closeSearch() {
     const search = document.getElementById("headerSearch");
     const addItem = document.getElementById("listItem");
 
-    const searchInput = document.getElementById("searchInput");
-    const enter = document.getElementById("searchSubmit");
-    const close = document.getElementById("closeSearch");
+    const searchArea = document.getElementById('search');
 
     if (!width.matches && search.style.display === "none") {
         search.style.display = "flex";
         addItem.style.display = "flex";
         leftNav.style.display = "flex";
 
-        searchInput.style.display = "none";
-        enter.style.display = "none";
-        close.style.display = "none";
+        searchArea.style.display = 'none';
     } else if(width.matches) {
         search.style.display = "none";
         addItem.style.display = "flex";
         leftNav.style.display = "flex";
         
-        searchInput.style.display = "flex";
-        enter.style.display = "flex";
-        close.style.display = "none";
+        searchArea.style.display = 'flex';
     }
 }
 
@@ -117,15 +105,12 @@ window.toggleNav = toggleNav;
 // Adjust header display when screen width changes
 function headerFix(width) {
 
-
     const navItems = document.getElementById('navItems');
     const leftNav = document.getElementById('leftNav');
     const search = document.getElementById("headerSearch");
     const addItem = document.getElementById("listItem");
 
-    const searchInput = document.getElementById("searchInput");
-    const enter = document.getElementById("searchSubmit");
-    const close = document.getElementById("closeSearch");
+    const searchArea = document.getElementById('search');
 
     if (width.matches) { // If media query matches
         leftNav.style.display = "flex";
@@ -133,18 +118,14 @@ function headerFix(width) {
         addItem.style.display = "flex";
         navItems.style.display = "flex";
 
-        searchInput.style.display = "flex";
-        enter.style.display = "flex";
-        close.style.display = "none";
+        searchArea.style.display = 'flex';
     } else if (!width.matches && search.style.display === "none") {
         search.style.display = "flex";
         leftNav.style.display = "flex";
         addItem.style.display = "flex";
         navItems.style.display = "none";
 
-        searchInput.style.display = "none";
-        enter.style.display = "none";
-        close.style.display = "none";
+        searchArea.style.display = 'none';
     }
 }
 

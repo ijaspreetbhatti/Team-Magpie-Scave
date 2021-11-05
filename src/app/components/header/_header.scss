@@ -1,11 +1,13 @@
 #header {
   align-content: center;
 }
+
 #mainLogo {
   width: 94px;
   height: auto;
   align-self: center;
 }
+
 .header {
   background-color: white;
   top: 0px;
@@ -21,6 +23,7 @@
   .rightNav {
     display: flex;
   }
+
   .rightNav {
     width: 100%;
     justify-content: flex-end;
@@ -57,17 +60,21 @@
     margin: 0;
   }
 }
+
 #listItem:hover {
   background-color: $primary-variant-mid;
 }
+
 #listItem:active {
   background-color: $primary-variant-dark;
 }
+
 .hamburgerMenu {
   margin: 6px 24px 0 0;
   z-index: 3;
   cursor: pointer;
 }
+
 .overlay {
   height: 100%;
   width: 0;
@@ -88,6 +95,7 @@
     }
   }
 }
+
 .menuLink:hover {
   font-weight: 600;
 }
@@ -112,40 +120,55 @@
   width: 60%;
   display: none;
 }
+
+#search {
+  display: none;
+  width: 100%;
+}
+
 #searchInput {
   background: $white;
-  // background-image: url("https://res.cloudinary.com/scave2021/image/upload/v1635194649/scave/search_bkk9ug.svg");
-  // background-repeat: no-repeat;
-  // background-size: 20px 20px;
-  // background-position: 3% center;
+  background-image: url("https://res.cloudinary.com/scave2021/image/upload/v1635194649/scave/search_bkk9ug.svg");
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: 1% center;
   padding: 4px;
   padding-left: 28px;
   border: 1px solid $grey2;
-  border-radius: 8px;
-  display: none;
+  border-radius: 8px 0 0 8px;
 }
 
 #searchInput {
   width: 100%;
 }
 
-#closeSearch {
-  display: none;
+#searchSubmit {
+  font: $h4;
+  background: $white;
+  color: $grey5;
+  padding: 12px 24px;
+  border: 1px solid $grey2;
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  margin: 0;
+  line-height: .75;
+  height: 34px;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
 }
 
-#searchSubmit {
-  display: none;
-  background: $primary;
+#searchSubmit:hover {
+  background-color: $grey1;
+  border: 1px solid $grey1;
+  border-left: none;
+}
+
+#searchSubmit:active {
+  background-color: $grey4;
   color: $white;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  margin: 0 2px;
-  width: 34px;
-  background-image: url("https://res.cloudinary.com/scave2021/image/upload/v1635194649/scave/search_bkk9ug.svg");
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  background-position: center;
+  border: 1px solid $grey4;
+  border-left: none;
 }
 
 // Desktop
@@ -153,14 +176,21 @@
   .hamburgerMenu {
     display: none;
   }
+
   #navItems {
     display: block;
     width: 20%;
   }
-  #searchInput {
+
+  #searchSubmit {
     display: block;
-    width: 50vw;
   }
+
+  #search {
+    width: 65%;
+    justify-content: flex-end;
+  }
+
   #listItem {
     width: auto;
   }
@@ -173,14 +203,11 @@
     justify-content: center;
   }
 
-  #searchSubmit {
-    display: block;
-  }
-
   #closeSearch {
     display: none;
   }
 }
+
 #logOut {
   cursor: pointer;
 }
