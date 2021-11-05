@@ -1,0 +1,176 @@
+.listingTitle {
+  display: flex;
+  justify-content: left;
+  margin-left: 24px;
+  margin-top: 7.92px;
+  margin-bottom: 7.92px;
+}
+.noList {
+  margin-left: 27px;
+}
+a {
+  text-decoration: none;
+  color: #263238;
+  font-weight: 600;
+}
+
+.list-container {
+  .list-border {
+    border-radius: 8px;
+    border: 1px solid #cfd8dc;
+    margin: 0 24px;
+    margin-bottom: 16px;
+    .listCard {
+      background-color: white;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: row;
+      padding: 16px;
+
+      .listInfo {
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h3 {
+          margin: 0;
+          font-size: 16px;
+        }
+
+        .listSubInfo {
+          .categoryItem,
+          .conditionItem {
+            margin: 0px;
+            font-size: 12px;
+            color: gray;
+          }
+        }
+
+        .distanceItem {
+          font-size: 10px;
+          color: gray;
+        }
+      }
+
+      .imgItem {
+        width: 88px;
+        height: 88px;
+        background-color: mediumturquoise;
+      }
+    }
+  }
+  .line {
+    border-top: 1px solid #cfd8dc;
+    margin: 0 24px;
+  }
+  .button {
+    display: flex;
+    justify-content: space-evenly;
+    .btn1 {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 8px 16px 8px 16px;
+      .editBtn {
+        font-size: 12px;
+        line-height: 18px;
+        border: none;
+        background-color: white;
+      }
+    }
+    .btn2 {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 8px 16px 8px 16px;
+      .deleteBtn {
+        font-size: 12px;
+        line-height: 18px;
+        border: none;
+        background-color: white;
+      }
+    }
+  }
+}
+
+.popUp {
+  background-color: #26323880;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.popUp:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popCard {
+  position: relative;
+  top: 340px;
+  border-radius: 8px;
+  margin: 0 24px;
+  background-color: white;
+  .deleteCard {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    padding: 24px;
+
+    .deleteInfo {
+      display: flex;
+      align-content: center;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+    .deleteMsg {
+      margin-top: 8px;
+
+      font-size: 12px;
+      color: #455a64;
+      line-height: 18px;
+    }
+  }
+  .line {
+    border-top: 1px solid #cfd8dc;
+    margin: 0 24px;
+  }
+  .popButton {
+    display: flex;
+    justify-content: space-evenly;
+    .popBtn1 {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 8px 16px 8px 16px;
+      .popDelete {
+        background-color: white;
+        font-size: 12px;
+        line-height: 18px;
+        border: none;
+      }
+    }
+    .popBtn2 {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 8px 16px 8px 16px;
+      .cancelBtn {
+        background-color: white;
+        font-size: 12px;
+        line-height: 18px;
+        border: none;
+      }
+    }
+  }
+}
