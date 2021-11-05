@@ -118,6 +118,7 @@ window.toggleNav = toggleNav;
 function headerFix(width) {
 
 
+    const navItems = document.getElementById('navItems');
     const leftNav = document.getElementById('leftNav');
     const search = document.getElementById("headerSearch");
     const addItem = document.getElementById("listItem");
@@ -130,6 +131,7 @@ function headerFix(width) {
         leftNav.style.display = "flex";
         search.style.display = "none";
         addItem.style.display = "flex";
+        navItems.style.display = "flex";
 
         searchInput.style.display = "flex";
         enter.style.display = "flex";
@@ -138,6 +140,7 @@ function headerFix(width) {
         search.style.display = "flex";
         leftNav.style.display = "flex";
         addItem.style.display = "flex";
+        navItems.style.display = "none";
 
         searchInput.style.display = "none";
         enter.style.display = "none";
