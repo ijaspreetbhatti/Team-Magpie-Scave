@@ -1,0 +1,68 @@
+<div id="listingContainer">
+    <h1>List Item</h1>
+
+    <div id="photoContainer">
+
+        <div id="photoContaintText">
+            <h3>Select Photos</h3>
+            <p>You can add up to five photos.</p>
+        </div>
+
+        <div class="photoInsert">
+            <div class="imgClose" id="close1"></div>
+            <img src="" id="insert1">
+        </div>
+        <div class="photoInsert">
+            <div class="imgClose" id="close2"></div>
+            <img src="" id="insert2">
+        </div>
+        <div class="photoInsert">
+            <div class="imgClose" id="close3"></div>
+            <img src="" id="insert3">
+        </div>
+        <div class="photoInsert">
+            <div class="imgClose" id="close4"></div>
+            <img src="" id="insert4">
+        </div>
+        <div class="photoInsert">
+            <div class="imgClose" id="close5"></div>
+            <img src="" id="insert5">
+        </div>
+    </div>
+
+    <form id="itemListing">
+        <label for="item">Item:</label>
+        <input type="text" id="item" placeholder="Create a title for your listing" required>
+
+        <label for="category">Category:</label>
+        <select name="category" id="category" required>
+            <option value="" disabled selected hidden>Select a category</option>
+            <option value="Home Goods">Home Goods</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Garden Outdoor">Garden & Outdoor</option>
+            <option value="Recreation">Recreation</option>
+            <option value="Pet Supplies">Pet Supplies</option>
+        </select>
+
+        <label for="condition">Condition:</label>
+        <select name="condition" id="condition" required>
+            <option value="" disabled selected hidden>Select a condition</option>
+            <option value="Like New">Like New</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Damaged">Damaged</option>
+        </select>
+
+        <label for="location">Location:</label>
+        <input type="" id="location" placeholder="Where is the item?" required>
+
+        <label for="description">Description:</label>
+        <textarea placeholder="Describe the item or add any relevent information about the item." rows="3" name="description" form="itemListing" id="description" required></textarea>
+
+
+        <p>Items listed in Scave are automatically deleted after 7 days. We do that because they are exposed to collection for everyone.</p>
+
+        <button type="button" id="add-item-btn">Submit</button>
+        <button type="button" id="discard-item-btn">Discard</button>
+    </form>
+</div>
