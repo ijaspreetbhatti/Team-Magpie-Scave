@@ -27,7 +27,7 @@
     max-width: 500px;
     justify-content: flex-start;
     align-items: center;
-    
+
     p {
         padding-left: 16px;
     }
@@ -52,7 +52,7 @@
     }
 
     .photoInsert {
-        display: none;
+        display: flex;
         height: 98%;
         width: 19%;
         background: $grey1;
@@ -61,7 +61,7 @@
         position: relative;
         justify-content: center;
         align-items: center;
-        
+
         img.insert {
             object-fit: cover;
             max-height: 100%;

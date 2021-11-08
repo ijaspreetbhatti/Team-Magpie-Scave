@@ -27,7 +27,8 @@ export async function getAllListings() {
 
 export async function saveListing(listing) {
     console.log("Saving");
-    await setDoc(doc(collection(db, 'listings')), listing);
+    const res = await setDoc(doc(collection(db, 'listings')), listing);
+    return res;
 };
 
 export async function updateListing(id, listing) {

@@ -2,17 +2,16 @@
 
 <div id="listingContainer">
 
-    <script src="add_item.js" defer></script>
-    
+    <script src="js/add_item.js" defer></script>
+
     <h1>List Item</h1>
 
     <div id="photoContainer">
 
-        <div id="photoContainerText">
-            <label for="imgIn" id='imgLabel'>Select Photos</label>
-            <input type="file" id="imgIn" class="hide" onchange="firstUpload(event, insert1, p1, photoContainerText, img1, c1)">
+        <!-- <div id="photoContainerText">
+            <span for="imgIn" id='imgLabel' onclick="input1.click();">Select Photos</span>
             <p>You can add up to five photos.</p>
-        </div>
+        </div> -->
 
         <div class="photoInsert" id="p1">
             <label for="input1" id='img1'>
@@ -60,7 +59,7 @@
         </div>
     </div>
 
-    <form id="itemListing">
+    <form id="itemListing" action="javascript:void(0);">
         <label for="item">Item:</label>
         <input type="text" id="item" placeholder="Create a title for your listing" required>
 
@@ -92,7 +91,7 @@
 
         <p>Items listed in Scave are automatically deleted after 7 days. We do that because they are available for collection by anyone, even outside of this app.</p>
 
-        <button type="button" id="add-item-btn">Submit</button>
+        <button type="submit" id="add-item-btn">Submit</button>
         <button type="button" id="discard-item-btn">Discard</button>
     </form>
 </div>
