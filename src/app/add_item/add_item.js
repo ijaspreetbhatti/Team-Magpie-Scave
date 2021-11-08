@@ -33,8 +33,6 @@ function photoUpload(event, upload, background, hide, show) {
     show.style.display = "block";
 }
 
-window.photoUpload = photoUpload;
-
 // Func for initial first photo selection
 
 function hideHelpText(upload, background, hide, hide2, show) {
@@ -47,8 +45,6 @@ function hideHelpText(upload, background, hide, hide2, show) {
     show.style.display = "block";
 }
 
-window.hideHelpText = hideHelpText;
-
 function removeImg(img, show, hide, hide2, background) {
     img.src = "";
 
@@ -58,9 +54,7 @@ function removeImg(img, show, hide, hide2, background) {
     hide2.style.display = "none";
 };
 
-window.removeImg = removeImg;
-
-document.getElementById("itemListing").addEventListener("submit", () => {
+function submitAddItemForm() {
     const formValue = {
         title: document.getElementById('item').value,
         category: document.getElementById('category').value,
@@ -73,7 +67,7 @@ document.getElementById("itemListing").addEventListener("submit", () => {
 
     const images = [input1.files[0], input2.files[0], input3.files[0], input4.files[0], input5.files[0]];
 
-    console.log(images.filter(img => img))
+    console.log(images.filter(img => img));
     const imagesToUpload = images.filter(img => img)
 
     const chkUpload = setInterval(() => {
@@ -81,7 +75,8 @@ document.getElementById("itemListing").addEventListener("submit", () => {
         if (imagesToUpload.length === formValue.img.length) {
             console.log(formValue);
             saveListing(formValue).then((response) => {
-                console.log(response);
+                alert('Item Created!');
+                location.hash = "mapView";
             }).catch((error) => {
                 console.log(error);
             })
@@ -103,4 +98,9 @@ document.getElementById("itemListing").addEventListener("submit", () => {
             });
         })
     });
-})
+}
+
+window.photoUpload = photoUpload;
+window.hideHelpText = hideHelpText;
+window.removeImg = removeImg;
+window.submitAddItemForm = submitAddItemForm;
