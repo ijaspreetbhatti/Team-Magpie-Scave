@@ -1,31 +1,42 @@
+
+
 <div id="listingContainer">
+
+    <script src="add_item.js" defer></script>
+    
     <h1>List Item</h1>
 
     <div id="photoContainer">
 
-        <div id="photoContaintText">
-            <h3>Select Photos</h3>
+        <div id="photoContainerText">
+            <label for="imgIn" id='imgLabel'>Select Photos</label>
+            <input type="file" id="imgIn" class="hide">
             <p>You can add up to five photos.</p>
         </div>
 
         <div class="photoInsert">
-            <div class="imgClose" id="close1"></div>
-            <img src="" id="insert1">
+            <img src="" id="insert1" class="insert">
+            <label for="input1" id='img1'><img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt=""></label>
+            <input type="file" class="hide" id="input1" onchange="photoUpload(event, img1)">
         </div>
         <div class="photoInsert">
-            <div class="imgClose" id="close2"></div>
+            <label for="input2" id='img2'><img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt=""></label>
+            <input type="file" class="hide" id="input2">
             <img src="" id="insert2">
         </div>
         <div class="photoInsert">
-            <div class="imgClose" id="close3"></div>
+            <label for="input3" id='img3'><img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt=""></label>
+            <input type="file" class="hide" id="input3">
             <img src="" id="insert3">
         </div>
         <div class="photoInsert">
-            <div class="imgClose" id="close4"></div>
+            <label for="input4" id='img4'><img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt=""></label>
+            <input type="file" class="hide" id="input4">
             <img src="" id="insert4">
         </div>
         <div class="photoInsert">
-            <div class="imgClose" id="close5"></div>
+            <label for="input5" id='img5'><img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt=""></label>
+            <input type="file" class="hide" id="input5">
             <img src="" id="insert5">
         </div>
     </div>
@@ -36,7 +47,7 @@
 
         <label for="category">Category:</label>
         <select name="category" id="category" required>
-            <option value="" disabled selected hidden>Select a category</option>
+            <option value="" class="placeholder select" disabled selected hidden>Select a category</option>
             <option value="Home Goods">Home Goods</option>
             <option value="Electronics">Electronics</option>
             <option value="Garden Outdoor">Garden & Outdoor</option>
@@ -46,7 +57,7 @@
 
         <label for="condition">Condition:</label>
         <select name="condition" id="condition" required>
-            <option value="" disabled selected hidden>Select a condition</option>
+            <option value="" class="placeholder select" disabled selected hidden>Select a condition</option>
             <option value="Like New">Like New</option>
             <option value="Good">Good</option>
             <option value="Fair">Fair</option>
@@ -60,7 +71,7 @@
         <textarea placeholder="Describe the item or add any relevent information about the item." rows="3" name="description" form="itemListing" id="description" required></textarea>
 
 
-        <p>Items listed in Scave are automatically deleted after 7 days. We do that because they are exposed to collection for everyone.</p>
+        <p>Items listed in Scave are automatically deleted after 7 days. We do that because they are available for collection by anyone, even outside of this app.</p>
 
         <button type="button" id="add-item-btn">Submit</button>
         <button type="button" id="discard-item-btn">Discard</button>
