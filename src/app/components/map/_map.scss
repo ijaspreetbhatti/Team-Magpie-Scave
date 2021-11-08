@@ -17,43 +17,6 @@
     // float: right;
 }
 
-.viewBtn {
-    background: $white;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
-    border-radius: 8px;
-    color: $grey5;
-    width: 83px;
-    height: 34px;
-    text-align: center;
-    margin: 12px 24px 12px 8px;
-
-    h4 {
-        margin: 0;
-        padding: 8px;
-    }
-
-    svg {
-        fill: $grey5;
-        padding: 0;
-        margin: 0;
-        margin: 0 4px;
-        max-width: 10px;
-    }
-}
-
-.viewBtn:active {
-    background: $grey4;
-
-    h4 {
-        color: $white;
-    }
-
-    svg {
-        fill: $white;
-    }
-}
-
 .filter {
     margin-left: 24px;
     display: flex;
@@ -66,15 +29,4 @@
 
 .mapView {
     margin-right: 0;
-}
-
-
-// Desktop
-
-@media screen and (min-width: 1000px) {
-    #map {
-        width: 80%;
-        position: relative;
-        float: right;
-    }
 }

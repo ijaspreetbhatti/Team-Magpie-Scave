@@ -1,19 +1,20 @@
-@import '_variables.scss';
-@import '_font_styles.scss';
-@import '_mixins.scss';
-@import 'app/add_item/_add_item.scss';
-@import 'app/components/listing/list';
-@import 'app/components/map/map';
-@import 'app/components/header/header';
-@import 'app/components/menu/notification/notification.scss';
-@import 'app/components/menu/notification/empty.scss';
-@import 'src/app/login/login.scss';
-@import 'src/app/components/home/home.scss';
-@import 'src/app/components/item_details/item_details.scss';
-@import 'src/app/components/menu/account/menu_account.scss';
-@import 'src/app/create_account/create_account.scss';
+@import "_variables.scss";
+@import "_font_styles.scss";
+@import "_mixins.scss";
+@import "app/add_item/_add_item.scss";
+@import "app/components/listing/list";
+@import "app/components/map/map";
+@import "app/components/header/header";
+@import "app/components/menu/notification/notification.scss";
+@import "app/components/menu/notification/empty.scss";
+@import "src/app/login/login.scss";
+@import "src/app/components/home/home.scss";
+@import "src/app/components/item_details/item_details.scss";
+@import "src/app/components/menu/account/menu_account.scss";
+@import "src/app/create_account/create_account.scss";
 
-html, body {
+html,
+body {
     height: 100%;
     background-color: $white;
     margin: 0;
@@ -24,4 +25,69 @@ html, body {
 
 .page-container {
     flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    > div {
+        width: 100%;
+    }
+    overflow: auto;
+}
+
+#header {
+    position: sticky;
+    top: 0;
+    background-color: $white;
+    z-index: 1000;
+}
+
+#mapView {
+    width: 100%;
+    height: 100%;
+}
+
+// Desktop
+
+@media screen and (min-width: 1000px) {
+    .page-container {
+        width: 80%;
+        position: relative;
+        align-self: flex-end;
+    }
+}
+
+.viewBtn {
+    background: $white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    color: $grey5;
+    width: 83px;
+    height: 34px;
+    text-align: center;
+    margin: 12px 24px 12px 8px;
+
+    h4 {
+        margin: 0;
+        padding: 8px;
+    }
+
+    svg {
+        fill: $grey5;
+        padding: 0;
+        margin: 0;
+        margin: 0 4px;
+        max-width: 10px;
+    }
+}
+
+.viewBtn:active, .viewBtnActive {
+    background: $grey4;
+
+    h4 {
+        color: $white;
+    }
+
+    svg {
+        fill: $white;
+    }
 }

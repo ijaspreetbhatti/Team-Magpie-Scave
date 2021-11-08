@@ -1,14 +1,15 @@
 import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
 import { searchBox, hits } from 'instantsearch.js/es/widgets';
+import * as $ from 'jquery';
 
 
 const searchClient = algoliasearch('W5144GWNC7', '007a65abffcee913949d61c3aa980ed8');
 const index = searchClient.initIndex('Scave');
 
 const search = instantsearch({
-  indexName: 'Scave',
-  searchClient,
+    indexName: 'Scave',
+    searchClient,
 });
 
 // only query string
@@ -19,9 +20,9 @@ document.getElementById('searchSubmit').addEventListener('click', () => {
 })
 
 const searchFunc = () => {
-        let searchItem = document.getElementById('searchInput').value;
+    let searchItem = document.getElementById('searchInput').value;
 
-        index.search(searchItem).then(({ hits }) => {
+    index.search(searchItem).then(({ hits }) => {
         console.log(hits);
         console.log('searching')
     });
@@ -78,11 +79,11 @@ function closeSearch() {
         leftNav.style.display = "flex";
 
         searchArea.style.display = 'none';
-    } else if(width.matches) {
+    } else if (width.matches) {
         search.style.display = "none";
         addItem.style.display = "flex";
         leftNav.style.display = "flex";
-        
+
         searchArea.style.display = 'flex';
     }
 }
@@ -134,3 +135,7 @@ const width = window.matchMedia("(min-width: 1000px)");
 headerFix(width);
 
 width.addListener(headerFix)
+
+$('#listItem').on('click', () => {
+    location.hash = 'addItemView';
+})

@@ -39,6 +39,16 @@ const goods = [
 
 let listContainer = document.querySelector('.list-container');
 
+document.getElementById('filterBtn').addEventListener("click", () => {
+});
+
+document.getElementById('listBtn').addEventListener("click", () => {
+    location.hash = 'listView';
+});
+
+document.getElementById('mapBtn').addEventListener("click", () => {
+    location.hash = 'mapView';
+});
 
 goods.forEach(function(good) {
 
@@ -55,6 +65,6 @@ goods.forEach(function(good) {
         </div>
         <div class="img"></div>
     </div>
-    `        
+    `
 })
 
