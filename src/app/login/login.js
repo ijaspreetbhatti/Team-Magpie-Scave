@@ -8,7 +8,7 @@ function loginAccount(email, password) {
         .then((userCredential) => {
             console.log(userCredential);
             const user = userCredential.user;
-            localStorage.setItem('user', user);
+            localStorage.setItem('user', JSON.stringify(user));
             location.replace('/');
         })
         .catch((error) => {
