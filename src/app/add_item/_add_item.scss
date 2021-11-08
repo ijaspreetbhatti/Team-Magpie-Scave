@@ -59,7 +59,6 @@
         margin: auto;
         border-radius: 8px;
         position: relative;
-        // display: flex;
         justify-content: center;
         align-items: center;
         
@@ -78,12 +77,25 @@
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
             padding: 12px;
-            height: 22px;
-            width: 22px;
-            z-index: 2;
+            z-index: 4;
             margin: auto;
         }
+
+        .imgClose {
+            position: absolute;
+            z-index: 4;
+        }
+
+        #c1, #c2, #c3, #c4, #c5 {
+            display: none;
+        }
     }
+}
+
+#photoContainer .photoInsert img.imgClose, #photoContainer .photoInsert img.imgAddimg {
+    padding: 12px;
+    max-width: 12px;
+    max-height: 12px;
 }
 
 #imgLabel {

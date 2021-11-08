@@ -10,7 +10,7 @@
 
         <div id="photoContainerText">
             <label for="imgIn" id='imgLabel'>Select Photos</label>
-            <input type="file" id="imgIn" class="hide" onchange="firstUpload(event, insert1, p1, photoContainerText, img1)">
+            <input type="file" id="imgIn" class="hide" onchange="firstUpload(event, insert1, p1, photoContainerText, img1, c1)">
             <p>You can add up to five photos.</p>
         </div>
 
@@ -18,40 +18,45 @@
             <label for="input1" id='img1'>
                 <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
             </label>
-            <input type="file" class="hide" id="input1" onchange="photoUpload(event, insert1, p1, img1)">
+            <input type="file" class="hide" id="input1" onchange="photoUpload(event, insert1, p1, img1, c1)">
             <img src="" id="insert1" class="insert">
+            <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c1" alt="" onclick="removeImg(insert1, img1, c1, insert1, p1)">
         </div>
 
         <div class="photoInsert" id="p2">
             <label for="input2" id='img2'>
                 <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
             </label>
-            <input type="file" class="hide" id="input2" onchange="photoUpload(event, insert2, p2, img2)">
+            <input type="file" class="hide" id="input2" onchange="photoUpload(event, insert2, p2, img2, c2)">
             <img src="" id="insert2" class="insert">
+            <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c2" alt="" onclick="removeImg(insert2, img2, c2, insert2, p2)">
         </div>
 
         <div class="photoInsert" id="p3">
             <label for="input3" id='img3'>
                 <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
             </label>
-            <input type="file" class="hide" id="input3" onchange="photoUpload(event, insert3, p3, img3)">
+            <input type="file" class="hide" id="input3" onchange="photoUpload(event, insert3, p3, img3, c3)">
             <img src="" id="insert3" class="insert">
+            <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c3" alt="" onclick="removeImg(insert3, img3, c3, insert3, p3)">
         </div>
 
         <div class="photoInsert" id="p4">
             <label for="input4" id='img4'>
                 <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
             </label>
-            <input type="file" class="hide" id="input4" onchange="photoUpload(event, insert4, p4, img4)">
+            <input type="file" class="hide" id="input4" onchange="photoUpload(event, insert4, p4, img4, c4)">
             <img src="" id="insert4" class="insert">
+            <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c4" alt="" onclick="removeImg(insert4, img4, c4, insert4, p4)">
         </div>
 
         <div class="photoInsert" id="p5">
             <label for="input5" id='img5'>
                 <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
             </label>
-            <input type="file" class="hide" id="input5" class="insert" onchange="photoUpload(event, insert5, p5, img5)">
+            <input type="file" class="hide" id="input5" class="insert" onchange="photoUpload(event, insert5, p5, img5, c5)">
             <img src="" id="insert5" class="insert">
+            <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c5" alt="" onclick="removeImg(insert5, img5, c5, insert5, p5)">
         </div>
     </div>
 
