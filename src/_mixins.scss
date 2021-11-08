@@ -44,16 +44,15 @@
     color: $grey2;
     padding-left: 8px;
 
-    &:valid {
-        border: 1px solid $primary;
-        background: red;
-    }
+    // &:valid {
+    //     border: 1px solid $primary;
+    // }
 
     // &:valid {
     //     border: 1px solid $grey4;
     // }
 
-    &:required:invalid {
-        border: 1px solid $error-color;
-    }
+    // &:required:invalid {
+    //     border: 1px solid $error-color;
+    // }
 }
