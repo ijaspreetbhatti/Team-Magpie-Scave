@@ -25,7 +25,7 @@
     margin: 32px 0;
     padding: 8px;
     max-width: 500px;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     
     p {
@@ -35,7 +35,7 @@
     #photoContainerText {
         display: flex;
         flex-direction: column;
-        display: none;
+        // display: none;
     }
 
     label#imgLabel {
@@ -52,14 +52,14 @@
     }
 
     .photoInsert {
-        // display: none;
+        display: none;
         height: 98%;
         width: 19%;
         background: $grey1;
         margin: auto;
         border-radius: 8px;
         position: relative;
-        display: flex;
+        // display: flex;
         justify-content: center;
         align-items: center;
         
