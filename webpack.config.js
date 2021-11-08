@@ -13,6 +13,7 @@ module.exports = {
     empty: "./src/app/components/menu/notification/empty.js",
     search: "./src/app/components/header/search.js",
     item_details: "./src/app/components/item_details/item_details.js",
+    add_item: "./src/app/add_item/add_item.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),

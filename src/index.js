@@ -1,4 +1,5 @@
 import './app/components/header/search';
+import './app/add_item/add_item';
 import './main.scss';
 
 let currentUser;
