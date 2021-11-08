@@ -1,34 +1,34 @@
-import algoliasearch from 'algoliasearch/lite';
-import instantsearch from 'instantsearch.js';
-import { searchBox, hits } from 'instantsearch.js/es/widgets';
+// import algoliasearch from 'algoliasearch/lite';
+// import instantsearch from 'instantsearch.js';
+// import { searchBox, hits } from 'instantsearch.js/es/widgets';
 
 
-const searchClient = algoliasearch('W5144GWNC7', '007a65abffcee913949d61c3aa980ed8');
-const index = searchClient.initIndex('Scave');
+// const searchClient = algoliasearch('W5144GWNC7', '007a65abffcee913949d61c3aa980ed8');
+// const index = searchClient.initIndex('Scave');
 
-const search = instantsearch({
-  indexName: 'Scave',
-  searchClient,
-});
+// const search = instantsearch({
+//   indexName: 'Scave',
+//   searchClient,
+// });
 
-// only query string
+// // only query string
 
-document.getElementById('searchSubmit').addEventListener('click', () => {
-    searchFunc();
-    console.log('searched');
-})
+// document.getElementById('searchSubmit').addEventListener('click', () => {
+//     searchFunc();
+//     console.log('searched');
+// })
 
-const searchFunc = () => {
-        let searchItem = document.getElementById('searchInput').value;
+// const searchFunc = () => {
+//         let searchItem = document.getElementById('searchInput').value;
 
-        index.search(searchItem).then(({ hits }) => {
-        console.log(hits);
-        console.log('searching')
-    });
-}
+//         index.search(searchItem).then(({ hits }) => {
+//         console.log(hits);
+//         console.log('searching')
+//     });
+// }
 
 
-search.start();
+// search.start();
 
 
 // Search input display and hide functions and Nav Display Func
