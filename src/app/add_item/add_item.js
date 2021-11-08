@@ -1,25 +1,22 @@
-console.log('hi!!');
+// Select Images from File and Display on UI
 
-const img1 = document.querySelector('#img1');
-const img2 = document.querySelector('#img2');
-const img3 = document.querySelector('#img3');
-const img4 = document.querySelector('#img4');
-const img5 = document.querySelector('#img5');
-
-
-function photoUpload(event) {
+function photoUpload(event, upload, background, hide) {
     console.log('img');
     const img = event.target.files[0];
     const reader = new FileReader();
 
-    let thisImg = document.getElementById('insert1');
-    thisImg.title = img.name;
+    let newImg = upload;
+    newImg.title = img.name;
 
     reader.onload = function(event) {
-        thisImg.src = event.target.result;
+        newImg.src = event.target.result;
     };
 
     reader.readAsDataURL(img);
+
+    upload.style.display = "block"
+    background.style.background = "white";
+    hide.style.display = "none";
 }
 
 window.photoUpload = photoUpload;

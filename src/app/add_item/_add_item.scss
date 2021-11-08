@@ -52,23 +52,25 @@
     }
 
     .photoInsert {
-        padding: 36px 20px;
         // display: none;
+        height: 98%;
+        width: 19%;
         background: $grey1;
         margin: auto;
         border-radius: 8px;
-        max-height: 200px;
         position: relative;
-
-        img#insert1.insert {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        img.insert {
             object-fit: cover;
             max-height: 100%;
             max-width: 100%;
-            top: 20px;
-            left: 0;
-            position: absolute;
             z-index: 1;
             background: $white;
+            margin: auto;
+            display: none;
         }
 
         .imgClose, .imgAdd {
@@ -79,6 +81,7 @@
             height: 22px;
             width: 22px;
             z-index: 2;
+            margin: auto;
         }
     }
 }
@@ -92,6 +95,8 @@
 
 .hide {
     display: none;
+    width: 0;
+    height: 0;
 }
 
 #itemListing {
