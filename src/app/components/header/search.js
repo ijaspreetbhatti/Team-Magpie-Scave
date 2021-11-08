@@ -1,6 +1,7 @@
 // import algoliasearch from 'algoliasearch/lite';
 // import instantsearch from 'instantsearch.js';
 // import { searchBox, hits } from 'instantsearch.js/es/widgets';
+import * as $ from 'jquery';
 
 
 // const searchClient = algoliasearch('W5144GWNC7', '007a65abffcee913949d61c3aa980ed8');
