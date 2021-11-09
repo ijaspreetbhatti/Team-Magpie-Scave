@@ -35,7 +35,6 @@
     #photoContainerText {
         display: flex;
         flex-direction: column;
-        // display: none;
     }
 
     label#imgLabel {
@@ -44,6 +43,7 @@
         border: none;
         margin-left: 16px;
         margin-bottom: 0;
+        cursor: pointer;
     }
 
     p {
@@ -79,6 +79,7 @@
             padding: 12px;
             z-index: 4;
             margin: auto;
+            cursor: pointer;
         }
 
         .imgClose {
@@ -88,6 +89,7 @@
 
         #c1, #c2, #c3, #c4, #c5 {
             display: none;
+            cursor: pointer;
         }
     }
 }
