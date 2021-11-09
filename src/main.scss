@@ -27,7 +27,7 @@ body {
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    > div {
+    > div#mapView, div#listView {
         width: 100%;
     }
     overflow: auto;
