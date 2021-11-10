@@ -1,70 +1,45 @@
-import './create_account.scss';
+import "./create_account.scss";
 import { app } from "../services/firebase-service";
 
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    updateProfile,
+} from "firebase/auth";
 
 const auth = getAuth(app);
+
+document.getElementById("signup-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("gomi", SU_pass.value.length);
+    if (SU_pass.value.length > 8) {
+        wrongPass.innerHTML = "";
+        const email = SU_email.value;
+        const password = SU_pass.value;
+        createAccount(email, password);
+    } else {
+        wrongPass.innerHTML = "Password needs to be 8 or longer";
+    }
+});
+
 function createAccount(email, password) {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log(userCredential);
-      const user = userCredential.user;
-      updateAccount({
-        displayName: 'Gabriel'
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+    createUserWithEmailAndPassword(auth, email, password).then(
+        (userCredential) => {
+            console.log(userCredential);
+            const user = userCredential.user;
+            updateAccount({
+                displayName: firstName.value + " " + lastName.value,
+            });
+        }
+    );
 }
 
 function updateAccount(user) {
-  updateProfile(auth.currentUser, {
-    displayName: user.displayName
-  }).then(() => {
-    console.log('Profile updated!');
-    // ...
-  }).catch((error) => {
-    // An error occurred
-    // ...
-  });
+    updateProfile(auth.currentUser, {
+        displayName: user.displayName,
+    }).then(() => {
+        console.log("Profile updated!");
+        localStorage.setItem("user", JSON.stringify(userCredential));
+        location.replace("/");
+    });
 }
-
-(()=>{
-  createAccount('gabwt.84@gmail.com', 'password');
-})();
-
-const signupForm = document.querySelector('#signup-form');
-
-let userArr = [];
-
-class UserInfo {
-  constructor(first, last, email, phone, pass) {
-    this.first = first;
-    this.last = last;
-    this.email = email;
-    this.phone = phone;
-    this.pass = pass;
-  }
-}
-
-document.getElementById('signup-btn').addEventListener('click', (e) => {
-  e.preventDefault();
-  console.log("gomi");
-
-  // get user info
-  const email = SU_email.value;
-  const password = SU_pass.value;
-
-  // sign up users
-  auth.createUserWithEmailAndPassword(email, password).then(cred => {
-    console.log(cred);
-  })
-
-  let userInfo = new UserInfo(firstName.value, lastName.value, SU_email.value, phone.value, SU_pass.value);
-  userArr.push(userInfo);
-  // console.log(userArr);
-
-})
