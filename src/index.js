@@ -1,18 +1,23 @@
-import './app/components/header/search';
-import './app/add_item/add_item';
-import './main.scss';
-import * as $ from "jquery"
+import "./app/components/header/search";
+import "./app/add_item/add_item";
+import "./main.scss";
+import * as $ from "jquery";
 
 let currentUser;
 const views = [
     "addItemView",
     "mapView",
     "listView",
-]
+    "menuListingView",
+    "createAccountView",
+    "menuAccountView",
+    "notificationView",
+    "detailsView",
+];
 
 // init method
 function init() {
-    console.log('initializing');
+    console.log("initializing");
     checkLoginState();
     location.hash = "mapView";
     switchView(location.hash);
@@ -20,27 +25,27 @@ function init() {
 
 init();
 
-window.addEventListener('hashchange', () => {
+window.addEventListener("hashchange", () => {
     console.log(`Switching view to ${location.hash}`);
     switchView(location.hash);
 });
 
-logOut.addEventListener('click', () => {
+logOut.addEventListener("click", () => {
     signOut();
 });
 
 function checkLoginState() {
-    currentUser = localStorage.getItem('user');
+    currentUser = localStorage.getItem("user");
     if (currentUser) {
         console.log(currentUser);
     } else {
-        location.replace('/login.html');
+        location.replace("/login.html");
     }
 }
 
 function signOut() {
-    localStorage.removeItem('user');
-    location.replace('/');
+    localStorage.removeItem("user");
+    location.replace("/");
 }
 
 function switchView(id) {
@@ -49,7 +54,7 @@ function switchView(id) {
 }
 
 function hideAllViews() {
-    views.forEach(id => {
+    views.forEach((id) => {
         console.log(`#${id}`);
         $(`#${id}`).hide();
     });
