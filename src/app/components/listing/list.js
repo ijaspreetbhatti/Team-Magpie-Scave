@@ -4,6 +4,7 @@ import { getAllListings } from "../../services/firebase-service";
 let listings = [];
 
 getAllListings().then((res) => {
+    console.log(res);
     listings = res;
     populateListings();
 });
@@ -17,11 +18,13 @@ function populateListings() {
                 <h3>${listing.title}</h3>
                 <span class="category">${listing.category}</span>
                 <span>.</span>
-                // <span class="condition">${listing.condition}</span>
+                <span class="condition">${listing.condition}</span>
             </div>
             <span class="distance">${listing.distance}</span>
             </div>
-            <div class="img"></div>
+            <div class="img">
+                <img src="${listing.img}" />
+            </div>
         </div>
         `;
     });
