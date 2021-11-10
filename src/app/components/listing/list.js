@@ -1,15 +1,15 @@
-import './list.scss';
-import {getAllListings} from '../../services/firebase-service';
+import "./list.scss";
+import { getAllListings } from "../../services/firebase-service";
 
 let listings = [];
 
 getAllListings().then((res) => {
     listings = res;
     populateListings();
-})
+});
 
-function populateListings(){
-    listings.forEach(function(listing) {
+function populateListings() {
+    listings.forEach(function (listing) {
         listContainer.innerHTML += `
         <div class="list-card">
             <div class="list-info">
@@ -23,8 +23,8 @@ function populateListings(){
             </div>
             <div class="img"></div>
         </div>
-        `        
-    })
+        `;
+    });
 }
 
 const goods = [
@@ -32,40 +32,46 @@ const goods = [
         title: "Desk1",
         category: "Home Good",
         condition: "Like New",
-        distance: "1200m"
+        distance: "1200m",
     },
 
     {
         title: "Desk2",
         category: "Home Good",
         condition: "Old",
-        distance: "10m"
+        distance: "10m",
     },
 
     {
         title: "Desk3",
         category: "Home Good",
         condition: "Like New",
-        distance: "1200m"
+        distance: "1200m",
     },
 
     {
         title: "Desk4",
         category: "Home Good",
         condition: "Like New",
-        distance: "1200m"
+        distance: "1200m",
     },
 
     {
         title: "Desk5",
         category: "Home Good",
         condition: "Like New",
-        distance: "1200m"
-    }
+        distance: "1200m",
+    },
 ];
 
-let listContainer = document.querySelector('.list-container');
+let listContainer = document.querySelector(".list-container");
 
+document.getElementById("filterBtn").addEventListener("click", () => {});
 
+document.getElementById("listBtn").addEventListener("click", () => {
+    location.hash = "listView";
+});
 
-
+document.getElementById("mapBtn").addEventListener("click", () => {
+    location.hash = "mapView";
+});

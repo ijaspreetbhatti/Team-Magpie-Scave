@@ -1,47 +1,66 @@
-// #90A4AE -Grey2
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+@import '../../_variables.scss';
+@import '../../_font_styles.scss';
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
-    font-style: 'Poppins';
+    font-family: $font-family;
 }
 
 * {
     margin: 0;
 }
 
-.login-box{
+#mainLogo {
+    width: 94px;
+    height: auto;
+    align-self: center;
+}
+
+#btn {
+    cursor: pointer;
+}
+
+body {
+
+    main {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
     .logo {
         height: 56px;
-        border-bottom: #CFD8DC solid 1px;
-        text-align: center;
+        border-bottom: #cfd8dc solid 1px;
+        display: flex;
+        justify-content: center;
     }
-        h1 {
+    h1 {
         margin-left: 24px;
         margin-top: 24px;
         font-size: 24px;
-        }
-    
-    
+    }
 
-    form {
-        .container, .btn {
+    #login_form {
+        .container,
+        .btn {
             margin: 32px 23px 0 25px;
         }
 
-        label, input {
+        label,
+        input {
             display: block;
         }
 
         label {
-        font-size: 12px;
+            font-size: 12px;
         }
 
         input {
-        width: 342px;
-        height: 34px;
-        border-radius:8px;
-        border: #90A4AE solid 1px;
-        padding: 0;
+            width: 342px;
+            height: 34px;
+            border-radius: 8px;
+            border: #90a4ae solid 1px;
+            padding: 0;
         }
 
         div.btn input {
@@ -74,16 +93,16 @@
         }
     }
 
-footer {
-    height: 56px;
-    border-top: 1px solid #CFD8DC;
-    margin-top: 400px;
-    
-    p {
-        text-align: center;
-        margin: 21px 24px;
-        font-size: 10px;
-        color: #607D8B;
+    footer {
+        height: 56px;
+        border-top: 1px solid #cfd8dc;
+        margin-top: 400px;
+
+        p {
+            text-align: center;
+            margin: 21px 24px;
+            font-size: 10px;
+            color: #607d8b;
+        }
     }
-}
 }

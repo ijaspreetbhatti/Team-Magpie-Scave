@@ -37,19 +37,19 @@ function addListView(buttonDiv, map) {
     buttonDiv.appendChild(listUI);
 
     listUI.addEventListener("click", () => {
-        console.log('click');
+        location.hash = 'listView';
     });
 };
 
 // Create Map Button
 function addMapView(buttonDiv, map) {
     const mapUI = document.createElement("div");
-    mapUI.className = 'viewBtn mapView';
+    mapUI.className = 'viewBtn viewBtnActive';
     mapUI.innerHTML = `<h4>Map View</h4>`;
     buttonDiv.appendChild(mapUI);
 
     mapUI.addEventListener("click", () => {
-        console.log('click');
+        location.hash = 'mapView';
     });
 };
 

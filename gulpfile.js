@@ -23,6 +23,7 @@ async function browserSyncRunner() {
 async function html() {
     gulp.src([
         'src/index.html',
+        'src/app/login/login.html',
         // '*.html', // * means all files
         // '!footer.html' // Add exclamation to exclude files
     ])
@@ -48,12 +49,30 @@ async function js() {
 async function build() {
     html();
     js();
+    copyManifest();
+    copyIcons();
+    copyServiceWorker();
+}
+
+async function copyManifest() {
+    gulp.src('./src/magpie.scave.webmanifest')
+    .pipe(gulp.dest('./dist'));
+}
+
+async function copyIcons() {
+    gulp.src('./src/icons/*.png')
+    .pipe(gulp.dest('./dist/icons'));
+}
+
+async function copyServiceWorker() {
+    gulp.src('./src/sw.js')
+    .pipe(gulp.dest('./dist'));
 }
 
 async function watch() {
     gulp.watch('src', gulp.series([html, js]));
 };
 
-exports.serve = gulp.series(html, js, watch, browserSyncRunner);
+exports.serve = gulp.series(build, watch, browserSyncRunner);
 exports.watch = watch;
 exports.default = build;

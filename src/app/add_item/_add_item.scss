@@ -1,0 +1,169 @@
+#addItem {
+    display: flex;
+    justify-content: center;
+}
+
+#listingContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 24px;
+    padding: 0;
+    max-width: 500px;
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+#photoContainer {
+    display: flex;
+    border: 1px solid $grey2;
+    border-radius: 8px;
+    background: $white;
+    height: 122px;
+    margin: 32px 0;
+    padding: 8px;
+    max-width: 500px;
+    justify-content: flex-start;
+    align-items: center;
+
+    p {
+        padding-left: 16px;
+    }
+
+    #photoContainerText {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label#imgLabel {
+        padding-top: 40px;
+        padding-bottom: 0;
+        border: none;
+        margin-left: 16px;
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+
+    p {
+        padding-bottom: 40px;
+        padding-top: 4px;
+    }
+
+    .photoInsert {
+        display: flex;
+        height: 98%;
+        width: 19%;
+        background: $grey1;
+        margin: auto;
+        border-radius: 8px;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+
+        img.insert {
+            object-fit: cover;
+            max-height: 100%;
+            max-width: 100%;
+            z-index: 1;
+            background: $white;
+            margin: auto;
+            display: none;
+        }
+
+        .imgClose, .imgAdd {
+            background: $white;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            z-index: 4;
+            margin: auto;
+            cursor: pointer;
+        }
+
+        .imgClose {
+            position: absolute;
+            z-index: 4;
+        }
+
+        #c1, #c2, #c3, #c4, #c5 {
+            display: none;
+            cursor: pointer;
+        }
+    }
+}
+
+#photoContainer .photoInsert img.imgClose, #photoContainer .photoInsert img.imgAddimg {
+    padding: 12px;
+    max-width: 12px;
+    max-height: 12px;
+}
+
+#imgLabel {
+    font-family: $font-family;
+    font: $h3;
+    border: none;
+    background: $white;
+}
+
+.hide {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+#itemListing {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    label {
+        padding: 8px 0 8px 0;
+        color: $grey5;
+    }
+
+    #itemLabel {
+        padding-top: 0;
+    }
+
+    p {
+        margin-bottom: 32px;
+    }
+
+    #location {
+        margin-bottom: 16px;
+    }
+}
+
+input, select {
+    margin-bottom: 16px;
+    @include formInput;
+}
+
+select {
+    width: 100%;
+    color: $grey2;
+}
+
+#description {
+    border-radius: 8px;
+    border: 1px solid $grey2;
+    color: $grey2;
+    padding-left: 8px;
+    margin-bottom: 16px;
+}
+
+#add-item-btn {
+    @include primaryBtn;
+    margin-bottom: 8px;
+}
+
+#discard-item-btn {
+    @include secondaryBtn;
+}
+
+::placeholder, .select {
+    color: $grey2;
+    font: $body-text;
+}

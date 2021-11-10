@@ -28,7 +28,12 @@ h4, button {
     color: $grey5;
 }
 
-input, select, label {
+input, select {
+    color: $grey2;
+    font: $body-text;
+}
+
+label {
     font: $body-text;
     color: $grey5;
 }

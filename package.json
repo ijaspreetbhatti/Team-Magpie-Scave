@@ -23,6 +23,7 @@
     "browser-sync": "^2.27.5",
     "css-loader": "^6.4.0",
     "gulp": "^4.0.2",
+    "gulp-copy": "^4.0.1",
     "gulp-file-include": "^2.3.0",
     "node-sass": "^6.0.1",
     "sass-loader": "^12.2.0",
@@ -34,7 +35,9 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
+    "algoliasearch": "^4.11.0",
     "firebase": "^9.1.2",
+    "instantsearch.js": "^4.33.1",
     "jquery": "^3.6.0"
   }
 }
