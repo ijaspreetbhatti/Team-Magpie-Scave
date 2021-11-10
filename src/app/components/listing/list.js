@@ -17,7 +17,7 @@ function populateListings(){
                 <h3>${listing.title}</h3>
                 <span class="category">${listing.category}</span>
                 <span>.</span>
-                <span class="condition">${listing.condition}</span>
+                // <span class="condition">${listing.condition}</span>
             </div>
             <span class="distance">${listing.distance}</span>
             </div>
