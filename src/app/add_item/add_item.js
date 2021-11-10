@@ -128,6 +128,8 @@ document.getElementById('mainInput').addEventListener('change', () => {
     const close = document.getElementById('c1');
     const text = document.getElementById('photoContainerText');
 
+    document.getElementById("input1").disabled = true;
+
     hideHelpText(insert, photoBackground, text, label, close);
 })
 
