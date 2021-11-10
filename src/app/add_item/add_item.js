@@ -121,14 +121,22 @@ function submitAddItemForm() {
 // ****************************************************************************************************** //
 
 
+document.getElementById('mainInput').addEventListener('change', () => {
+    const insert = document.getElementById('insert1');
+    const photoBackground = document.getElementById('p1');
+    const label = document.getElementById('img1');
+    const close = document.getElementById('c1');
+    const text = document.getElementById('photoContainerText');
+
+    hideHelpText(insert, photoBackground, text, label, close);
+})
+
 document.getElementById('input1').addEventListener('change', () => {
     
     const insert = document.getElementById('insert1');
     const photoBackground = document.getElementById('p1');
     const label = document.getElementById('img1');
     const close = document.getElementById('c1');
-
-    console.log('working')
 
     photoUpload(event, insert, photoBackground, label, close);
 })
@@ -180,12 +188,15 @@ document.getElementById('input5').addEventListener('change', () => {
 // ************************************** Remove Img Event Listeners ************************************ //
 // ****************************************************************************************************** //
 
+
 document.getElementById('c1').addEventListener('click', () => {
 
     const img1 = document.getElementById('img1');
     const insert1 = document.getElementById('insert1');
     const c1 = document.getElementById('c1');
     const p1 = document.getElementById('p1');
+    
+    document.getElementById("input1").disabled = false;
 
     removeImg(insert1, img1, c1, insert1, p1);
 })

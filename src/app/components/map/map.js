@@ -140,21 +140,8 @@ function initMap() {
             google.maps.event.addListener(marker, 'click', (function () {
                 // return function() {
                 console.log('click');
-                // infowindow.setContent(goods[i].title);
-                // infowindow.open(map, marker);
-                // }
             }))
         }
     });
 }
 window.initMap = initMap;
-
-// function handleLocationError(browserHasGeolocation, pos) {
-//     infoWindow.setPosition(pos);
-//     infoWindow.setContent(
-//         browserHasGeolocation
-//             ? "Error: The Geolocation service failed."
-//             : "Error: Your browser doesn't support geolocation."
-//     );
-//     infoWindow.open(map);
-// }
