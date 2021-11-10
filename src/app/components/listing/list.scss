@@ -1,7 +1,19 @@
+.list-btns {
+    position: sticky;
+    top: 0px;
+    display: flex;
+    div:nth-child(2) {
+        flex: 1;
+    }
+    div:nth-child(3) {
+        display: flex;
+    }
+}
+
 // Listing Mobile
 
 .list-container {
-    margin-top: 82px;
+    margin-top: 32px;
     .list-card:first-child {
         margin-top: 0;
     }
@@ -43,8 +55,13 @@
         .img {
             width: 88px;
             height: 88px;
-            background-color: mediumturquoise;
-            border-radius: 4px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 4px;
+            }
         }
     }
 }

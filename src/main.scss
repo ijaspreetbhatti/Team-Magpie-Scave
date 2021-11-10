@@ -27,7 +27,8 @@ body {
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    > div#mapView, div#listView {
+    > div#mapView,
+    div#listView {
         width: 100%;
     }
     overflow: auto;
@@ -46,8 +47,11 @@ body {
     position: relative;
 }
 
-// Desktop
+.filter {
+    margin: 12px 24px 12px 24px;
+}
 
+// Desktop
 @media screen and (min-width: 1000px) {
     .page-container {
         width: 80%;
@@ -59,19 +63,17 @@ body {
 .viewBtn {
     background: $white;
     border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     color: $grey5;
     width: 83px;
     height: 34px;
     text-align: center;
-    margin: 12px 24px 12px 24px;
-
+    margin: 12px 24px 12px 8px;
     h4 {
         margin: 0;
         padding: 8px;
     }
-
     svg {
         fill: $grey5;
         padding: 0;
@@ -81,14 +83,17 @@ body {
     }
 }
 
-.viewBtn:active, .viewBtnActive {
+.viewBtn:active,
+.viewBtnActive {
     background: $grey4;
-
     h4 {
         color: $white;
     }
-
     svg {
         fill: $white;
     }
+}
+
+.filter {
+    margin: 12px 24px 12px 24px;
 }
