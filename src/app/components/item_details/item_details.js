@@ -70,3 +70,26 @@ function addOpacity(e) {
 //     </div>
 //     `
 // })
+
+//  function detailMap {
+//         map = new google.maps.Map(document.getElementById("smallMap"), {
+//         disableDefaultUI: true,
+//         zoom: 14,
+//     });
+//         if (navigator.geolocation) {
+//             navigator.geolocation.getCurrentPosition(
+//                 (position) => {
+//                     const pos = {
+//                         lat: position.coords.latitude,
+//                         lng: position.coords.longitude,
+//                     };
+//                     map.setCenter(pos);
+//                 },
+//             );
+
+//         } else {
+//             // Browser doesn't support Geolocation
+//             console.log('Location Error');
+//             // handleLocationError(false, map.getCenter());
+//         }
+//  }
