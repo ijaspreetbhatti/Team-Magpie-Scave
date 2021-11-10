@@ -12,7 +12,7 @@ getAllListings().then((res) => {
 function populateListings() {
     listings.forEach(function (listing) {
         listContainer.innerHTML += `
-        <div class="list-card">
+        <div class="list-card" onclick="loadDetails(${listing.lat},${listing.lng})">
             <div class="list-info">
             <div class="list-sub-info">
                 <h3>${listing.title}</h3>
@@ -30,46 +30,19 @@ function populateListings() {
     });
 }
 
-const goods = [
-    {
-        title: "Desk1",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m",
-    },
-
-    {
-        title: "Desk2",
-        category: "Home Good",
-        condition: "Old",
-        distance: "10m",
-    },
-
-    {
-        title: "Desk3",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m",
-    },
-
-    {
-        title: "Desk4",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m",
-    },
-
-    {
-        title: "Desk5",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m",
-    },
-];
+function loadDetails(lat, lng) {
+    const obj = listings.find(listing => Number(listing.lat) === lat && Number(listing.lng) === lng);
+    if (obj) {
+        window.currentItem = obj
+        location.replace(`#detailsView`);
+        populateListing();
+    }
+}
+window.loadDetails = loadDetails;
 
 let listContainer = document.querySelector(".list-container");
 
-document.getElementById("filterBtn").addEventListener("click", () => {});
+document.getElementById("filterBtn").addEventListener("click", () => { });
 
 document.getElementById("listBtn").addEventListener("click", () => {
     location.hash = "listView";

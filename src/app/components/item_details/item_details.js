@@ -1,33 +1,20 @@
 import "./item_details.scss";
-import { getAllListings } from "../../services/firebase-service";
-import * as $ from "jquery";
 
-let listings = [];
-
-getAllListings().then((res) => {
-    listings = res;
-    populateListings();
-});
-
-function populateListings() {
-    const firstList = listings[0].img;
-    const mySlides = document.createElement("div");
-    mySlides.id = "mySlides";
-    mySlides.className = "mySlides";
-    firstList.forEach((list, index) => {
-        const img = document.createElement("img");
-        img.setAttribute("src", list);
-        img.setAttribute("class", "opacity img");
-        mySlides.appendChild(img);
+function populateListing() {
+    const firstList = currentItem.img;
+    firstList.forEach((list) => {
+        mySlides.innerHTML = `<img src="${list}" class="opacity img" />`;
     });
-    imgs.appendChild(mySlides);
     let firstImg = mySlides.firstChild;
     firstImg.classList.remove("opacity");
     console.log(firstImg);
+    document.getElementById("featuredImg").setAttribute('src', firstList[0]);
     document
         .getElementById("mySlides")
         .addEventListener("click", mySlidesHandler);
 }
+
+window.populateListing = populateListing;
 
 let containerHeader = document.querySelector(".content-info");
 let imgs = document.querySelector(".imgs");
