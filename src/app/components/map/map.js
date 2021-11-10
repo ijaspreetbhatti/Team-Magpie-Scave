@@ -1,32 +1,35 @@
+import { getAllListings } from "../../services/firebase-service";
+import * as $ from 'jquery';
+
 console.log('Hello from the Map file');
-const goods = [
-    {
-        title: "Desk1",
-        lat: 49.2837282522517,
-        lng: -123.13221810895666,
-        icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m"
-    },
-    {
-        title: "Desk2",
-        lat: 49.274321281824186,
-        lng: -123.14981339887272,
-        icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m"
-    },
-    {
-        title: "Desk3",
-        lat: 49.266648793197206,
-        lng: -123.10621141215385,
-        icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m"
-    }
+let listings = [
+    // {
+    //     title: "Desk1",
+    //     lat: 49.2837282522517,
+    //     lng: -123.13221810895666,
+    //     icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
+    //     category: "Home Good",
+    //     condition: "Like New",
+    //     distance: "1200m"
+    // },
+    // {
+    //     title: "Desk2",
+    //     lat: 49.274321281824186,
+    //     lng: -123.14981339887272,
+    //     icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
+    //     category: "Home Good",
+    //     condition: "Like New",
+    //     distance: "1200m"
+    // },
+    // {
+    //     title: "Desk3",
+    //     lat: 49.266648793197206,
+    //     lng: -123.10621141215385,
+    //     icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
+    //     category: "Home Good",
+    //     condition: "Like New",
+    //     distance: "1200m"
+    // }
 ];
 
 // Create List Button
@@ -84,7 +87,17 @@ export function hello() {
 }
 // initiate map func
 function initMap() {
-    const map = new google.maps.Map(document.getElementById("map"), {
+    initGoogleMap();
+    getAllListings().then((res) => {
+        listings = res;
+        console.log(listings);
+        deployMarkers();
+    });
+}
+window.initMap = initMap;
+
+function initGoogleMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
         disableDefaultUI: true,
         zoom: 14,
     });
@@ -128,20 +141,58 @@ function initMap() {
             console.log('Location Error');
             // handleLocationError(false, map.getCenter());
         }
-
-        for (i = 0; i < goods.length; i++) {
-            const marker = new google.maps.Marker({
-                position: new google.maps.LatLng(goods[i].lat, goods[i].lng),
-                icon: goods[i].icon,
-                title: goods[i].title,
-                map: map
-            });
-
-            google.maps.event.addListener(marker, 'click', (function () {
-                // return function() {
-                console.log('click');
-            }))
-        }
     });
 }
-window.initMap = initMap;
+
+function deployMarkers() {
+    console.log('deployMarkers');
+    for (i = 0; i < listings.length; i++) {
+        const marker = new google.maps.Marker({
+            position: new google.maps.LatLng(listings[i].lat, listings[i].lng),
+            icon: listings[i].icon,
+            title: listings[i].title,
+            map: map
+        });
+
+        marker.set('listing', listings[i]);
+
+        google.maps.event.addListener(marker, 'click', (e) => {
+            console.log('marker click', e.latLng.lat(), e.latLng.lng());
+            showDetails(e.latLng.lat(), e.latLng.lng());
+        });
+    }
+}
+
+function showDetails(lat, lng) {
+    const obj = listings.find(listing => Number(listing.lat) === lat && Number(listing.lng) === lng);
+    if (obj) {
+        itemTitle.innerHTML = obj.title;
+        itemCategory.innerHTML = obj.category;
+        itemCondition.innerHTML = obj.condition;
+        itemDistance.innerHTML = obj.distance + 'm';
+        itemImage.src = obj.img[0];
+    }
+    showDetailsOverlay();
+}
+
+function showDetailsOverlay() {
+    $('.itemDisplayOverlay').show();
+}
+
+function closeDetailsOverlay() {
+    $('.itemDisplayOverlay').hide();
+}
+window.closeDetailsOverlay = closeDetailsOverlay;
+
+(()=>{
+    $('.itemDisplayOverlay').hide();
+})()
+// function handleLocationError(browserHasGeolocation, pos) {
+//     infoWindow.setPosition(pos);
+//     infoWindow.setContent(
+//         browserHasGeolocation
+//             ? "Error: The Geolocation service failed."
+//             : "Error: Your browser doesn't support geolocation."
+//     );
+//     infoWindow.open(map);
+// }

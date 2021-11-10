@@ -1,48 +1,57 @@
 <div class="create-account">
-        <h1 id="signup">Create account</h1>
-    <form method="post" id="signup-form">
-        <div class="container">
-            <label for="firstName">First name</label>
-            <input type="text" id="firstName" />
+    <header class="header">
+        <div class="logo"><img id='logoSignup'
+            src="https://res.cloudinary.com/scave2021/image/upload/v1635194721/scave/scaveLogo_he3m5p.svg" alt="Scave Logo">
         </div>
+        <h1 id="signupH1">Create account</h1>
+    </header>
 
-        <div class="container">
-            <label for="lastName">Last name</label>
-            <input type="text" id="lastName" />
-        </div>
+    <main>
+        <form method="post" id="signup-form" action="javascript: void(0);">
+            <div class="container">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" required />
+            </div>
 
-        <div class="container">
-            <label for="email">Email</label>
-            <input type="email" id="SU_email" />
-        </div>
+            <div class="container">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" required />
+            </div>
 
-        <div class="container">
-            <label for="phone">Phone number</label>
-            <input type="text" id="phone" placeholder="(000) 000-0000" />
-        </div>
+            <div class="container">
+                <label for="email">Email</label>
+                <input type="email" id="SU_email" required />
+            </div>
 
-        <div class="container">
-            <label for="pass">Password</label>
-            <input
-                type="password"
-                id="SU_pass"
-                placeholder="Strong password with at least 8 characteres"
-            />
-        </div>
+            <div class="container">
+                <label for="phone">Phone number</label>
+                <input type="text" id="phone" placeholder="(000) 000-0000" />
+            </div>
 
-        <div class="policy">
-            <p>
-                By creating account you agree to our Terms and Conditions and
-                Privacy Policy
+            <div class="container">
+                <label for="pass">Password</label>
+                <input type="password" id="SU_pass" placeholder="Strong password with at least 8 characteres"
+                    required />
+            </div>
+
+            <div class="policy">
+                <p>
+                    By creating account you agree to our Terms and Conditions and
+                    Privacy Policy
+                </p>
+
+            </div>
+
+            <div class="container signup-btn">
+                <input type="submit" value="Create account" id="signup-btn" />
+                <p>Already have an account? <a href=".login-box"><span> Sign in</span></a></p>
+            </div>
+
+            <p id="wrongPass">
+
             </p>
-
-        </div>
-        
-        <div class="container signup-btn">
-            <input type="submit" value="Create account" id="signup-btn"/>
-            <p>Already have an account? <a href=".login-box"><span> Sign in</span></a></p>
-        </div>
-    </form>
+        </form>
+    </main>
 
     <footer>
         <p>Scave · Magpie &copy; Copyright 2021. All rights reserved.</p>

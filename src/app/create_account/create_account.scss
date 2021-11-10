@@ -1,33 +1,31 @@
-@import '../../_variables.scss';
-@import '../../_font_styles.scss';
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
-
-// * {
-//     font-style: 'Poppins';
-// }
+@import "../../_variables.scss";
+@import "../../_font_styles.scss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
     margin: 0;
 }
 
 .create-account {
-        .header {
-            .logo {
-                height: 56px;
-                border-bottom: #CFD8DC solid 1px;
-                text-align: center;
-            }
-            h1 {
-                margin-left: 24px;
-                margin-top: 24px;
-                font-size: 24px;
-                }
+    .header {
+        #logoSignup {
+            width: 94px;
+            height: auto;
+            align-self: center;
         }
+        #signupH1 {
+            margin-left: 24px;
+            margin-top: 24px;
+            font-size: 24px;
+            width: 100vw;
+        }
+    }
 
+    main {
+        text-align: center;
         form {
-            .container, .btn {
-                margin: 32px 23px 0 25px;
-            }
+            display: inline-block;
+            margin: 0 auto;
 
             label, input {
                 display: block;
@@ -37,26 +35,28 @@
                 color: #263238;
                 font-size: 12px;
                 margin-bottom: 4px;
+                margin-top: 30px;
+                text-align: left;
             }
-            
+
             input {
                 width: 342px;
                 height: 34px;
-                border: #90A4AE solid 1px;
+                border: #90a4ae solid 1px;
                 border-radius: 8px;
                 padding: 0;
             }
 
             ::placeholder {
-                color: #90A4AE;
+                color: #90a4ae;
                 font-size: 12px;
                 padding: 7px auto 7px 15px;
             }
-            
+
             .policy {
                 width: 342px;
                 height: 36px;
-                margin: 20px 24px;
+                margin: 20px auto;
                 p {
                     font-size: 12px;
                     color: #263238;
@@ -72,10 +72,9 @@
             .signup-btn p {
                 font-size: 10px;
                 color: #263238;
-                text-align: center;
+                margin: 10px auto 0 auto;
                 width: 169px;
                 height: 14px;
-                margin: 4px 110px 120px 110px;
                 span {
                     font-weight: bold;
                 }
@@ -83,19 +82,25 @@
                     text-decoration: none;
                 }
             }
-            
-        }
-
-        footer {
-            height: 56px;
-            border-top: 1px solid #CFD8DC;
-            
-            p {
-                text-align: center;
-                margin: 21px 24px;
-                font-size: 10px;
-                color: #607D8B;
+            #wrongPass {
+                color: red;
+                font-weight: bold;
+                font-size: 1.2rem;
+                margin: 10px auto;
             }
         }
-
     }
+
+    footer {
+        height: 56px;
+        border-top: 1px solid #cfd8dc;
+        margin-top: 120px;
+
+        p {
+            text-align: center;
+            margin-top: 21px auto;
+            font-size: 10px;
+            color: #607d8b;
+        }
+    }
+}

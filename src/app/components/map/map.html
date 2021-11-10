@@ -1,6 +1,22 @@
 <!-- Output div for map -->
 <div id="map">
-    <div class="mapOverlay"></div>
+</div>
+<div class="itemDisplayOverlay">
+    <div class="overlayDetails">
+        <div class="overlayDetailsLeft">
+            <h2 id="itemTitle"></h2>
+            <div>
+                <span id="itemCategory"></span>
+                <span>|</span>
+                <span id="itemCondition"></span>
+            </div>
+        </div>
+        <div class="overlayDetailsRight">
+            <h2 onclick="closeDetailsOverlay()">x</h2>
+            <span id="itemDistance"></span>
+        </div>
+    </div>
+    <img id="itemImage" src="" alt="itemImage">
 </div>
 
 
