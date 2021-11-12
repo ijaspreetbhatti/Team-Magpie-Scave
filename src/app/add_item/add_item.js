@@ -134,7 +134,7 @@ document.getElementById('mainInput').addEventListener('change', () => {
 })
 
 document.getElementById('input1').addEventListener('change', () => {
-    
+
     const insert = document.getElementById('insert1');
     const photoBackground = document.getElementById('p1');
     const label = document.getElementById('img1');
@@ -145,7 +145,7 @@ document.getElementById('input1').addEventListener('change', () => {
 
 
 document.getElementById('input2').addEventListener('change', () => {
-    
+
     const insert = document.getElementById('insert2');
     const photoBackground = document.getElementById('p2');
     const label = document.getElementById('img2');
@@ -156,7 +156,7 @@ document.getElementById('input2').addEventListener('change', () => {
 
 
 document.getElementById('input3').addEventListener('change', () => {
-    
+
     const insert = document.getElementById('insert3');
     const photoBackground = document.getElementById('p3');
     const label = document.getElementById('img3');
@@ -166,7 +166,7 @@ document.getElementById('input3').addEventListener('change', () => {
 })
 
 document.getElementById('input4').addEventListener('change', () => {
-    
+
     const insert = document.getElementById('insert4');
     const photoBackground = document.getElementById('p4');
     const label = document.getElementById('img4');
@@ -177,7 +177,7 @@ document.getElementById('input4').addEventListener('change', () => {
 
 
 document.getElementById('input5').addEventListener('change', () => {
-    
+
     const insert = document.getElementById('insert5');
     const photoBackground = document.getElementById('p5');
     const label = document.getElementById('img5');
