@@ -62,7 +62,7 @@
 
     <form id="itemListing" action="javascript:void(0);submitAddItemForm();">
         <label for="item">Item:</label>
-        <input type="text" id="item" placeholder="Create a title for your listing" required>
+        <input type="text" id="item" placeholder="Create a title for your listing" class="inputs" required>
 
         <label for="category">Category:</label>
         <select name="category" id="category" required>
@@ -84,10 +84,10 @@
         </select>
 
         <label for="location">Location:</label>
-        <input type="" id="location" placeholder="Where is the item?" required>
+        <input type="" id="location" placeholder="Where is the item?" class="inputs" required>
 
         <label for="description">Description:</label>
-        <textarea placeholder="Describe the item or add any relevent information about the item." rows="3" name="description" form="itemListing" id="description" required></textarea>
+        <textarea class="inputs" placeholder="Describe the item or add any relevent information about the item." rows="3" name="description" form="itemListing" id="description" required></textarea>
 
 
         <p>Items listed in Scave are automatically deleted after 7 days. We do that because they are available for collection by anyone, even outside of this app.</p>

@@ -47,9 +47,9 @@
     padding-left: 8px;
     cursor: pointer;
 
-    // &:valid {
-    //     border: 1px solid $primary;
-    // }
+    &:focus {
+        border: 1px solid $primary;
+    }
 
     // &:valid {
     //     border: 1px solid $grey4;

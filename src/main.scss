@@ -50,11 +50,6 @@ body {
 .filter {
     margin: 12px 24px 12px 24px;
 }
-<<<<<<< HEAD
-
-// Desktop
-=======
->>>>>>> develop
 
 // Desktop
 @media screen and (min-width: 1000px) {
@@ -75,11 +70,7 @@ body {
     height: 34px;
     text-align: center;
     margin: 12px 24px 12px 8px;
-<<<<<<< HEAD
-    
 
-=======
->>>>>>> develop
     h4 {
         margin: 0;
         padding: 8px;
@@ -107,3 +98,11 @@ body {
 .filter {
     margin: 12px 24px 12px 24px;
 }
+
+
+@supports(-webkit-appearance: none) or (-moz-appearance: none) {
+    input[type='text'] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+  }
