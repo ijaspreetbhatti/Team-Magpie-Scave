@@ -1,58 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="manifest" href="magpie.scave.webmanifest" />
-        <link rel="shortcut icon" type="image/jpg" href="icons/icon-32.png" />
-        <title>Scave</title>
-        <script>
-            if ("serviceWorker" in navigator) {
-                navigator.serviceWorker.ready.then((reg) => {
-                    console.log(`Service Worker ready (Scope: ${reg.scope})`);
-                });
-                navigator.serviceWorker
-                    .register("./sw.js", { scope: "/" })
-                    .then(function (reg) {
-                        console.log(
-                            `Service Worker Registration (Scope: ${reg.scope})`
-                        );
-                    })
-                    .catch(function (error) {
-                        console.log(`Service Worker Error (${error})`);
-                    });
-            } else {
-                console.warn("Service Worker not available");
-            }
-        </script>
-    </head>
-    <body>
-        <div id="header">@@include('./app/components/header/header.html')</div>
-        <div class="page-container">
-            <div id="addItemView">
-                @@include('./app/add_item/add_item.html')
-            </div>
-            <div id="mapView">@@include('./app/components/map/map.html')</div>
-            <div id="listView">
-                @@include('./app/components/listing/list.html')
-            </div>
-            <div id="menuListingView">
-                @@include('./app/menu_listing/menu_listing.html')
-            </div>
-            <div id="createAccountView">
-                @@include('./app/create_account/create_account.html')
-            </div>
-            <div id="menuAccountView">
-                @@include('./app/components/menu/account/menu_account.html')
-            </div>
-            <div id="notificationView">
-                @@include('./app/components/menu/notification/notification.html')
-            </div>
-            <div id="detailsView">
-                @@include('./app/components/item_details/item_details.html')
-            </div>
-        </div>
-        <script src="js/main.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="magpie.scave.webmanifest">
+    <link rel="shortcut icon" type="image/jpg" href="icons/icon-32.png"/>
+    <title>Scave</title>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.ready.then(reg => {
+            console.log(`Service Worker ready (Scope: ${reg.scope})`);
+          });
+          navigator.serviceWorker.register('./sw.js', { scope: '/' })
+            .then(function (reg) {
+              console.log(`Service Worker Registration (Scope: ${reg.scope})`);
+            })
+            .catch(function (error) {
+              console.log(`Service Worker Error (${error})`);
+            });
+        } else {
+          console.warn('Service Worker not available');
+        }
+      </script>
+</head>
+<body>
+    <div id="header">@@include('./app/components/header/header.html')</div>
+    <div class="page-container">
+      <div id="addItemView">@@include('./app/add_item/add_item.html')</div>
+      <div id="mapView">@@include('./app/components/map/map.html')</div>
+      <div id="listView">@@include('./app/components/listing/list.html')</div>
+      <!-- <div id="menuListingView">@@include('./app/menu_listing/menu_listing.html')</div> -->
+      <!-- <div id="createAccountView">@@include('./app/create_account/create_account.html')</div> -->
+      <!-- <div class="menuAccountView">@@include('./app/menu/account/menu_account.html')</div> -->
+      <!-- <div class="notificationView">@@include('./app/components/menu/notification/notification.html')</div> -->
+      <div id="detailsView"> @@include('./app/components/item_details/item_details.html')</div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
 </html>

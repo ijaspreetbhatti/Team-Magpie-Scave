@@ -1,32 +1,31 @@
 import "./item_details.scss";
+<<<<<<< HEAD
 import { getAllListings } from "../../services/firebase-service";
+=======
+>>>>>>> develop
 
-let listings = [];
-
-getAllListings().then((res) => {
-    listings = res;
-    populateListings();
-});
-
-function populateListings() {
-    const firstList = listings[0].img;
-    const mySlides = document.createElement("div");
-    mySlides.id = "mySlides";
-    mySlides.className = "mySlides";
-    firstList.forEach((list, index) => {
-        const img = document.createElement("img");
-        img.setAttribute("src", list);
-        img.setAttribute("class", "opacity img");
-        mySlides.appendChild(img);
+function populateListing() {
+    const firstList = currentItem.img;
+    firstList.forEach((list) => {
+        mySlides.innerHTML = `<img src="${list}" class="opacity img" />`;
     });
+<<<<<<< HEAD
     imgs.appendChild(mySlides);
     // let firstImg = mySlides.firstChild;
     // firstImg.classList.remove("opacity");
 
+=======
+    let firstImg = mySlides.firstChild;
+    firstImg.classList.remove("opacity");
+    console.log(firstImg);
+    document.getElementById("featuredImg").setAttribute('src', firstList[0]);
+>>>>>>> develop
     document
         .getElementById("mySlides")
         .addEventListener("click", mySlidesHandler);
 }
+
+window.populateListing = populateListing;
 
 let containerHeader = document.querySelector(".content-info");
 let imgs = document.querySelector(".imgs");
@@ -69,3 +68,26 @@ function addOpacity(e) {
 //     </div>
 //     `
 // })
+
+//  function detailMap {
+//         map = new google.maps.Map(document.getElementById("smallMap"), {
+//         disableDefaultUI: true,
+//         zoom: 14,
+//     });
+//         if (navigator.geolocation) {
+//             navigator.geolocation.getCurrentPosition(
+//                 (position) => {
+//                     const pos = {
+//                         lat: position.coords.latitude,
+//                         lng: position.coords.longitude,
+//                     };
+//                     map.setCenter(pos);
+//                 },
+//             );
+
+//         } else {
+//             // Browser doesn't support Geolocation
+//             console.log('Location Error');
+//             // handleLocationError(false, map.getCenter());
+//         }
+//  }

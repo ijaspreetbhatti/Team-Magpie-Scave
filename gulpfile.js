@@ -22,8 +22,14 @@ async function browserSyncRunner() {
 
 async function html() {
     gulp.src([
+<<<<<<< HEAD
         "src/index.html",
         "src/app/login/login.html",
+=======
+        'src/index.html',
+        'src/app/login/login.html', 
+        'src/app/create_account/create_account.html', 
+>>>>>>> develop
         // '*.html', // * means all files
         // '!footer.html' // Add exclamation to exclude files
     ])
