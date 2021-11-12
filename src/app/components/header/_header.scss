@@ -205,9 +205,15 @@
         justify-content: center;
     }
 
-    #closeSearch {
+    #search #closeSearch {
         display: none;
     }
+}
+
+#search #closeSearch {
+    width: 12px;
+    padding-right: 8px;
+    cursor: pointer;
 }
 
 #logOut {
