@@ -1,6 +1,5 @@
 import "./item_details.scss";
 import { getAllListings } from "../../services/firebase-service";
-import * as $ from "jquery";
 
 let listings = [];
 
@@ -21,9 +20,9 @@ function populateListings() {
         mySlides.appendChild(img);
     });
     imgs.appendChild(mySlides);
-    let firstImg = mySlides.firstChild;
-    firstImg.classList.remove("opacity");
-    console.log(firstImg);
+    // let firstImg = mySlides.firstChild;
+    // firstImg.classList.remove("opacity");
+
     document
         .getElementById("mySlides")
         .addEventListener("click", mySlidesHandler);
