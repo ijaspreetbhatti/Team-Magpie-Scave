@@ -17,6 +17,7 @@
 }
 
 #mainInput {
+    @include formInput;
     display: flex;
     border: 1px solid $grey2;
     border-radius: 8px;
@@ -137,6 +138,9 @@
     @include formInput;
 }
 
+#title {
+    @include formInput;
+}
 select {
     width: 100%;
     color: $grey2;
