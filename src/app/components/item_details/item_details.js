@@ -1,25 +1,14 @@
 import "./item_details.scss";
-<<<<<<< HEAD
-import { getAllListings } from "../../services/firebase-service";
-=======
->>>>>>> develop
 
 function populateListing() {
     const firstList = currentItem.img;
     firstList.forEach((list) => {
         mySlides.innerHTML = `<img src="${list}" class="opacity img" />`;
     });
-<<<<<<< HEAD
-    imgs.appendChild(mySlides);
-    // let firstImg = mySlides.firstChild;
-    // firstImg.classList.remove("opacity");
-
-=======
     let firstImg = mySlides.firstChild;
     firstImg.classList.remove("opacity");
     console.log(firstImg);
     document.getElementById("featuredImg").setAttribute('src', firstList[0]);
->>>>>>> develop
     document
         .getElementById("mySlides")
         .addEventListener("click", mySlidesHandler);
@@ -55,39 +44,22 @@ function addOpacity(e) {
     });
 }
 
-// goods.forEach(function(good) {
-//     containerHeader.innerHTML = `
-//     <h1>${good.title}</h1>
-//     <div class="content-header">
-//         <div class="sub-info">
-//             <span class="category">${good.category}</span>
-//             <span>.</span>
-//             <span class="condition">${good.condition}</span>
-//         </div>
-//         <span class="hours">${good.hour}</span>
-//     </div>
-//     `
-// })
+//modal
+let modal = document.getElementById('myModal');
+let btn = document.getElementById('collectBtn');
+let spanConfirm = document.getElementsByClassName('confirm')[0];
+let spanCancel = document.getElementsByClassName('cancel')[0];
 
-//  function detailMap {
-//         map = new google.maps.Map(document.getElementById("smallMap"), {
-//         disableDefaultUI: true,
-//         zoom: 14,
-//     });
-//         if (navigator.geolocation) {
-//             navigator.geolocation.getCurrentPosition(
-//                 (position) => {
-//                     const pos = {
-//                         lat: position.coords.latitude,
-//                         lng: position.coords.longitude,
-//                     };
-//                     map.setCenter(pos);
-//                 },
-//             );
+btn.onclick = function () {
+    modal.style.display = 'block';
+}
 
-//         } else {
-//             // Browser doesn't support Geolocation
-//             console.log('Location Error');
-//             // handleLocationError(false, map.getCenter());
-//         }
-//  }
+spanCancel.onclick = function () {
+    modal.style.display = 'none';
+}
+
+window.onclick = function (e) {
+    if (e.target == modal) {
+        modal.style.display = 'none';
+    }
+}
