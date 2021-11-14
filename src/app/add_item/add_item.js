@@ -71,11 +71,12 @@ const blobToBase64 = blob => {
 };
 
 function submitAddItemForm() {
+
     const formValue = {
         title: document.getElementById('item').value,
         category: document.getElementById('category').value,
         condition: document.getElementById('condition').value,
-        location: document.getElementById('location').value,
+        location: document.getElementById('location').value.split(', '),
         description: document.getElementById('description').value,
         date: (new Date()).toISOString(),
         img: []
@@ -243,9 +244,40 @@ document.getElementById('c5').addEventListener('click', () => {
     removeImg(insert5, img5, c5, insert5, p5);
 })
 
+// ****************************************************************************************************** //
+// ************************************** Get Geolocation Event Listeners ******************************* //
+// ****************************************************************************************************** //
+
+const input = document.getElementById('location');
+
+function getLocation() {
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+        console.log('working');
+    } else {
+        input.value = "Please enable geolocation."
+    }
+}
+
+function showPosition(position) {
+    input.value = position.coords.latitude + 
+    ", " + position.coords.longitude;
+
+    // const locationVal = [
+    //     position.coords.latitude, position.coords.longitude
+    // ]
+
+    // console.log(locationVal);
+    // return locationVal;
+}
+
 
 // ************************************** Intialize Funcs in Window ************************************* //
 
+// window.getCoords = getCoords;
+// window.outputPosition = outputPosition;
+window.showPosition = showPosition;
+window.getLocation = getLocation;
 window.photoUpload = photoUpload;
 window.hideHelpText = hideHelpText;
 window.removeImg = removeImg;
