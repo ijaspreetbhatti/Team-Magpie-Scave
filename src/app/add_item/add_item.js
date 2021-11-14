@@ -76,7 +76,7 @@ function submitAddItemForm() {
         title: document.getElementById('item').value,
         category: document.getElementById('category').value,
         condition: document.getElementById('condition').value,
-        location: document.getElementById('location').value.split(', '),
+        location: document.getElementById('location').value,
         description: document.getElementById('description').value,
         date: (new Date()).toISOString(),
         img: []
@@ -262,20 +262,10 @@ function getLocation() {
 function showPosition(position) {
     input.value = position.coords.latitude + 
     ", " + position.coords.longitude;
-
-    // const locationVal = [
-    //     position.coords.latitude, position.coords.longitude
-    // ]
-
-    // console.log(locationVal);
-    // return locationVal;
 }
-
 
 // ************************************** Intialize Funcs in Window ************************************* //
 
-// window.getCoords = getCoords;
-// window.outputPosition = outputPosition;
 window.showPosition = showPosition;
 window.getLocation = getLocation;
 window.photoUpload = photoUpload;
