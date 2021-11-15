@@ -10,6 +10,7 @@ getAllListings().then((res) => {
 });
 
 function populateListings() {
+    ß
     listings.forEach(function (listing) {
         listContainer.innerHTML += `
         <div class="list-card" onclick="loadDetails(${listing.lat},${listing.lng})">
@@ -17,7 +18,7 @@ function populateListings() {
             <div class="list-sub-info">
                 <h3>${listing.title}</h3>
                 <span class="category">${listing.category}</span>
-                <span>.</span>
+                <span>・</span>
                 <span class="condition">${listing.condition}</span>
             </div>
             <span class="distance">${listing.distance}</span>
