@@ -125,8 +125,9 @@
 
         img {
             width: 100%;
-            height: auto;
+            height: 100%;
             position: absolute;
+            object-fit: contain;
         }
     }
 
@@ -150,6 +151,7 @@
                 cursor: pointer;
                 width: 62px;
                 height: 62px;
+                object-fit: contain;
                 border-radius: 4px;
             }
             .img:last-child {
