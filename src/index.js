@@ -2,8 +2,11 @@ import "./app/components/header/search";
 import "./app/add_item/add_item";
 import "./main.scss";
 import * as $ from "jquery";
+import { app } from "./app/services/firebase-service"
+import { getAuth } from "firebase/auth"
 
 let currentUser;
+window.currentUser = currentUser;
 const views = [
     "addItemView",
     "mapView",
@@ -35,8 +38,14 @@ logOut.addEventListener("click", () => {
 });
 
 function checkLoginState() {
-    currentUser = localStorage.getItem("user");
-    if (currentUser) {
+    let auth = getAuth(app);
+    console.log(auth.currentUser);
+    let user = localStorage.getItem("user");
+    console.log(user);
+    if (user) {
+        currentUser = JSON.parse(user);
+        headerUserId.innerHTML = currentUser.displayName ? currentUser.displayName : 'Hello!';
+        headerMailId.innerHTML = currentUser.email;
         console.log(currentUser);
     } else {
         location.replace("/login.html");
