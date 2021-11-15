@@ -1,7 +1,6 @@
 import { getAllListings } from "../../services/firebase-service";
 import * as $ from 'jquery';
 
-console.log('Hello from the Map file');
 let listings = [
     // {
     //     title: "Desk1",
@@ -143,13 +142,30 @@ function initGoogleMap() {
         }
     });
 }
-
 function deployMarkers() {
+
     console.log('deployMarkers');
     for (i = 0; i < listings.length; i++) {
+        function getIcon() {
+            let icon;
+
+            if(listings[i].category == "Home Goods") {
+                icon = "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png"; 
+            } else if(listings[i].category == "Education") {
+                icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/educationIcon_ppcrfg.png";
+            } else if(listings[i].category == "Garden & Outdoor") {
+                icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_14outdoor_ahf2g3.png";
+            } else if(listings[i].category == "Recreation") {
+                icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_15recreation_kb9dqe.png";
+            } else if(listings[i].category == "Pet Supplies") {
+                icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/petIcon_adqpey.png";
+            }
+            return icon;
+        }
+
         const marker = new google.maps.Marker({
             position: new google.maps.LatLng(listings[i].lat, listings[i].lng),
-            icon: listings[i].icon,
+            icon: getIcon(),
             title: listings[i].title,
             map: map
         });
@@ -187,12 +203,5 @@ window.closeDetailsOverlay = closeDetailsOverlay;
 (()=>{
     $('.itemDisplayOverlay').hide();
 })()
-// function handleLocationError(browserHasGeolocation, pos) {
-//     infoWindow.setPosition(pos);
-//     infoWindow.setContent(
-//         browserHasGeolocation
-//             ? "Error: The Geolocation service failed."
-//             : "Error: Your browser doesn't support geolocation."
-//     );
-//     infoWindow.open(map);
-// }
+
+window.getIcon = getIcon;

@@ -70,10 +70,14 @@ body {
     height: 34px;
     text-align: center;
     margin: 12px 24px 12px 8px;
+
     h4 {
         margin: 0;
         padding: 8px;
+        background: inherit;
+        border-radius: inherit;
     }
+
     svg {
         fill: $grey5;
         padding: 0;
@@ -86,11 +90,14 @@ body {
 .viewBtn:active,
 .viewBtnActive {
     background: $grey4;
+
     h4 {
         color: $white;
+        border-radius: inherit;
     }
     svg {
         fill: $white;
+        background: inherit;
     }
 }
 

@@ -71,6 +71,7 @@ const blobToBase64 = blob => {
 };
 
 function submitAddItemForm() {
+
     const formValue = {
         title: document.getElementById('item').value,
         category: document.getElementById('category').value,
@@ -121,21 +122,31 @@ function submitAddItemForm() {
 // ****************************************************************************************************** //
 
 
-document.getElementById('input1').addEventListener('change', () => {
-    
+document.getElementById('mainInput').addEventListener('change', () => {
     const insert = document.getElementById('insert1');
     const photoBackground = document.getElementById('p1');
     const label = document.getElementById('img1');
     const close = document.getElementById('c1');
+    const text = document.getElementById('photoContainerText');
 
-    console.log('working')
+    document.getElementById("input1").disabled = true;
+
+    hideHelpText(insert, photoBackground, text, label, close);
+})
+
+document.getElementById('input1').addEventListener('change', () => {
+
+    const insert = document.getElementById('insert1');
+    const photoBackground = document.getElementById('p1');
+    const label = document.getElementById('img1');
+    const close = document.getElementById('c1');
 
     photoUpload(event, insert, photoBackground, label, close);
 })
 
 
 document.getElementById('input2').addEventListener('change', () => {
-    
+
     const insert = document.getElementById('insert2');
     const photoBackground = document.getElementById('p2');
     const label = document.getElementById('img2');
@@ -146,7 +157,7 @@ document.getElementById('input2').addEventListener('change', () => {
 
 
 document.getElementById('input3').addEventListener('change', () => {
-    
+
     const insert = document.getElementById('insert3');
     const photoBackground = document.getElementById('p3');
     const label = document.getElementById('img3');
@@ -156,7 +167,7 @@ document.getElementById('input3').addEventListener('change', () => {
 })
 
 document.getElementById('input4').addEventListener('change', () => {
-    
+
     const insert = document.getElementById('insert4');
     const photoBackground = document.getElementById('p4');
     const label = document.getElementById('img4');
@@ -167,7 +178,7 @@ document.getElementById('input4').addEventListener('change', () => {
 
 
 document.getElementById('input5').addEventListener('change', () => {
-    
+
     const insert = document.getElementById('insert5');
     const photoBackground = document.getElementById('p5');
     const label = document.getElementById('img5');
@@ -180,12 +191,15 @@ document.getElementById('input5').addEventListener('change', () => {
 // ************************************** Remove Img Event Listeners ************************************ //
 // ****************************************************************************************************** //
 
+
 document.getElementById('c1').addEventListener('click', () => {
 
     const img1 = document.getElementById('img1');
     const insert1 = document.getElementById('insert1');
     const c1 = document.getElementById('c1');
     const p1 = document.getElementById('p1');
+    
+    document.getElementById("input1").disabled = false;
 
     removeImg(insert1, img1, c1, insert1, p1);
 })
@@ -230,9 +244,30 @@ document.getElementById('c5').addEventListener('click', () => {
     removeImg(insert5, img5, c5, insert5, p5);
 })
 
+// ****************************************************************************************************** //
+// ************************************** Get Geolocation Event Listeners ******************************* //
+// ****************************************************************************************************** //
+
+const input = document.getElementById('location');
+
+function getLocation() {
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+        console.log('working');
+    } else {
+        input.value = "Please enable geolocation."
+    }
+}
+
+function showPosition(position) {
+    input.value = position.coords.latitude + 
+    ", " + position.coords.longitude;
+}
 
 // ************************************** Intialize Funcs in Window ************************************* //
 
+window.showPosition = showPosition;
+window.getLocation = getLocation;
 window.photoUpload = photoUpload;
 window.hideHelpText = hideHelpText;
 window.removeImg = removeImg;

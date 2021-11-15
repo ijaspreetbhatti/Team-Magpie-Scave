@@ -51,6 +51,7 @@
             align-self: center;
             justify-self: center;
             padding-right: 6px;
+            background: inherit;
         }
     }
     #plus {
@@ -60,6 +61,7 @@
         justify-self: center;
         padding: 0;
         margin: 0;
+        background: inherit;
     }
 }
 
@@ -124,6 +126,7 @@
 #navItems {
     width: 60%;
     display: none;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 #search {
@@ -203,9 +206,15 @@
         justify-content: center;
     }
 
-    #closeSearch {
+    #search #closeSearch {
         display: none;
     }
+}
+
+#search #closeSearch {
+    width: 12px;
+    padding-right: 8px;
+    cursor: pointer;
 }
 
 #logOut {

@@ -1,5 +1,6 @@
 import "./item_details.scss";
 
+// uses the currentItem object declared in global namespace and load details in the UI
 function populateListing() {
     const firstList = currentItem.img;
     firstList.forEach((list) => {
@@ -14,6 +15,7 @@ function populateListing() {
         .addEventListener("click", mySlidesHandler);
 }
 
+// this adds the populateListing function into global namespace.
 window.populateListing = populateListing;
 
 let containerHeader = document.querySelector(".content-info");

@@ -31,6 +31,7 @@ function populateListings() {
     });
 }
 
+// gets the detials of a selected item using the lat and lng properties
 function loadDetails(lat, lng) {
     const obj = listings.find(listing => Number(listing.lat) === lat && Number(listing.lng) === lng);
     if (obj) {
@@ -39,6 +40,7 @@ function loadDetails(lat, lng) {
         populateListing();
     }
 }
+// adding loadDetails to the global namespace
 window.loadDetails = loadDetails;
 
 let listContainer = document.querySelector(".list-container");

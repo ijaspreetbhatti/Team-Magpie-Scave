@@ -7,11 +7,11 @@
     <h1>List Item</h1>
 
     <div id="photoContainer">
-
-        <!-- <div id="photoContainerText">
-            <span for="imgIn" id='imgLabel' onclick="input1.click();">Select Photos</span>
-            <p>You can add up to five photos.</p>
-        </div> -->
+        <label for="input1" id="mainInput">
+            <div id="photoContainerText">
+                <h2>Select Photos</h2>
+                <p>You can add up to five photos.</p>
+            </div>
 
         <div class="photoInsert" id="p1">
             <label for="input1" id='img1'>
@@ -57,17 +57,18 @@
             <img src="" id="insert5" class="insert">
             <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c5" alt="">
         </div>
+    </label>
     </div>
 
     <form id="itemListing" action="javascript:void(0);submitAddItemForm();">
         <label for="item">Item:</label>
-        <input type="text" id="item" placeholder="Create a title for your listing" required>
+        <input type="text" id="item" placeholder="Create a title for your listing" class="inputs" required>
 
         <label for="category">Category:</label>
         <select name="category" id="category" required>
             <option value="" class="placeholder select" disabled selected hidden>Select a category</option>
             <option value="Home Goods">Home Goods</option>
-            <option value="Electronics">Electronics</option>
+            <option value="Electronics">Education</option>
             <option value="Garden Outdoor">Garden & Outdoor</option>
             <option value="Recreation">Recreation</option>
             <option value="Pet Supplies">Pet Supplies</option>
@@ -83,10 +84,10 @@
         </select>
 
         <label for="location">Location:</label>
-        <input type="" id="location" placeholder="Where is the item?" required>
+        <input onclick="getLocation()" type="" id="location" placeholder="Where is the item?" class="inputs">
 
         <label for="description">Description:</label>
-        <textarea placeholder="Describe the item or add any relevent information about the item." rows="3" name="description" form="itemListing" id="description" required></textarea>
+        <textarea class="inputs" placeholder="Describe the item or add any relevent information about the item." rows="3" name="description" form="itemListing" id="description" required></textarea>
 
 
         <p>Items listed in Scave are automatically deleted after 7 days. We do that because they are available for collection by anyone, even outside of this app.</p>
