@@ -3,6 +3,10 @@ import "./item_details.scss";
 // uses the currentItem object declared in global namespace and load details in the UI
 function populateListing() {
     const firstList = currentItem.img;
+    document.getElementById("itemDetailTitle").innerHTML = currentItem.title;
+    document.getElementById("itemDetailCategory").innerHTML = currentItem.category;
+    document.getElementById("itemDetailCondition").innerHTML = currentItem.condition;
+    document.getElementById("itemDetailPostDate").innerHTML = currentItem.date;
     firstList.forEach((list) => {
         mySlides.innerHTML = `<img src="${list}" class="opacity img" />`;
     });

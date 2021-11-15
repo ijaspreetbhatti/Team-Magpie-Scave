@@ -150,7 +150,7 @@ function deployMarkers() {
             let icon;
 
             if(listings[i].category == "Home Goods") {
-                icon = "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png"; 
+                icon = "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png";
             } else if(listings[i].category == "Education") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/educationIcon_ppcrfg.png";
             } else if(listings[i].category == "Garden & Outdoor") {
@@ -167,29 +167,36 @@ function deployMarkers() {
             position: new google.maps.LatLng(listings[i].lat, listings[i].lng),
             icon: getIcon(),
             title: listings[i].title,
-            map: map
+            map: map,
+            data: listings[i]
         });
 
         marker.set('listing', listings[i]);
 
         google.maps.event.addListener(marker, 'click', (e) => {
-            console.log('marker click', e.latLng.lat(), e.latLng.lng());
-            showDetails(e.latLng.lat(), e.latLng.lng());
+            console.log('marker click', marker.data);
+            showDetails(marker.data.id);
         });
     }
 }
 
-function showDetails(lat, lng) {
-    const obj = listings.find(listing => Number(listing.lat) === lat && Number(listing.lng) === lng);
-    if (obj) {
-        itemTitle.innerHTML = obj.title;
-        itemCategory.innerHTML = obj.category;
-        itemCondition.innerHTML = obj.condition;
-        itemDistance.innerHTML = obj.distance + 'm';
-        itemImage.src = obj.img[0];
+function showDetails(id) {
+    const listing = listings.find(listing => listing.id === id);
+    if (listing) {
+        window.currentItem = listing;
+        itemTitle.innerHTML = listing.title;
+        itemCategory.innerHTML = listing.category;
+        itemCondition.innerHTML = listing.condition;
+        itemDistance.innerHTML = listing.distance + 'm';
+        itemImage.src = listing.img[0];
     }
     showDetailsOverlay();
 }
+
+itemDisplayOverlay.addEventListener('click', () => {
+    location.replace(`#detailsView`);
+    populateListing();
+});
 
 function showDetailsOverlay() {
     $('.itemDisplayOverlay').show();

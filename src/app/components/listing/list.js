@@ -31,10 +31,10 @@ function populateListings() {
 }
 
 // gets the detials of a selected item using the lat and lng properties
-function loadDetails(lat, lng) {
-    const obj = listings.find(listing => Number(listing.lat) === lat && Number(listing.lng) === lng);
-    if (obj) {
-        window.currentItem = obj
+function loadDetails(id) {
+    const listing = listings.find(listing => listing.id === id);
+    if (listing) {
+        window.currentItem = listing;
         location.replace(`#detailsView`);
         populateListing();
     }
