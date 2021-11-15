@@ -10,8 +10,8 @@ getAllListings().then((res) => {
 });
 
 function populateListings() {
-    ß
     listings.forEach(function (listing) {
+        const firstImg = listing.img;
         listContainer.innerHTML += `
         <div class="list-card" onclick="loadDetails(${listing.lat},${listing.lng})">
             <div class="list-info">
@@ -24,7 +24,7 @@ function populateListings() {
             <span class="distance">${listing.distance}</span>
             </div>
             <div class="img">
-                <img src="${listing.img}" />
+                <img src="${firstImg[0]}" />
             </div>
         </div>
         `;
