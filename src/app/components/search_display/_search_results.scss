@@ -1,0 +1,53 @@
+.search-container {
+    margin-top: 32px;
+    .search-card:first-child {
+        margin-top: 0;
+    }
+
+    .search-card {
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        border-radius: 8px;
+        border: 1px solid #cfd8dc;
+        padding: 16px;
+        margin: 16px 24px;
+        cursor: pointer;
+        .search-info {
+            display: flex;
+            align-content: center;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h3 {
+                margin: 0;
+                font-size: 16px;
+            }
+
+            .search-sub-info {
+                .category,
+                .condition {
+                    font-size: 12px;
+                    color: $grey4;
+                }
+            }
+
+            .distance {
+                font-size: 10px;
+                color: $grey4;
+            }
+        }
+
+        .img {
+            width: 88px;
+            height: 88px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 4px;
+            }
+        }
+    }
+}
