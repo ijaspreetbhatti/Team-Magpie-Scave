@@ -1,8 +1,32 @@
-<div class="menu_account">
+<div id="menu_account">
+
+    <!-- Leave Confirmation -->
+    <div class="popup" id="js-popup">
+        <div class="popup-inner">
+            <div class="text-container">
+                <h3>Leave page?</h3>
+                <p>You didn't save your changes yet. Are you sure you want to leave without saving?</p>
+            </div>
+            <div class="btn-container">
+                <div class="leave-btn" id="js-leave-btn">
+                    <p>Leave</p>
+                </div>
+                <div class="stay-btn" id="js-stay-btn">
+                    <p>Keep editing</p>
+                </div>
+            </div>
+        </div>
+        <div class="black-background" id="js-black-bg"></div>
+    </div>
+
+    <button id="js-show-popup">Show Leave Confirmation</button>
+
 
     <div>
         <h1 id="account">Account</h1>
     </div>
+
+    <!-- End of Leave Confirmation -->
 
     <form method="post">
         <div class="container">
@@ -24,6 +48,8 @@
             <input type="submit" value="Save changes" id="save-btn">
         </div>
     </form>
+
+
 
     <script src="./js/menu_account.js" defer></script>
 </div>
