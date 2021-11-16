@@ -1,6 +1,3 @@
-* {
-    margin: 0;
-}
 
 #menu_account {
     form {
@@ -25,8 +22,14 @@
             height: 34px;
             border: #90a4ae solid 1px;
             border-radius: 8px;
-            padding: 0;
+            padding-left: 8px;
+            cursor: pointer;
+            outline: none !important;     
         }
+
+        input:focus {
+            border: 1px solid #00BCD4;
+        }   
 
         ::placeholder {
             color: #263238;

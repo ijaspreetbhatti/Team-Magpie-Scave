@@ -1,6 +1,6 @@
 @import "_variables.scss";
-@import "_font_styles.scss";
 @import "_mixins.scss";
+@import "_font_styles.scss";
 @import "app/add_item/_add_item.scss";
 @import "app/components/listing/list";
 @import "app/components/map/map";
@@ -13,6 +13,7 @@
 @import "src/app/components/menu/account/menu_account.scss";
 @import "src/app/create_account/create_account.scss";
 @import "src/app/components/search_display/_search_results.scss";
+@import "src/app/create_account/create_account.scss";
 
 html,
 body {

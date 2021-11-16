@@ -46,6 +46,7 @@
     color: $grey2;
     padding-left: 8px;
     cursor: pointer;
+    outline: none !important;
 
     &:focus {
         border: 1px solid $primary;
@@ -55,7 +56,7 @@
     //     border: 1px solid $grey4;
     // }
 
-    // &:required:invalid {
+    // &:invalid {
     //     border: 1px solid $error-color;
     // }
 }

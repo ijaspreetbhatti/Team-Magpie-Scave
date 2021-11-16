@@ -6,10 +6,6 @@
     font-family: $font-family;
 }
 
-* {
-    margin: 0;
-}
-
 #mainLogo {
     width: 94px;
     height: auto;
@@ -46,6 +42,10 @@ body {
             margin: 32px 23px 0 25px;
         }
 
+        #btn {
+            @include primaryBtn;
+        }
+
         label,
         input {
             display: block;
@@ -60,12 +60,12 @@ body {
             height: 34px;
             border-radius: 8px;
             border: #90a4ae solid 1px;
-            padding: 0;
+            @include formInput;
         }
 
         div.btn input {
             background: #00bcd4;
-            border-color: #00bcd4;
+            // border-color: #00bcd4;
         }
 
         input[value="Sign in"] {

@@ -1,5 +1,6 @@
 @import "../../_variables.scss";
 @import "../../_font_styles.scss";
+@import "../../_mixins.scss";
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
@@ -24,6 +25,7 @@
     main {
         text-align: center;
         form {
+
             display: inline-block;
             margin: 0 auto;
 
@@ -44,10 +46,18 @@
                 height: 34px;
                 border: #90a4ae solid 1px;
                 border-radius: 8px;
-                padding: 0;
+                border: 1px solid $grey2;
+                color: $grey2;
+                padding-left: 8px;
+                cursor: pointer;
+                outline: none !important;
             }
 
-            ::placeholder {
+            input:focus {
+                border: 1px solid $primary;
+            }
+
+            input::placeholder {
                 color: #90a4ae;
                 font-size: 12px;
                 padding: 7px auto 7px 15px;

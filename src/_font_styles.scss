@@ -1,3 +1,5 @@
+@import "_mixins.scss";
+
 body {
     font: $body-text;
     color: $grey5;
@@ -31,9 +33,11 @@ h4, button {
 input, select {
     color: $grey2;
     font: $body-text;
+    outline: none !important;
+    @include formInput;
 }
 
-label {
+label, textarea {
     font: $body-text;
     color: $grey5;
 }
