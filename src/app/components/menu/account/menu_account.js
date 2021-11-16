@@ -1,4 +1,4 @@
-import './menu_account.scss';
+import "./menu_account.scss";
 import { app } from "../../../services/firebase-service";
 import { getAuth } from "firebase/auth";
 
@@ -6,16 +6,16 @@ const auth = getAuth(app);
 const user = auth.currentUser;
 console.log(user);
 // if (user !== null) {
-  // The user object has basic properties such as display name, email, etc.
-  // const displayName = user.displayName;
-  // const email = user.email;
-  // const photoURL = user.photoURL;
-  // const emailVerified = user.emailVerified;
+// The user object has basic properties such as display name, email, etc.
+// const displayName = user.displayName;
+// const email = user.email;
+// const photoURL = user.photoURL;
+// const emailVerified = user.emailVerified;
 
-  // The user's ID, unique to the Firebase project. Do NOT use
-  // this value to authenticate with your backend server, if
-  // you have one. Use User.getToken() instead.
-  // const uid = user.uid;
+// The user's ID, unique to the Firebase project. Do NOT use
+// this value to authenticate with your backend server, if
+// you have one. Use User.getToken() instead.
+// const uid = user.uid;
 // }
 
 // import { getAuth, updateProfile } from "firebase/auth";
@@ -31,7 +31,6 @@ console.log(user);
 //   // ...
 // });
 
-
 // let user = firebase.auth().currentUser;
 // user.updateProfile({
 //     //編集したいもの
@@ -46,7 +45,7 @@ console.log(user);
 
 
 /* Leave Confirmation *****************************/
-function popupImage() {
+function popupModal() {
   let popup = document.getElementById('js-popup');
   if(!popup) return;
 
@@ -65,4 +64,4 @@ function popupImage() {
     });
   }
 }
-popupImage();
+popupModal();
