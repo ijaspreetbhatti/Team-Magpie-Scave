@@ -76,7 +76,7 @@ function submitAddItemForm() {
         title: document.getElementById('item').value,
         category: document.getElementById('category').value,
         condition: document.getElementById('condition').value,
-        location: document.getElementById('location').value,
+        location: getLocation(document.getElementById('location').value),
         description: document.getElementById('description').value,
         date: (new Date()).toISOString(),
         img: []
@@ -248,27 +248,108 @@ document.getElementById('c5').addEventListener('click', () => {
 // ************************************** Get Geolocation Event Listeners ******************************* //
 // ****************************************************************************************************** //
 
-const input = document.getElementById('location');
+// const input = document.getElementById('location');
 
-function getLocation() {
-    if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-        console.log('working');
-    } else {
-        input.value = "Please enable geolocation."
-    }
+// function getLocation() {
+//     let lat;
+//     let lng;
+
+//     if(navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//         console.log('working');
+//     } else {
+//         input.value = "Please enable geolocation."
+//     }
+// }
+
+// function showPosition(position) {
+//     const lat = position.coords.latitude;
+//     const lng = position.coords.longitude;
+
+//     const location = [
+//         lat, lng
+//     ]
+
+//     return location;
+// }
+
+const getLocation =  function(address) {
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode( { 'address': address}, function(results, status) {
+
+  if (status == google.maps.GeocoderStatus.OK) {
+      const latitude = results[0].geometry.location.lat();
+      const longitude = results[0].geometry.location.lng();
+
+      const location = [
+          latitude, longitude
+      ];
+
+      console.log(location); 
+      return location;
+      } 
+  }); 
 }
 
-function showPosition(position) {
-    input.value = position.coords.latitude + 
-    ", " + position.coords.longitude;
+// ************************************** Location Autocomplete ***************************************** //
+
+let autocomplete;
+let address;
+
+function initAutocomplete() {
+  address = document.querySelector("#location");
+
+  autocomplete = new google.maps.places.Autocomplete(address, {
+    componentRestrictions: { country: ["us", "ca"] },
+    fields: ["address_components"],
+    types: ["address"],
+  });
+  address.focus();
+  autocomplete.addListener("place_changed", fillInAddress);
+}
+
+function fillInAddress() {
+  const place = autocomplete.getPlace();
+  let address1 = "";
+  let postcode = "";
+
+  for (const component of place.address_components) {
+    const componentType = component.types[0];
+
+    switch (componentType) {
+    case "street_number": {
+        address1 = `${component.long_name}${address1} `;
+        break;
+      }
+
+    case "route": {
+        address1 += `${component.short_name}, `;
+        break;
+      }
+
+    case "postal_code": {
+        address1 += ` ${component.long_name}${postcode}`;
+        break;
+      }
+
+    case "country":
+        address1 += component.long_name + ",";
+        break;
+    }
+  }
+    address.value = address1;
 }
 
 // ************************************** Intialize Funcs in Window ************************************* //
 
-window.showPosition = showPosition;
 window.getLocation = getLocation;
+window.initAutocomplete = initAutocomplete;
+window.fillInAddress = fillInAddress;
+// window.showPosition = showPosition;
+// window.getLocation = getLocation;
 window.photoUpload = photoUpload;
 window.hideHelpText = hideHelpText;
 window.removeImg = removeImg;
 window.submitAddItemForm = submitAddItemForm;
+
+
