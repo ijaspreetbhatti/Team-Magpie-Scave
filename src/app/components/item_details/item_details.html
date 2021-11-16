@@ -13,7 +13,24 @@
 
     <div class="btn-area">
         <button class="save">Save for later</button>
-        <button class="collected">Mark as collected</button>
+        <button class="collected" id="collectBtn">Mark as collected</button>
+    </div>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-txtContent">
+                <h3 class="modalTitle">Mark as collected?</h3>
+                <p class="modalText">
+                    Items marked as collected will be automatically deleted.
+                    They are also deleted from your Saved items page.
+                </p>
+            </div>
+            <div class="modalBtn">
+                <span class="confirm">Confirm</span>
+                <span class="cancel">Cancel</span>
+            </div>
+        </div>
     </div>
 
     <div class="goods-listing">
@@ -36,7 +53,7 @@
         </div>
     </div>
 
-    <div class="map" id=smallMap></div>
+    <div class="map" id="smallMap"></div>
 
     <script src="./js/item_details.js"></script>
     <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9kUNFLXOEwSFaH5JedhaGV1MMKXxB50o&callback=detailMap"></script> -->

@@ -11,19 +11,20 @@ getAllListings().then((res) => {
 
 function populateListings() {
     listings.forEach(function (listing) {
+        const firstImg = listing.img;
         listContainer.innerHTML += `
         <div class="list-card" onclick="loadDetails(${listing.lat},${listing.lng})">
             <div class="list-info">
             <div class="list-sub-info">
                 <h3>${listing.title}</h3>
                 <span class="category">${listing.category}</span>
-                <span>.</span>
+                <span>・</span>
                 <span class="condition">${listing.condition}</span>
             </div>
             <span class="distance">${listing.distance}</span>
             </div>
             <div class="img">
-                <img src="${listing.img}" />
+                <img src="${firstImg[0]}" />
             </div>
         </div>
         `;
