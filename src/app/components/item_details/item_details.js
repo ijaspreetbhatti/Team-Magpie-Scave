@@ -3,12 +3,17 @@ import "./item_details.scss";
 // uses the currentItem object declared in global namespace and load details in the UI
 function populateListing() {
     const firstList = currentItem.img;
+    mySlides.innerHTML = "";
     firstList.forEach((list) => {
-        mySlides.innerHTML = `<img src="${list}" class="opacity img" />`;
+        const smallImg = document.createElement('img');
+        smallImg.setAttribute('class', 'opacity img');
+        smallImg.setAttribute('src', list);
+        mySlides.appendChild(smallImg);
+        // mySlides.innerHTML = `<img src="${list}" class="opacity img" />`;
     });
+    console.log(firstList)
     let firstImg = mySlides.firstChild;
     firstImg.classList.remove("opacity");
-    console.log(firstImg);
     document.getElementById("featuredImg").setAttribute('src', firstList[0]);
     document
         .getElementById("mySlides")
@@ -20,6 +25,7 @@ window.populateListing = populateListing;
 
 let containerHeader = document.querySelector(".content-info");
 let imgs = document.querySelector(".imgs");
+
 let thumbnail = document.querySelector(".thumbnail");
 
 function mySlidesHandler(e) {
