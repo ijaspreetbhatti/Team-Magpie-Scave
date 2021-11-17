@@ -1,3 +1,4 @@
+import { getAllListings } from "../../services/firebase-service";
 import "./item_details.scss";
 
 // uses the currentItem object declared in global namespace and load details in the UI
@@ -27,10 +28,10 @@ function populateListing() {
 // this adds the populateListing function into global namespace.
 window.populateListing = populateListing;
 
-let containerHeader = document.querySelector(".content-info");
-let imgs = document.querySelector(".imgs");
+// let containerHeader = document.querySelector(".content-info");
+// let imgs = document.querySelector(".imgs");
 
-let thumbnail = document.querySelector(".thumbnail");
+// let thumbnail = document.querySelector(".thumbnail");
 
 function mySlidesHandler(e) {
     if (e.target.src) {
@@ -74,4 +75,14 @@ window.onclick = function (e) {
     if (e.target == modal) {
         modal.style.display = 'none';
     }
+}
+
+
+let map;
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById("smallMap"), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,
+    });
 }
