@@ -129,10 +129,6 @@ function initGoogleMap() {
                     };
                     map.setCenter(pos);
                 },
-
-                // () => {
-                //     handleLocationError(true, map.getCenter());
-                // }
             );
 
         } else {
@@ -144,7 +140,6 @@ function initGoogleMap() {
 }
 function deployMarkers() {
 
-    console.log('deployMarkers');
     for (i = 0; i < listings.length; i++) {
         function getIcon() {
             let icon;
@@ -163,8 +158,33 @@ function deployMarkers() {
             return icon;
         }
 
+        function getLocation() {
+            let pos;
+
+            const latlng = {
+                "lat": "",
+                "lng": ""
+            };
+
+            const geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode( { 'address': listings[i].location}, function(results, status) {
+        
+            if (status == google.maps.GeocoderStatus.OK) {
+                latlng.lat = results[0].geometry.location.lat();
+                latlng.lng = results[0].geometry.location.lng();
+
+                console.log(latlng);
+
+                pos = new google.maps.LatLng( latlng.lat, latlng.lng );
+                } 
+            }); 
+
+            return pos;
+            }
+
         const marker = new google.maps.Marker({
-            position: new google.maps.LatLng(listings[i].lat, listings[i].lng),
+            position: getLocation(),
             icon: getIcon(),
             title: listings[i].title,
             map: map,
@@ -172,6 +192,8 @@ function deployMarkers() {
         });
 
         marker.set('listing', listings[i]);
+
+        console.log('deployMarkers');
 
         google.maps.event.addListener(marker, 'click', (e) => {
             console.log('marker click', marker.data);

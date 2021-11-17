@@ -54,6 +54,43 @@ function removeImg(img, show, hide, hide2, background) {
     hide2.style.display = "none";
 };
 
+// ****************************************************************************************************** //
+// ************************************** Get Geolocation Event Listeners ******************************* //
+// ****************************************************************************************************** //
+
+// let locationPromise = new Promise(function(res, rej) {
+//     let userLocation = getLocation(document.getElementById('location').value);
+
+//     if (userLocation != "") {
+//         res(getLocation(userLocation));
+//     } else {
+//         rej(console.log('no location'));
+//     }
+// });
+
+// locationPromise.then(
+//     function(res) {console.log("yes!");},
+//     function(rej) {console.log("no!");}
+// );
+
+
+// function getLocation(address) {
+//   var geocoder = new google.maps.Geocoder();
+//   geocoder.geocode( { 'address': address}, function(results, status) {
+
+//   if (status == google.maps.GeocoderStatus.OK) {
+//       const latitude = results[0].geometry.location.lat();
+//       const longitude = results[0].geometry.location.lng();
+
+//       const location = [
+//           latitude, longitude
+//       ];
+
+//       console.log(location); 
+//       return location;
+//       } 
+//   }); 
+// }
 
 
 // ****************************************************************************************************** //
@@ -70,13 +107,17 @@ const blobToBase64 = blob => {
     });
 };
 
+
 function submitAddItemForm() {
+
+    // const userLocation = document.getElementById('location').value;
+    // const coords = getLocation(userLocation);
 
     const formValue = {
         title: document.getElementById('item').value,
         category: document.getElementById('category').value,
         condition: document.getElementById('condition').value,
-        location: getLocation(document.getElementById('location').value),
+        location: document.getElementById('location').value,
         description: document.getElementById('description').value,
         date: (new Date()).toISOString(),
         img: []
@@ -244,52 +285,6 @@ document.getElementById('c5').addEventListener('click', () => {
     removeImg(insert5, img5, c5, insert5, p5);
 })
 
-// ****************************************************************************************************** //
-// ************************************** Get Geolocation Event Listeners ******************************* //
-// ****************************************************************************************************** //
-
-// const input = document.getElementById('location');
-
-// function getLocation() {
-//     let lat;
-//     let lng;
-
-//     if(navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showPosition);
-//         console.log('working');
-//     } else {
-//         input.value = "Please enable geolocation."
-//     }
-// }
-
-// function showPosition(position) {
-//     const lat = position.coords.latitude;
-//     const lng = position.coords.longitude;
-
-//     const location = [
-//         lat, lng
-//     ]
-
-//     return location;
-// }
-
-const getLocation =  function(address) {
-  var geocoder = new google.maps.Geocoder();
-  geocoder.geocode( { 'address': address}, function(results, status) {
-
-  if (status == google.maps.GeocoderStatus.OK) {
-      const latitude = results[0].geometry.location.lat();
-      const longitude = results[0].geometry.location.lng();
-
-      const location = [
-          latitude, longitude
-      ];
-
-      console.log(location); 
-      return location;
-      } 
-  }); 
-}
 
 // ************************************** Location Autocomplete ***************************************** //
 
@@ -342,7 +337,8 @@ function fillInAddress() {
 
 // ************************************** Intialize Funcs in Window ************************************* //
 
-window.getLocation = getLocation;
+// window.getLocationData = getLocationData;
+// window.getLocation = getLocation;
 window.initAutocomplete = initAutocomplete;
 window.fillInAddress = fillInAddress;
 // window.showPosition = showPosition;
