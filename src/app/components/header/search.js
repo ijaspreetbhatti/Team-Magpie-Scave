@@ -3,7 +3,7 @@ import instantsearch from 'instantsearch.js';
 import { searchBox, hits } from 'instantsearch.js/es/widgets';
 import * as $ from 'jquery';
 
-
+// Search Client
 const searchClient = algoliasearch('W5144GWNC7', '007a65abffcee913949d61c3aa980ed8');
 const index = searchClient.initIndex('Scave');
 
@@ -12,40 +12,48 @@ const search = instantsearch({
   searchClient,
 });
 
-// // only query string
-
+// Populate Items
 function populateSearch(hits) {
-
     console.log('populating');
+    const container = document.getElementById('searchContainer');
+    const title = document.getElementById('yourSearch');
+    const searchItem = document.getElementById('searchInput').value;
 
-    hits.forEach(function (hits) {
-        // const firstImg = hits.img;
-        const container = document.getElementById('searchContainer');
-        container.innerHTML = `
-        <div class="search-card" onclick="loadDetails(${hits.lat},${hits.lng})">
-            <div class="search-info">
-            <div class="search-sub-info">
-                <h3>${hits.title}</h3>
-                <span class="category">${hits.category}</span>
-                <span>.</span>
-                <span class="condition">${hits.condition}</span>
+    if(hits) {
+        title.innerHTML = `Search results for "${searchItem}"`;
+
+        hits.forEach(function (hits) {
+            // const firstImg = hits.img;
+            container.innerHTML += `
+            <div class="search-card">
+                <div class="search-info">
+                <div class="search-sub-info">
+                    <h3>${hits.title}</h3>
+                    <span class="category">${hits.category}</span>
+                    <span>.</span>
+                    <span class="condition">${hits.condition}</span>
+                </div>
+                <span class="distance">${hits.distance}</span>
+                </div>
+                <div class="img">
+                    <img src="${hits.img}" />
+                </div>
             </div>
-            <span class="distance">${hits.distance}</span>
-            </div>
-            <div class="img">
-                <img src="${hits.img}" />
-            </div>
-        </div>
-        `;
-    });
+            `;
+        }); 
+    } else {
+        title.innerHTML = `Your search for "${searchItem}" returned no results.`;
+        container.innerHTML = "Your search did not return any results.";
+    } 
 }
 
-
+// Click event in search input
 document.getElementById('searchSubmit').addEventListener('click', () => {
     searchFunc();
     console.log('searched');
 })
 
+// Search function
 const searchFunc = () => {
         let searchItem = document.getElementById('searchInput').value;
 
@@ -55,13 +63,15 @@ const searchFunc = () => {
     });
 }
 
+// declare funcs in window
 window.populateSearch = populateSearch;
 window.searchFunc = searchFunc;
 search.start();
 
 
-
+// ********************************************************* //
 // Search input display and hide functions and Nav Display Func
+// ********************************************************* //
 
 function toggleSearch() {
 

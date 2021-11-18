@@ -158,6 +158,7 @@ function deployMarkers() {
             return icon;
         }
 
+        // Get coords based on user address input
         function getLocation() {
             let pos;
 
