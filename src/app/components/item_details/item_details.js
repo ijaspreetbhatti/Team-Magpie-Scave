@@ -22,6 +22,8 @@ function populateListing() {
     document
         .getElementById("mySlides")
         .addEventListener("click", mySlidesHandler);
+
+    smallMap()
 }
 
 // this adds the populateListing function into global namespace.
@@ -85,35 +87,15 @@ window.onclick = function (e) {
 }
 
 //map
-function initMap() {
-    const map = new google.maps.Map(document.getElementById("smallMap"), {
+function smallMap() {
+    const map = new google.maps.Map(document.getElementById('smallMap'), {
         disableDefaultUI: true,
         zoom: 14,
-    });
-    // load center of map based on user location
-    window.addEventListener("load", () => {
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                    };
-                    map.setCenter(pos);
-                },
-                // () => {
-                //     handleLocationError(true, map.getCenter());
-                // }
-            );
-        } else {
-            // Browser doesn't support Geolocation
-            console.log('Location Error');
-            // handleLocationError(false, map.getCenter());
-        }
+        center: { lat: currentItem.lat, lng: currentItem.lng },
     });
 }
-window.initMap = initMap;
+
+window.smallMap = smallMap;
 
 // private String Title;
 // private long Time;
