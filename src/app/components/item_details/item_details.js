@@ -66,7 +66,15 @@ btn.onclick = function () {
     modal.style.display = 'block';
 }
 
+spanConfirm.onclick = function () {
+    btn.style.backgroundColor = '#455A64';
+    btn.style.color = '#ffffff'
+    modal.style.display = 'none';
+}
+
 spanCancel.onclick = function () {
+    btn.style.backgroundColor = '#ffffff';
+    btn.style.color = "#263238"
     modal.style.display = 'none';
 }
 
