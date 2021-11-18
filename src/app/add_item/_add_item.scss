@@ -1,6 +1,7 @@
 #addItem {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 #listingContainer {
@@ -168,4 +169,57 @@ select {
 ::placeholder, .select {
     color: $grey2;
     font: $body-text;
+}
+
+// Style Pop-Up Modal ************************************//
+
+#addItemPopUp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    width: 342px;
+    height: 146px;
+    background: $white;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    padding: 8px 24px;
+
+    #line {
+        border-top: 1px solid $grey1;
+    }
+
+    .btnContainerAddItm {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0;
+        padding: 0;
+
+        #leaveAddItem {
+            grid-column: 1 / 1;
+            justify-self: center;
+            background: none;
+            border: none;
+            color: $error-color;
+            font: $h4;
+            margin: 0;
+            padding: 0;
+        }
+
+        #keepEditingAddItem {
+            grid-column: 2 / 2;
+            justify-self: center;
+            background: none;
+            border: none;
+            color: $grey5;
+            font: $h4;
+            margin: 0;
+            padding: 0;
+        }
+    }
 }

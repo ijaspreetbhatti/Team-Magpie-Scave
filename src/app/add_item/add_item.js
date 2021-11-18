@@ -335,6 +335,24 @@ function fillInAddress() {
     address.value = address1;
 }
 
+// ************************************** Show/Close Modal ********************************************** //
+document.getElementById('discard-item-btn').addEventListener('click', () => {
+    const modal = document.getElementById('addItemPopUp');
+    modal.style.display = "flex";
+});
+
+document.getElementById('keepEditingAddItem').addEventListener('click', () => {
+    const modal = document.getElementById('addItemPopUp');
+    modal.style.display = "none";
+});
+
+document.getElementById('leaveAddItem').addEventListener('click', () => {
+    const modal = document.getElementById('addItemPopUp');
+    modal.style.display = "none";
+
+    location.hash = "mapView";
+});
+
 // ************************************** Intialize Funcs in Window ************************************* //
 
 // window.getLocationData = getLocationData;
