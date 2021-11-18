@@ -53,9 +53,6 @@ function addFilter(buttonDiv, map) {
 // initiate map var
 let map, i;
 
-export function hello() {
-    console.log('Hello form init Map');
-}
 // initiate map func
 function initMap() {
     initGoogleMap();
