@@ -1,17 +1,23 @@
 @import "../../_variables.scss";
 @import "../../_font_styles.scss";
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
-* {
-    margin: 0;
-}
 
 #createAccountView {
     .header {
-        #logoSignup {
-            width: 94px;
-            height: auto;
-            align-self: center;
+        .logo {
+            text-align: center;
+            height: 56px;
+            border-bottom: #cfd8dc solid 1px;
+            display: flex;
+            justify-content: center;
+
+            #logoSignup {
+                width: 94px;
+                height: auto;
+            }
+        }
+
+        h1 {
+            text-align: center;
         }
     }
 
@@ -21,7 +27,8 @@
             display: inline-block;
             margin: 0 auto;
 
-            label, input {
+            label,
+            input {
                 display: block;
             }
 
@@ -51,6 +58,8 @@
                 width: 342px;
                 height: 36px;
                 margin: 20px auto;
+                text-align: left;
+
                 p {
                     font-size: 12px;
                     color: #263238;
@@ -62,6 +71,7 @@
                 background: #00bcd4;
                 font-size: 12px;
                 color: white;
+                cursor: pointer;
             }
             .signup-btn p {
                 font-size: 10px;
