@@ -1,35 +1,7 @@
 import { getAllListings } from "../../services/firebase-service";
 import * as $ from 'jquery';
 
-let listings = [
-    // {
-    //     title: "Desk1",
-    //     lat: 49.2837282522517,
-    //     lng: -123.13221810895666,
-    //     icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
-    //     category: "Home Good",
-    //     condition: "Like New",
-    //     distance: "1200m"
-    // },
-    // {
-    //     title: "Desk2",
-    //     lat: 49.274321281824186,
-    //     lng: -123.14981339887272,
-    //     icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
-    //     category: "Home Good",
-    //     condition: "Like New",
-    //     distance: "1200m"
-    // },
-    // {
-    //     title: "Desk3",
-    //     lat: 49.266648793197206,
-    //     lng: -123.10621141215385,
-    //     icon: "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png",
-    //     category: "Home Good",
-    //     condition: "Like New",
-    //     distance: "1200m"
-    // }
-];
+let listings = [];
 
 // Create List Button
 function addListView(buttonDiv, map) {
@@ -223,7 +195,7 @@ function showDetails(id) {
     showDetailsOverlay();
 }
 
-itemDisplayOverlay.addEventListener('click', () => {
+itemImage.addEventListener('click', () => {
     location.replace(`#detailsView`);
     populateListing();
 });
@@ -239,6 +211,4 @@ window.closeDetailsOverlay = closeDetailsOverlay;
 
 (()=>{
     $('.itemDisplayOverlay').hide();
-})()
-
-window.getIcon = getIcon;
+})

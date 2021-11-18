@@ -5,6 +5,10 @@
     cursor: pointer;
 }
 
+#detailsClose {
+    z-index: 1000;
+}
+
 .mapOverlay {
     height: auto;
     width: auto;
