@@ -128,6 +128,12 @@ function initGoogleMap() {
                         lng: position.coords.longitude,
                     };
                     map.setCenter(pos);
+
+                    new google.maps.Marker({
+                        position: pos,
+                        icon: "https://res.cloudinary.com/scave2021/image/upload/v1637267964/scave/centerIcon_u2vkhz.png",
+                        map
+                    });
                 },
             );
 
