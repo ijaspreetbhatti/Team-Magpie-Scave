@@ -1,4 +1,3 @@
-import { getAllListings } from "../../services/firebase-service";
 import "./item_details.scss";
 
 // uses the currentItem object declared in global namespace and load details in the UI
@@ -77,12 +76,58 @@ window.onclick = function (e) {
     }
 }
 
-
-let map;
-
+//map
 function initMap() {
-    map = new google.maps.Map(document.getElementById("smallMap"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8,
+    const map = new google.maps.Map(document.getElementById("smallMap"), {
+        disableDefaultUI: true,
+        zoom: 14,
+    });
+    // load center of map based on user location
+    window.addEventListener("load", () => {
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    };
+                    map.setCenter(pos);
+                },
+                // () => {
+                //     handleLocationError(true, map.getCenter());
+                // }
+            );
+        } else {
+            // Browser doesn't support Geolocation
+            console.log('Location Error');
+            // handleLocationError(false, map.getCenter());
+        }
     });
 }
+window.initMap = initMap;
+
+// private String Title;
+// private long Time;
+
+// public post(String title){
+//     Title = title;
+//     Time = new Date().getTime();
+// }
+
+// public post(){}
+
+// public String getTitle() {return Title;}
+// public void setTitle(String title) {this.Title = title;}
+// public long getTime() {return Time;}
+// public void setTime(long time) {this.Time = time;}
+
+// FirebaseDatabase.getInstance()
+//                 .getReference(staticPath)
+//                 .push()
+//                 .setValue(new post(Title));
+
+// viewHolder.showPosts(model.getTitle(), model.getTime());
+
+// timeText.setText(DateUtils.getRelativeTimeSpanString(time,
+//     System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS));
