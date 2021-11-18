@@ -102,6 +102,17 @@ function toggleSearch() {
 
 window.toggleSearch = toggleSearch;
 
+document.addEventListener('click', function(event) {
+    const navDisplay = document.getElementById('header');
+
+    const elementArea = navDisplay.contains(event.target);
+    const width = window.matchMedia("(max-width: 1000px)");
+
+    if(!elementArea && width.matches) {
+        closeNav();
+    }
+});
+
 function closeSearch() {
 
     const width = window.matchMedia("(min-width: 1000px)");
@@ -129,8 +140,18 @@ function closeSearch() {
 
 window.closeSearch = closeSearch;
 
-function toggleNav() {
+function closeNav() {
 
+    const nav = document.getElementById("navItems");
+
+    if (nav.style.display === "block") {
+        nav.style.display = "none";
+    }
+};
+
+window.closeNav = closeNav;
+
+function toggleNav() {
     const nav = document.getElementById("navItems");
 
     if (nav.style.display === "none") {
