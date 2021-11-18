@@ -158,7 +158,7 @@ function deployMarkers() {
             return icon;
         }
 
-        // Get coords based on user address input
+        // Get coords based on user address input - not working
         function getLocation() {
             let pos;
 
@@ -185,7 +185,8 @@ function deployMarkers() {
             }
 
         const marker = new google.maps.Marker({
-            position: getLocation(),
+            // position: getLocation(),
+            position: new google.maps.LatLng(listings[i].lat, listings[i].lng),
             icon: getIcon(),
             title: listings[i].title,
             map: map,

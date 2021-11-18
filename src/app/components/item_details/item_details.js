@@ -22,6 +22,8 @@ function populateListing() {
     document
         .getElementById("mySlides")
         .addEventListener("click", mySlidesHandler);
+
+    smallMap();
 }
 
 // this adds the populateListing function into global namespace.
@@ -77,9 +79,9 @@ window.onclick = function (e) {
 }
 
 function smallMap() {
-    map = new google.maps.Map(document.getElementById('smallMap'), {
+    const map = new google.maps.Map(document.getElementById('smallMap'), {
         disableDefaultUI: true,
-        zoom: 18,
+        zoom: 14,
         center: {lat: currentItem.lat, lng: currentItem.lng},
     });
 }
