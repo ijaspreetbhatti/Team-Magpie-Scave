@@ -51,7 +51,7 @@ function popupModal() {
 
   let blackBg = document.getElementById('js-black-bg');
   let stayBtn = document.getElementById('js-stay-btn');
-  let showBtn = document.getElementById('js-show-popup');
+  let showBtn = document.getElementById('mainLogo');
 
   closePopUp(blackBg);
   closePopUp(stayBtn);
@@ -59,9 +59,14 @@ function popupModal() {
   function closePopUp(elem) {
     if(!elem) return;
     elem.addEventListener('click', function() {
-      console.log("gomi");
+      console.log("NEMUI");
       popup.classList.toggle('is-show');
     });
   }
 }
 popupModal();
+
+// const home = document.getElementById("home");
+// home.addEventListener('click', () => {
+//   console.log("gomi");
+// })
