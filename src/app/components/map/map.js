@@ -143,7 +143,6 @@ function deployMarkers() {
             };
 
             const geocoder = new google.maps.Geocoder();
-
             geocoder.geocode( { 'address': listings[i].location}, function(results, status) {
         
             if (status == google.maps.GeocoderStatus.OK) {
@@ -169,7 +168,6 @@ function deployMarkers() {
         });
 
         marker.set('listing', listings[i]);
-
         console.log('deployMarkers');
 
         google.maps.event.addListener(marker, 'click', (e) => {
@@ -195,6 +193,7 @@ function showDetails(id) {
 itemImage.addEventListener('click', () => {
     location.replace(`#detailsView`);
     populateListing();
+    closeDetailsOverlay();
 });
 
 function showDetailsOverlay() {
