@@ -195,6 +195,7 @@ function showDetails(id) {
 itemImage.addEventListener('click', () => {
     location.replace(`#detailsView`);
     populateListing();
+    closeDetailsOverlay();
 });
 
 function showDetailsOverlay() {
