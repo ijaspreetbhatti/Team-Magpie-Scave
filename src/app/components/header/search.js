@@ -202,5 +202,9 @@ headerFix(width);
 width.addListener(headerFix)
 
 $('#listItem').on('click', () => {
+
+    const form = document.getElementById('itemListing');
+    form.reset();
+
     location.hash = 'addItemView';
 })
