@@ -1,15 +1,36 @@
+.list-box {
+    background-color: $white;
+}
+
+.list-btns {
+    position: sticky;
+    top: 0px;
+    display: flex;
+    div:nth-child(2) {
+        flex: 1;
+    }
+    div:nth-child(3) {
+        display: flex;
+    }
+}
+
 // Listing Mobile
+
 .list-container {
+    margin-top: 32px;
+    .list-card:first-child {
+        margin-top: 0;
+    }
+
     .list-card {
-        background-color: cornsilk;
         justify-content: space-between;
         display: flex;
         flex-direction: row;
         border-radius: 8px;
-        border: 1px solid gray;
+        border: 1px solid #cfd8dc;
         padding: 16px;
         margin: 16px 24px;
-
+        cursor: pointer;
         .list-info {
             display: flex;
             align-content: center;
@@ -38,7 +59,13 @@
         .img {
             width: 88px;
             height: 88px;
-            background-color: mediumturquoise;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 4px;
+            }
         }
     }
 }

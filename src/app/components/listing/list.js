@@ -1,61 +1,55 @@
-import './list.scss';
+import { getAllListings } from "../../services/firebase-service";
 
-const goods = [
-    {
-        title: "Desk1",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m"
-    },
+let listings = [];
 
-    {
-        title: "Desk2",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m"
-    },
+getAllListings().then((res) => {
+    console.log(res);
+    listings = res;
+    populateListings();
+});
 
-    {
-        title: "Desk3",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m"
-    },
+function populateListings() {
+    listings.forEach(function (listing) {
+        const firstImg = listing.img;
+        listContainer.innerHTML += `
+        <div class="list-card" onclick="loadDetails(${listing.lat},${listing.lng})">
+            <div class="list-info">
+            <div class="list-sub-info">
+                <h3>${listing.title}</h3>
+                <span class="category">${listing.category}</span>
+                <span>・</span>
+                <span class="condition">${listing.condition}</span>
+            </div>
+            <span class="distance">${listing.distance}</span>
+            </div>
+            <div class="img">
+                <img src="${firstImg[0]}" />
+            </div>
+        </div>
+        `;
+    });
+}
 
-    {
-        title: "Desk4",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m"
-    },
-
-    {
-        title: "Desk5",
-        category: "Home Good",
-        condition: "Like New",
-        distance: "1200m"
+// gets the detials of a selected item using the lat and lng properties
+function loadDetails(id) {
+    const listing = listings.find(listing => listing.id === id);
+    if (listing) {
+        window.currentItem = listing;
+        location.replace(`#detailsView`);
+        populateListing();
     }
-];
+}
+// adding loadDetails to the global namespace
+window.loadDetails = loadDetails;
 
-let listContainer = document.querySelector('.list-container');
+let listContainer = document.querySelector(".list-container");
 
+document.getElementById("filterBtn").addEventListener("click", () => { });
 
-goods.forEach(function(good) {
+document.getElementById("listBtn").addEventListener("click", () => {
+    location.hash = "listView";
+});
 
-    listContainer.innerHTML += `
-    <div class="list-card">
-        <div class="list-info">
-        <div class="list-sub-info">
-            <h3>${good.title}</h3>
-            <span class="category">${good.category}</span>
-            <span>.</span>
-            <span class="condition">${good.condition}</span>
-        </div>
-        <span class="distance">${good.distance}</span>
-        </div>
-        <div class="img"></div>
-    </div>
-    `        
-})
-
-console.log(goods)
+document.getElementById("mapBtn").addEventListener("click", () => {
+    location.hash = "mapView";
+});

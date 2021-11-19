@@ -1,0 +1,226 @@
+#addItem {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#listingContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 24px;
+    padding: 0;
+    max-width: 500px;
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+#mainInput {
+    @include formInput;
+    display: flex;
+    border: 1px solid $grey2;
+    border-radius: 8px;
+    background: $white;
+    height: 122px;
+    margin: 32px 0;
+    padding: 8px;
+    max-width: 500px;
+    justify-content: flex-start;
+    align-items: center;
+
+    #photoContainerText {
+        display: flex;
+        flex-direction: column;
+        padding-left: 12px;
+    }
+
+    label#imgLabel {
+        padding-top: 40px;
+        padding-bottom: 0;
+        border: none;
+        margin-left: 16px;
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+
+    p {
+        padding-top: 4px;
+    }
+
+    .photoInsert {
+        display: none;
+        height: 98%;
+        width: 19%;
+        background: $grey1;
+        margin: auto;
+        border-radius: 8px;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+
+        img.insert {
+            object-fit: cover;
+            max-height: 100%;
+            max-width: 100%;
+            z-index: 1;
+            background: $white;
+            margin: auto;
+            display: none;
+        }
+
+        .imgClose, .imgAdd {
+            background: $white;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            z-index: 4;
+            margin: auto;
+            cursor: pointer;
+        }
+
+        .imgClose {
+            position: absolute;
+            z-index: 4;
+        }
+
+        #c1, #c2, #c3, #c4, #c5 {
+            display: none;
+            cursor: pointer;
+        }
+    }
+}
+
+#photoContainer .photoInsert img.imgClose, #photoContainer .photoInsert img.imgAddimg {
+    padding: 12px;
+    max-width: 12px;
+    max-height: 12px;
+}
+
+#imgLabel {
+    font-family: $font-family;
+    font: $h3;
+    border: none;
+    background: $white;
+}
+
+.hide {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+#itemListing {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    label {
+        padding: 8px 0 8px 0;
+        color: $grey5;
+    }
+
+    #itemLabel {
+        padding-top: 0;
+    }
+
+    p {
+        margin-bottom: 32px;
+    }
+
+    #location {
+        margin-bottom: 16px;
+    }
+}
+
+.inputs, input, select {
+    margin-bottom: 16px;
+    @include formInput;
+}
+
+#title {
+    @include formInput;
+}
+select {
+    width: 100%;
+    color: $grey2;
+}
+
+#description {
+    border-radius: 8px;
+    border: 1px solid $grey2;
+    color: $grey2;
+    padding-left: 8px;
+    padding-top: 8px;
+    margin-bottom: 16px;
+    @include formInput;
+}
+
+#add-item-btn {
+    @include primaryBtn;
+    margin-bottom: 8px;
+}
+
+#discard-item-btn {
+    @include secondaryBtn;
+}
+
+::placeholder, .select {
+    color: $grey2;
+    font: $body-text;
+}
+
+// Style Pop-Up Modal ************************************//
+
+#addItemPopUp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    width: 342px;
+    height: 146px;
+    background: $white;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    padding: 8px 24px;
+
+    #line {
+        border-top: 1px solid $grey1;
+    }
+
+    .btnContainerAddItm {
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0;
+        padding: 0;
+
+        #leaveAddItem {
+            grid-column: 1 / 1;
+            justify-self: center;
+            background: none;
+            border: none;
+            color: $error-color;
+            font: $h4;
+            margin: 0;
+            padding: 0;
+        }
+
+        #keepEditingAddItem {
+            grid-column: 2 / 2;
+            justify-self: center;
+            background: none;
+            border: none;
+            color: $grey5;
+            font: $h4;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}

@@ -1,70 +1,80 @@
-import './main.scss';
-import { database } from "./app/services/firebase-service";
-import { collection, getDocs } from 'firebase/firestore/lite';
-import * as $ from 'jquery';
+import "./app/components/header/search";
+import "./app/add_item/add_item";
+import "./main.scss";
+import * as $ from "jquery";
+import { app } from "./app/services/firebase-service"
+import { getAuth } from "firebase/auth"
 
-// Get a list of names from your database
-// async function getNames(db) {
-//     const usersCol = collection(db, 'users');
-//     const namesSnapshot = await getDocs(usersCol);
-//     const namesList = namesSnapshot.docs.map(doc => doc.data());
-//     return namesList;
-// }
+let currentUser;
+window.currentUser = currentUser;
+const views = [
+    "addItemView",
+    // "mapView",
+    "listView",
+    "menuListingView",
+    "createAccountView",
+    "menuAccountView",
+    "notificationView",
+    "detailsView",
+    "searchView"
+];
 
-// getNames(database).then(printNames);
+// init method
+function init() {
+    console.log("initializing");
+    checkLoginState();
+    location.hash = "mapView";
+    switchView(location.hash);
+}
 
-// function printNames(namesList) {
-//     console.log('Name List:', namesList);
-// }
+init();
 
-// const allPages = document.querySelectorAll("div.page");
-// allPages[0].style.display="block";
-// function navigateToPage(event) {
-//     const pageId = location.hash? location.hash : '#page1';
-//     for(let page of allPages) {
-//         if (pageId === '#'+page.id) {
-//             page.style.display = "block";
-//         } else {
-//             page.style.display = "none";
-//         }
-//     }
-//     return;
-// }
-// //init handler for hash navigation
-// window.addEventListener("hashchange", navigateToPage);
+window.addEventListener("hashchange", () => {
+    console.log(`Switching view to ${location.hash}`);
+    switchView(location.hash);
+});
 
-// Variables
-let isLoginVisible = false;
-let isMapVisible = false;
+logOut.addEventListener("click", () => {
+    signOut();
+});
 
-// (() => {
-//     // $("#login").hide();
-//     $("#map").hide();
-// })()
+function checkLoginState() {
+    let auth = getAuth(app);
+    console.log(auth.currentUser);
+    let user = localStorage.getItem("user");
+    console.log(user);
+    if (user) {
+        currentUser = JSON.parse(user);
+        headerUserId.innerHTML = currentUser.displayName ? currentUser.displayName : 'Hello!';
+        headerMailId.innerHTML = currentUser.email;
+        console.log(currentUser);
+    } else {
+        location.replace("/login.html");
+    }
+}
 
-// document.getElementById('btn1').addEventListener('click', () => {
-//     if (isLoginVisible) {
-//         $("#login").hide();
-//     } else {
-//         $("#login").show();
-//     }
-//     isLoginVisible = !isLoginVisible;
-//     console.log('btn1');
-// });
+function signOut() {
+    localStorage.removeItem("user");
+    location.replace("/");
+}
 
-// document.getElementById('btn2').addEventListener('click', () => {
-//     if (isMapVisible) {
-//         $("#map").hide();
-//     } else {
-//         $("#map").show();
-//     }
-//     isMapVisible = !isMapVisible;
-//     console.log('btn2');
-// });
+function switchView(id) {
+    if(id === "#mapView") {
+        $(".page-container").hide();
+    } else {
+        $(".page-container").show();
+    }
+    hideAllViews();
+    showView(id);
+}
 
-// document.getElementById('btn3').addEventListener('click', () => {
-    // console.log(window.location.pathname);
-    // history.replaceState({}, 'Gabe', 'helo')
-    // $("#btn3").show();
-    // $.hide("#btn3");
-// });
+function hideAllViews() {
+    views.forEach((id) => {
+        console.log(`#${id}`);
+        $(`#${id}`).hide();
+    });
+}
+
+function showView(id) {
+    $(`${id}`).fadeIn();
+}

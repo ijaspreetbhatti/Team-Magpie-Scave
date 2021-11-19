@@ -1,0 +1,22 @@
+.notification {
+    .h1 {
+        margin-left: 24px;
+    }
+    .block {
+        margin: 32px 24px;
+
+        >p {
+            margin-bottom: 0;
+        }
+
+        .time {
+            font-size: 10px;
+            color: $grey4;
+            margin-bottom: 39px;
+            margin-top: 0;
+        }
+    }
+    main .border {
+        border-bottom: 1px solid $grey1;
+    }
+}

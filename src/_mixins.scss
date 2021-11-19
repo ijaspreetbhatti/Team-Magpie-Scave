@@ -1,0 +1,62 @@
+@mixin secondaryBtn {
+    background: $white;
+    border-radius: 8px;
+    color: $grey5;
+    border: none;
+    height: 34px;
+    font: $h4;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $grey1;
+    }
+
+    &:active {
+        background-color: $grey4;
+        color: $white;
+    }
+}
+
+@mixin primaryBtn {
+    background: $primary;
+    border-radius: 8px;
+    color: $white;
+    border: none;
+    height: 34px;
+    font: $h4;
+    padding: 8px;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: $primary-variant-dark;
+    }
+
+    &:active {
+        background-color: $primary-variant-mid;
+    }
+
+}
+
+@mixin formInput {
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid $grey2;
+    color: $grey2;
+    padding-left: 8px;
+    cursor: pointer;
+    outline: none !important;
+
+    &:focus {
+        border: 1px solid $primary;
+    }
+
+    // &:valid {
+    //     border: 1px solid $grey4;
+    // }
+
+    // &:invalid {
+    //     border: 1px solid $error-color;
+    // }
+}

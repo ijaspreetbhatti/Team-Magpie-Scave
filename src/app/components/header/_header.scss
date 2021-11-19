@@ -1,6 +1,7 @@
 #header {
-  align-content: center;
-  border-bottom: 1px solid $grey1;
+    align-content: center;
+    border-bottom: 1px solid $grey1;
+    z-index: 8;
 }
 
 #mainLogo {
@@ -10,104 +11,213 @@
 }
 
 .header {
+    background-color: white;
+    top: 0px;
+    border-bottom: 1px solid $grey1;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 12px 24px;
+    padding: 12px 24px;
+    box-sizing: border-box;
     align-content: center;
 
-    .leftNav, .rightNav {
-      display: flex;
-      align-items: center;
+    .leftNav,
+    .rightNav {
+        display: flex;
     }
 
+    .rightNav {
+        width: 100%;
+        justify-content: flex-end;
+        height: 34px;
+    }
+    #headerSearch {
+        max-width: 25px;
+        display: block;
+        cursor: pointer;
+    }
     #listItem {
-      background-color: $primary;
-      color: $white;
-      border: none;
-      border-radius: 8px;
-      height: 34px;
-      width: 97px;
-      display: flex;
-      justify-content: center;
-      margin-left: 24px;
-
-      p {
+        background-color: $primary;
+        color: $white;
+        border: none;
+        border-radius: 8px;
+        height: 34px;
+        width: 97px;
+        display: flex;
+        justify-content: center;
+        margin-left: 24px;
+        cursor: pointer;
+        p {
+            align-self: center;
+            justify-self: center;
+            padding-right: 6px;
+            background: inherit;
+        }
+    }
+    #plus {
+        height: 10px;
+        width: 10px;
         align-self: center;
         justify-self: center;
-        padding-right: 6px;
-      }
-    }
-
-    #plus {
-      height: 10px;
-      width: 10px;
-      align-self: center;
-      justify-self: center;
-      padding: 0;
-      margin: 0;
+        padding: 0;
+        margin: 0;
+        background: inherit;
     }
 }
 
 #listItem:hover {
-  background-color: $primary-variant-mid;
+    background-color: $primary-variant-mid;
 }
 
 #listItem:active {
-  background-color: $primary-variant-dark;
+    background-color: $primary-variant-dark;
 }
-
 
 .hamburgerMenu {
     margin: 6px 24px 0 0;
     z-index: 3;
-  }
+    cursor: pointer;
+}
 
 .overlay {
-  height: 100%;
-  width: 0;
-  position: fixed; 
-  z-index: 1;
-  top: 60px;
-  left: 0;
-  bottom: 0;
-  background-color: $white; 
-  overflow-x: hidden; 
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    background-color: $white;
+    overflow-x: hidden;
+    a {
+        text-decoration: none;
+        display: flex;
+        margin-top: 20px;
+        align-items: center;
 
-  a {
-      text-decoration: none;
-      display: flex; 
-      
-     img {
-        margin-right: 12px;
-      }
+        img {
+            margin-right: 12px;
+        }
     }
 }
 
 .menuLink:hover {
-  font-weight: 600;
+    font-weight: 600;
 }
-  
+
 .menuOverlay {
-  position: relative;
-  top: auto; 
-  width: 100%; 
-  text-align: left; 
-  margin-left: 24px;
+    position: relative;
+    top: auto;
+    width: 100%;
+    text-align: left;
+    margin-left: 24px;
 
-  h2 {
-    margin: 24px 0 0 0;
-    padding: 0;
-  }
+    h2 {
+        margin: 24px 0 0 0;
+        padding: 0;
+    }
 
-  h4 {
-    margin: 4px 0 20px 0;
-    font-weight: 400;
-  }
-
-
+    h4 {
+        margin: 4px 0 32px 0;
+        font-weight: 400;
+    }
 }
-  
+
 #navItems {
-  width: 60%;
-  display: none;
+    width: 60%;
+    display: none;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#search {
+    display: none;
+    width: 100%;
+}
+
+#searchInput {
+    @include formInput;
+    background: $white;
+    background-image: url("https://res.cloudinary.com/scave2021/image/upload/v1635194649/scave/search_bkk9ug.svg");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 1% center;
+    padding-left: 28px;
+    border: 1px solid $grey2;
+    border-radius: 8px 0 0 8px;
+}
+
+#searchInput {
+    width: 100%;
+    max-height: 32px;
+    margin: 0;
+    padding: 0;
+    padding-left: 4%;
+}
+
+#searchSubmit {
+    @include secondaryBtn;
+    padding: 12px 24px;
+    border: 1px solid $grey2;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    margin: 0;
+    line-height: 0.75;
+    height: 34px;
+}
+
+#searchSubmit:hover {
+    border: 1px solid $grey1;
+    border-left: none;
+}
+
+#searchSubmit:active {
+    border: 1px solid $grey4;
+    border-left: none;
+}
+
+// Desktop
+@media screen and (min-width: 1000px) {
+    .hamburgerMenu {
+        display: none;
+    }
+
+    #navItems {
+        display: block;
+        width: 20%;
+    }
+
+    #searchSubmit {
+        display: block;
+    }
+
+    #search {
+        width: 65%;
+        justify-content: flex-end;
+    }
+
+    #listItem {
+        width: auto;
+    }
+
+    .header #headerSearch {
+        display: none;
+    }
+
+    .header .rightNav {
+        justify-content: center;
+    }
+
+    #search #closeSearch {
+        display: none;
+    }
+}
+
+#search #closeSearch {
+    width: 12px;
+    padding-right: 8px;
+    cursor: pointer;
+}
+
+#logOut {
+    cursor: pointer;
 }
