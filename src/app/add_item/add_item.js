@@ -6,6 +6,10 @@ import { uploadImage } from '../services/cloudinary-service';
 import { saveListing } from '../services/firebase-service';
 
 
+// ******************************** Variable Declarations ******************************** //
+let locationAsArrayOfCoords = [0,0];
+
+
 // ****************************************************************************************************** //
 // ******************************** Funcs to Upload/Remove Images on UI ********************************* //
 // ****************************************************************************************************** //
@@ -74,23 +78,23 @@ function removeImg(img, show, hide, hide2, background) {
 // );
 
 
-// function getLocation(address) {
-//   var geocoder = new google.maps.Geocoder();
-//   geocoder.geocode( { 'address': address}, function(results, status) {
+function getLocation(address) {
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode( { 'address': address}, function(results, status) {
 
-//   if (status == google.maps.GeocoderStatus.OK) {
-//       const latitude = results[0].geometry.location.lat();
-//       const longitude = results[0].geometry.location.lng();
+  if (status == google.maps.GeocoderStatus.OK) {
+      const latitude = results[0].geometry.location.lat();
+      const longitude = results[0].geometry.location.lng();
+      const location = [
+          latitude, longitude
+      ];
 
-//       const location = [
-//           latitude, longitude
-//       ];
-
-//       console.log(location); 
-//       return location;
-//       } 
-//   }); 
-// }
+      locationAsArrayOfCoords = location;
+      console.log(locationAsArrayOfCoords);
+      return location;
+      }
+  });
+}
 
 
 // ****************************************************************************************************** //
@@ -117,7 +121,8 @@ function submitAddItemForm() {
         title: document.getElementById('item').value,
         category: document.getElementById('category').value,
         condition: document.getElementById('condition').value,
-        location: document.getElementById('location').value,
+        lat: locationAsArrayOfCoords[0],
+        lng: locationAsArrayOfCoords[1],
         description: document.getElementById('description').value,
         date: (new Date()).toISOString(),
         img: []
@@ -239,7 +244,7 @@ document.getElementById('c1').addEventListener('click', () => {
     const insert1 = document.getElementById('insert1');
     const c1 = document.getElementById('c1');
     const p1 = document.getElementById('p1');
-    
+
     document.getElementById("input1").disabled = false;
 
     removeImg(insert1, img1, c1, insert1, p1);
@@ -333,6 +338,7 @@ function fillInAddress() {
     }
   }
     address.value = address1;
+    getLocation(address1);
 }
 
 // ************************************** Show/Close Modal ********************************************** //
@@ -360,7 +366,7 @@ document.getElementById('leaveAddItem').addEventListener('click', () => {
 window.initAutocomplete = initAutocomplete;
 window.fillInAddress = fillInAddress;
 // window.showPosition = showPosition;
-// window.getLocation = getLocation;
+window.getLocation = getLocation;
 window.photoUpload = photoUpload;
 window.hideHelpText = hideHelpText;
 window.removeImg = removeImg;
