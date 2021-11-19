@@ -16,7 +16,7 @@ const views = [
     "menuAccountView",
     "notificationView",
     "detailsView",
-    // "searchView"
+    "searchView"
 ];
 
 // init method

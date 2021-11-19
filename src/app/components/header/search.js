@@ -19,6 +19,8 @@ function populateSearch(hits) {
     const title = document.getElementById('yourSearch');
     const searchItem = document.getElementById('searchInput').value;
 
+    container.innerHTML = "";
+
     if(hits) {
         title.innerHTML = `Search results for "${searchItem}"`;
 
@@ -60,6 +62,9 @@ const searchFunc = () => {
         index.search(searchItem).then(({ hits }) => {
         console.log(hits);
         populateSearch(hits);
+        document.getElementById('searchSubmit').addEventListener("click", () => {
+            location.hash = 'searchView';
+        });
     });
 }
 
