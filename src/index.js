@@ -9,13 +9,14 @@ let currentUser;
 window.currentUser = currentUser;
 const views = [
     "addItemView",
-    "mapView",
+    // "mapView",
     "listView",
     "menuListingView",
     "createAccountView",
     "menuAccountView",
     "notificationView",
     "detailsView",
+    // "searchView"
 ];
 
 // init method
@@ -58,6 +59,11 @@ function signOut() {
 }
 
 function switchView(id) {
+    if(id === "#mapView") {
+        $(".page-container").hide();
+    } else {
+        $(".page-container").show();
+    }
     hideAllViews();
     showView(id);
 }
