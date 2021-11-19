@@ -78,12 +78,15 @@ function addFilter(buttonDiv, map) {
     });
 };
 
+
+
 // initiate map var
 let map, i;
 
 export function hello() {
     console.log('Hello form init Map');
 }
+
 // initiate map func
 function initMap() {
     initGoogleMap();
@@ -93,6 +96,7 @@ function initMap() {
         deployMarkers();
     });
 }
+
 window.initMap = initMap;
 
 function initGoogleMap() {
@@ -128,6 +132,32 @@ function initGoogleMap() {
                         lng: position.coords.longitude,
                     };
                     map.setCenter(pos);
+
+                    let mk1 = { lat: listings[0].lat, lng: listings[0].lng };
+                    let mk2 = pos
+
+                    let line =
+                        new google.maps.Polyline({ path: [mk1, mk2], map: map });
+
+                    let distance = haversine_distance(mk1, mk2);
+                    console.log("Distance between markers: " + distance.toFixed(2) + " km.");
+
+                    function haversine_distance(mk1, mk2) {
+                        let R = 6371.0710; // Radius of the Earth in miles
+                        let rlat1 = mk1.lat * (Math.PI / 180);
+                        // Convert degrees to radians
+                        let rlat2 = mk2.lat * (Math.PI / 180);
+                        // Convert degrees to radians
+                        let difflat = rlat2 - rlat1; // Radian difference (latitudes)
+                        let difflon = (mk2.lng - mk1.lng)
+                            * (Math.PI / 180); // Radian difference (longitudes)
+
+                        let d = 2 * R
+                            * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2)
+                                + Math.cos(rlat1) * Math.cos(rlat2)
+                                * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
+                        return d;
+                    }
                 },
 
                 // () => {
@@ -140,8 +170,13 @@ function initGoogleMap() {
             console.log('Location Error');
             // handleLocationError(false, map.getCenter());
         }
+
+
     });
 }
+
+
+
 function deployMarkers() {
 
     console.log('deployMarkers');
@@ -149,15 +184,15 @@ function deployMarkers() {
         function getIcon() {
             let icon;
 
-            if(listings[i].category == "Home Goods") {
+            if (listings[i].category == "Home Goods") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png";
-            } else if(listings[i].category == "Education") {
+            } else if (listings[i].category == "Education") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/educationIcon_ppcrfg.png";
-            } else if(listings[i].category == "Garden & Outdoor") {
+            } else if (listings[i].category == "Garden & Outdoor") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_14outdoor_ahf2g3.png";
-            } else if(listings[i].category == "Recreation") {
+            } else if (listings[i].category == "Recreation") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_15recreation_kb9dqe.png";
-            } else if(listings[i].category == "Pet Supplies") {
+            } else if (listings[i].category == "Pet Supplies") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/petIcon_adqpey.png";
             }
             return icon;
@@ -207,7 +242,7 @@ function closeDetailsOverlay() {
 }
 window.closeDetailsOverlay = closeDetailsOverlay;
 
-(()=>{
+(() => {
     $('.itemDisplayOverlay').hide();
 })()
 
