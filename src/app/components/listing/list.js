@@ -1,4 +1,3 @@
-import "./list.scss";
 import { getAllListings } from "../../services/firebase-service";
 
 let listings = [];
