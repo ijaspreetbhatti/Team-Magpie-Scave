@@ -62,22 +62,6 @@ function removeImg(img, show, hide, hide2, background) {
 // ************************************** Get Geolocation Event Listeners ******************************* //
 // ****************************************************************************************************** //
 
-// let locationPromise = new Promise(function(res, rej) {
-//     let userLocation = getLocation(document.getElementById('location').value);
-
-//     if (userLocation != "") {
-//         res(getLocation(userLocation));
-//     } else {
-//         rej(console.log('no location'));
-//     }
-// });
-
-// locationPromise.then(
-//     function(res) {console.log("yes!");},
-//     function(rej) {console.log("no!");}
-// );
-
-
 function getLocation(address) {
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode( { 'address': address}, function(results, status) {
@@ -113,9 +97,6 @@ const blobToBase64 = blob => {
 
 
 function submitAddItemForm() {
-
-    // const userLocation = document.getElementById('location').value;
-    // const coords = getLocation(userLocation);
 
     const formValue = {
         title: document.getElementById('item').value,
@@ -361,11 +342,8 @@ document.getElementById('leaveAddItem').addEventListener('click', () => {
 
 // ************************************** Intialize Funcs in Window ************************************* //
 
-// window.getLocationData = getLocationData;
-// window.getLocation = getLocation;
 window.initAutocomplete = initAutocomplete;
 window.fillInAddress = fillInAddress;
-// window.showPosition = showPosition;
 window.getLocation = getLocation;
 window.photoUpload = photoUpload;
 window.hideHelpText = hideHelpText;
