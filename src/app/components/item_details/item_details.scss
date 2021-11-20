@@ -45,6 +45,7 @@
             padding: 8px 16px;
             color: #263238;
             background-color: #ffffff;
+            border-radius: 8px;
         }
 
         .save:hover {
@@ -166,10 +167,8 @@
 
     .map {
         margin-top: 32px;
-        margin-bottom: 30px;
         width: 100%;
         height: 138px;
-        background-color: green;
         border-radius: 4px;
     }
 }
