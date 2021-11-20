@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AACG,MADG,CACH,EAAE,CAAC;EACC,WAAW,EAAE,IAAI;CACpB;;AAHJ,AAIG,MAJG,CAIH,CAAC,CAAC;EACE,WAAW,EAAE,IAAI;EACjB,UAAU,EAAE,IAAI;CACnB",
-    "sources": [
-        "src/app/components/menu/notification/empty.scss"
-    ],
-    "names": [],
-    "file": "empty.css"
-}
