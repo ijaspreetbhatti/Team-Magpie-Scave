@@ -1,10 +1,27 @@
 import "./menu_account.scss";
 import { app } from "../../../services/firebase-service";
-import { getAuth } from "firebase/auth";
+// import { getAuth } from "firebase/auth";
+
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const auth = getAuth(app);
-const user = auth.currentUser;
-console.log(user);
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+
+
+// const auth = getAuth(app);
+// const user = auth.currentUser;
+// console.log(user);
 // if (user !== null) {
 // The user object has basic properties such as display name, email, etc.
 // const displayName = user.displayName;
@@ -30,6 +47,24 @@ console.log(user);
 //   // An error occurred
 //   // ...
 // });
+
+
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+
 
 // let user = firebase.auth().currentUser;
 // user.updateProfile({
@@ -65,8 +100,3 @@ function popupModal() {
   }
 }
 popupModal();
-
-// const home = document.getElementById("home");
-// home.addEventListener('click', () => {
-//   console.log("gomi");
-// })
