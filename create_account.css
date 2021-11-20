@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+body {
+  font: normal 400 12px/18px "Poppins", sans-serif;
+  color: #263238;
+}
+
+h1 {
+  font: normal 600 24px/28px "Poppins", sans-serif;
+  color: #263238;
+}
+
+h2 {
+  font: normal 600 20px/24px "Poppins", sans-serif;
+  color: #263238;
+}
+
+h3 {
+  font: normal 600 16px/20px "Poppins", sans-serif;
+  color: #263238;
+}
+
+.menuLink {
+  font: normal 400 16px/20px "Poppins", sans-serif;
+  color: #263238;
+}
+
+h4, button {
+  font: normal 600 12px/18px "Poppins", sans-serif;
+  color: #263238;
+}
+
+input, select {
+  color: #90A4AE;
+  font: normal 400 12px/18px "Poppins", sans-serif;
+  outline: none !important;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid #90A4AE;
+  color: #90A4AE;
+  padding-left: 8px;
+  cursor: pointer;
+  outline: none !important;
+}
+
+input:focus, select:focus {
+  border: 1px solid #00BCD4;
+}
+
+label, textarea {
+  font: normal 400 12px/18px "Poppins", sans-serif;
+  color: #263238;
+}
+
+* {
+  margin: 0;
+}
+
+.create-account .header #logoSignup {
+  width: 94px;
+  height: auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.create-account .header #signupH1 {
+  margin-left: 24px;
+  margin-top: 24px;
+  font-size: 24px;
+  width: 100vw;
+}
+
+.create-account main {
+  text-align: center;
+}
+
+.create-account main form {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.create-account main form label, .create-account main form input {
+  display: block;
+}
+
+.create-account main form label {
+  color: #263238;
+  font-size: 12px;
+  margin-bottom: 4px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.create-account main form input {
+  width: 342px;
+  height: 34px;
+  border: #90a4ae solid 1px;
+  border-radius: 8px;
+  border: 1px solid #90A4AE;
+  color: #90A4AE;
+  padding-left: 8px;
+  cursor: pointer;
+  outline: none !important;
+}
+
+.create-account main form input:focus {
+  border: 1px solid #00BCD4;
+}
+
+.create-account main form input::-webkit-input-placeholder {
+  color: #90a4ae;
+  font-size: 12px;
+  padding: 7px auto 7px 15px;
+}
+
+.create-account main form input:-ms-input-placeholder {
+  color: #90a4ae;
+  font-size: 12px;
+  padding: 7px auto 7px 15px;
+}
+
+.create-account main form input::-ms-input-placeholder {
+  color: #90a4ae;
+  font-size: 12px;
+  padding: 7px auto 7px 15px;
+}
+
+.create-account main form input::placeholder {
+  color: #90a4ae;
+  font-size: 12px;
+  padding: 7px auto 7px 15px;
+}
+
+.create-account main form .policy {
+  width: 342px;
+  height: 36px;
+  margin: 20px auto;
+}
+
+.create-account main form .policy p {
+  font-size: 12px;
+  color: #263238;
+}
+
+.create-account main form #signup-btn {
+  border-color: #00bcd4;
+  background: #00bcd4;
+  font-size: 12px;
+  color: white;
+}
+
+.create-account main form .signup-btn p {
+  font-size: 10px;
+  color: #263238;
+  margin: 10px auto 0 auto;
+  width: 169px;
+  height: 14px;
+}
+
+.create-account main form .signup-btn p span {
+  font-weight: bold;
+}
+
+.create-account main form .signup-btn p a {
+  text-decoration: none;
+}
+
+.create-account main form #wrongPass {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 10px auto;
+}
+
+.create-account footer {
+  height: 56px;
+  border-top: 1px solid #cfd8dc;
+  margin-top: 120px;
+}
+
+.create-account footer p {
+  text-align: center;
+  margin-top: 21px auto;
+  font-size: 10px;
+  color: #607d8b;
+}
+/*# sourceMappingURL=create_account.css.map */

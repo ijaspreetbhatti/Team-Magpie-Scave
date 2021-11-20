@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+body {
+  font: normal 400 12px/18px "Poppins", sans-serif;
+  color: #263238;
+}
+
+h1 {
+  font: normal 600 24px/28px "Poppins", sans-serif;
+  color: #263238;
+}
+
+h2 {
+  font: normal 600 20px/24px "Poppins", sans-serif;
+  color: #263238;
+}
+
+h3 {
+  font: normal 600 16px/20px "Poppins", sans-serif;
+  color: #263238;
+}
+
+.menuLink {
+  font: normal 400 16px/20px "Poppins", sans-serif;
+  color: #263238;
+}
+
+h4, button {
+  font: normal 600 12px/18px "Poppins", sans-serif;
+  color: #263238;
+}
+
+input, select {
+  color: #90A4AE;
+  font: normal 400 12px/18px "Poppins", sans-serif;
+  outline: none !important;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid #90A4AE;
+  color: #90A4AE;
+  padding-left: 8px;
+  cursor: pointer;
+  outline: none !important;
+}
+
+input:focus, select:focus {
+  border: 1px solid #00BCD4;
+}
+
+label, textarea {
+  font: normal 400 12px/18px "Poppins", sans-serif;
+  color: #263238;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+#mainLogo {
+  width: 94px;
+  height: auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#btn {
+  cursor: pointer;
+}
+
+body main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .logo {
+  height: 56px;
+  border-bottom: #cfd8dc solid 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body h1 {
+  margin-left: 24px;
+  margin-top: 24px;
+  font-size: 24px;
+}
+
+body #login_form .container,
+body #login_form .btn {
+  margin: 32px 23px 0 25px;
+}
+
+body #login_form #btn {
+  background: #00BCD4;
+  border-radius: 8px;
+  color: #ffffff;
+  border: none;
+  height: 34px;
+  font: normal 600 12px/18px "Poppins", sans-serif;
+  padding: 8px;
+  cursor: pointer;
+}
+
+body #login_form #btn:hover {
+  background-color: #006064;
+}
+
+body #login_form #btn:active {
+  background-color: #0097A7;
+}
+
+body #login_form label,
+body #login_form input {
+  display: block;
+}
+
+body #login_form label {
+  font-size: 12px;
+}
+
+body #login_form input {
+  width: 342px;
+  height: 34px;
+  border-radius: 8px;
+  border: #90a4ae solid 1px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid #90A4AE;
+  color: #90A4AE;
+  padding-left: 8px;
+  cursor: pointer;
+  outline: none !important;
+}
+
+body #login_form input:focus {
+  border: 1px solid #00BCD4;
+}
+
+body #login_form div.btn input {
+  background: #00bcd4;
+}
+
+body #login_form input[value="Sign in"] {
+  font-size: 12px;
+  color: white;
+}
+
+body #login_form .btn p {
+  margin-top: 4px;
+  text-align: center;
+}
+
+body #login_form .btn p span {
+  font-weight: bold;
+}
+
+body #login_form .btn p a {
+  text-decoration: none;
+}
+
+body #login_form div {
+  margin: 20px;
+}
+
+body #login_form div p {
+  font-size: 10px;
+}
+
+body footer {
+  height: 56px;
+  border-top: 1px solid #cfd8dc;
+  margin-top: 400px;
+}
+
+body footer p {
+  text-align: center;
+  margin: 21px 24px;
+  font-size: 10px;
+  color: #607d8b;
+}
+/*# sourceMappingURL=login.css.map */
