@@ -105,6 +105,13 @@ function initGoogleMap() {
                     };
                     map.setCenter(pos);
 
+
+                    new google.maps.Marker({
+                        position: pos,
+                        icon: "https://res.cloudinary.com/scave2021/image/upload/v1637267964/scave/centerIcon_u2vkhz.png",
+                        map
+                    });
+
                     let mk1 = { lat: listings[0].lat, lng: listings[0].lng };
                     let mk2 = pos
 
@@ -131,20 +138,13 @@ function initGoogleMap() {
                         return d;
                     }
                 },
-
-                new google.maps.Marker({
-                    position: pos,
-                    icon: "https://res.cloudinary.com/scave2021/image/upload/v1637267964/scave/centerIcon_u2vkhz.png",
-                    map
-                });
-        },
             );
 
-} else {
-    // Browser doesn't support Geolocation
-    console.log('Location Error');
-    // handleLocationError(false, map.getCenter());
-}
+        } else {
+            // Browser doesn't support Geolocation
+            console.log('Location Error');
+            // handleLocationError(false, map.getCenter());
+        }
 
 
     });
