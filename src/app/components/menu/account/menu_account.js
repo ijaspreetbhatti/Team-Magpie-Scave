@@ -49,20 +49,20 @@ onAuthStateChanged(auth, (user) => {
 // });
 
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+// import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-const auth = getAuth();
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
+// const auth = getAuth();
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     User is signed in, see docs for a list of available properties
+//     https://firebase.google.com/docs/reference/js/firebase.User
+//     const uid = user.uid;
+//     ...
+//   } else {
+//     User is signed out
+//     ...
+//   }
+// });
 
 
 
@@ -82,7 +82,7 @@ onAuthStateChanged(auth, (user) => {
 /* Leave Confirmation *****************************/
 function popupModal() {
   let popup = document.getElementById('js-popup');
-  if(!popup) return;
+  if (!popup) return;
 
   let blackBg = document.getElementById('js-black-bg');
   let stayBtn = document.getElementById('js-stay-btn');
@@ -92,8 +92,8 @@ function popupModal() {
   closePopUp(stayBtn);
   closePopUp(showBtn);
   function closePopUp(elem) {
-    if(!elem) return;
-    elem.addEventListener('click', function() {
+    if (!elem) return;
+    elem.addEventListener('click', function () {
       console.log("NEMUI");
       popup.classList.toggle('is-show');
     });
