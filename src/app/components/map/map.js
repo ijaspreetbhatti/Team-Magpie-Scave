@@ -77,12 +77,12 @@ function initGoogleMap() {
         zoom: 14,
         styles: [
                 {
-                featureType: "poi",
-                stylers: [{ visibility: "off" }],
+                    featureType: "poi",
+                    stylers: [{ visibility: "off" }],
                 },
                 {
-                featureType: "transit",
-                stylers: [{ visibility: "off" }],
+                    featureType: "transit",
+                    stylers: [{ visibility: "off" }],
                 },
             ],
     });
@@ -181,31 +181,6 @@ function deployMarkers() {
             }
             return icon;
         }
-
-        // Get coords based on user address input - not working
-        // function getLocation() {
-        //     let pos;
-
-        //     const latlng = {
-        //         "lat": "",
-        //         "lng": ""
-        //     };
-
-        //     const geocoder = new google.maps.Geocoder();
-        //     geocoder.geocode({ 'address': listings[i].location }, function (results, status) {
-
-        //         if (status == google.maps.GeocoderStatus.OK) {
-        //             latlng.lat = results[0].geometry.location.lat();
-        //             latlng.lng = results[0].geometry.location.lng();
-
-        //             console.log(latlng);
-
-        //             pos = new google.maps.LatLng(latlng.lat, latlng.lng);
-        //         }
-        //     });
-
-        //     return pos;
-        // }
 
         const marker = new google.maps.Marker({
             // position: getLocation(),
