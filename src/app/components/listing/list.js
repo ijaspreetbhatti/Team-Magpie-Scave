@@ -31,10 +31,10 @@ function populateListings() {
 }
 
 // gets the detials of a selected item using the lat and lng properties
-function loadDetails(id) {
-    const listing = listings.find(listing => listing.id === id);
-    if (listing) {
-        window.currentItem = listing;
+function loadDetails(lat, lng) {
+    const obj = listings.find(listing => Number(listing.lat) === lat && Number(listing.lng) === lng);
+    if (obj) {
+        window.currentItem = obj
         location.replace(`#detailsView`);
         populateListing();
     }
@@ -53,3 +53,20 @@ document.getElementById("listBtn").addEventListener("click", () => {
 document.getElementById("mapBtn").addEventListener("click", () => {
     location.hash = "mapView";
 });
+
+//calculate the distance from user to the current Item
+
+// function haversine_distance(mk1, mk2) {
+//     var R = 6371.0710; // Radius of the Earth in miles
+//     var rlat1 = mk1.position.lat() * (Math.PI/180); // Convert degrees to radians
+//     var rlat2 = mk2.position.lat() * (Math.PI/180); // Convert degrees to radians
+//     var difflat = rlat2-rlat1; // Radian difference (latitudes)
+//     var difflon = (mk2.position.lng()-mk1.position.lng()) * (Math.PI/180); // Radian difference (longitudes)
+
+//     var d = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat/2)*Math.sin(difflat/2)+Math.cos(rlat1)*Math.cos(rlat2)*Math.sin(difflon/2)*Math.sin(difflon/2)));
+//     return d;
+//   }
+
+// Calculate and display the distance between markers
+// var distance = haversine_distance(mk1, mk2);
+// document.getElementById('msg').innerHTML = "Distance between markers: " + distance.toFixed(2) + " mi.";

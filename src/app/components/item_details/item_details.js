@@ -29,10 +29,10 @@ function populateListing() {
 // this adds the populateListing function into global namespace.
 window.populateListing = populateListing;
 
-let containerHeader = document.querySelector(".content-info");
-let imgs = document.querySelector(".imgs");
+// let containerHeader = document.querySelector(".content-info");
+// let imgs = document.querySelector(".imgs");
 
-let thumbnail = document.querySelector(".thumbnail");
+// let thumbnail = document.querySelector(".thumbnail");
 
 function mySlidesHandler(e) {
     if (e.target.src) {
@@ -68,7 +68,15 @@ btn.onclick = function () {
     modal.style.display = 'block';
 }
 
+spanConfirm.onclick = function () {
+    btn.style.backgroundColor = '#455A64';
+    btn.style.color = '#ffffff'
+    modal.style.display = 'none';
+}
+
 spanCancel.onclick = function () {
+    btn.style.backgroundColor = '#ffffff';
+    btn.style.color = "#263238"
     modal.style.display = 'none';
 }
 
@@ -82,7 +90,7 @@ function smallMap() {
     const map = new google.maps.Map(document.getElementById('smallMap'), {
         disableDefaultUI: true,
         zoom: 14,
-        center: {lat: currentItem.lat, lng: currentItem.lng},
+        center: { lat: currentItem.lat, lng: currentItem.lng },
     });
 }
 
