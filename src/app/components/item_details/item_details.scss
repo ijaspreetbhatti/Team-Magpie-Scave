@@ -64,8 +64,13 @@
         background-color: rgba(0, 0, 0, 0.4);
 
         .modal-content {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 342px;
+            height: 165px;
             background-color: #fefefe;
-            margin: 50% 24px;
             border-radius: 8px;
             overflow: hidden;
 
