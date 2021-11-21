@@ -244,6 +244,8 @@ function closeDetailsOverlay() {
 }
 window.closeDetailsOverlay = closeDetailsOverlay;
 
-(() => {
+function init() {
     $('.itemDisplayOverlay').hide();
-})
+}
+
+init();
