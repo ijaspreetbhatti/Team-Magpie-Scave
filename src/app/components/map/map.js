@@ -75,6 +75,16 @@ function initGoogleMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         disableDefaultUI: true,
         zoom: 14,
+        styles: [
+                {
+                featureType: "poi",
+                stylers: [{ visibility: "off" }],
+                },
+                {
+                featureType: "transit",
+                stylers: [{ visibility: "off" }],
+                },
+            ],
     });
 
     // create map UI buttons from above funcs
@@ -173,29 +183,29 @@ function deployMarkers() {
         }
 
         // Get coords based on user address input - not working
-        function getLocation() {
-            let pos;
+        // function getLocation() {
+        //     let pos;
 
-            const latlng = {
-                "lat": "",
-                "lng": ""
-            };
+        //     const latlng = {
+        //         "lat": "",
+        //         "lng": ""
+        //     };
 
-            const geocoder = new google.maps.Geocoder();
-            geocoder.geocode({ 'address': listings[i].location }, function (results, status) {
+        //     const geocoder = new google.maps.Geocoder();
+        //     geocoder.geocode({ 'address': listings[i].location }, function (results, status) {
 
-                if (status == google.maps.GeocoderStatus.OK) {
-                    latlng.lat = results[0].geometry.location.lat();
-                    latlng.lng = results[0].geometry.location.lng();
+        //         if (status == google.maps.GeocoderStatus.OK) {
+        //             latlng.lat = results[0].geometry.location.lat();
+        //             latlng.lng = results[0].geometry.location.lng();
 
-                    console.log(latlng);
+        //             console.log(latlng);
 
-                    pos = new google.maps.LatLng(latlng.lat, latlng.lng);
-                }
-            });
+        //             pos = new google.maps.LatLng(latlng.lat, latlng.lng);
+        //         }
+        //     });
 
-            return pos;
-        }
+        //     return pos;
+        // }
 
         const marker = new google.maps.Marker({
             // position: getLocation(),
