@@ -208,3 +208,17 @@ window.closeDetailsOverlay = closeDetailsOverlay;
 (()=>{
     $('.itemDisplayOverlay').hide();
 })
+
+// document.addEventListener('click', function(event) {
+//     const navDisplay = document.getElementById('itemDisplayOverlay');
+//     const marker = new google.maps.Marker;
+
+//     const elementArea = navDisplay.contains(event.target);
+
+//     if(!elementArea && !marker ) {
+//         console.log("not here");
+//         closeDetailsOverlay();
+//     } else {
+//         console.log('not here');
+//     }
+// });
