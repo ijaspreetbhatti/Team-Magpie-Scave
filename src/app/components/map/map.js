@@ -50,8 +50,10 @@ function addFilter(buttonDiv, map) {
 
         if(filterView.style.display === 'none') {
             filterView.style.display = 'flex';
+            filterUI.classList.add("filterActive");
         } else {
             filterView.style.display = 'none';
+            filterUI.classList.remove("filterActive");
         }
     });
 };
@@ -248,3 +250,25 @@ function hideFilter() {
 document.getElementById('closeFilter').addEventListener('click', ()=> {
     hideFilter();
 })
+
+function checkFilter() {
+    
+    const homeGoods = document.getElementById('homeGoodsFilter');
+    const gardenOutdoor = document.getElementById('gardenOutdoorFilter');
+    const recreation = document.getElementById('recreationFilter');
+    const pets = document.getElementById('petFilter');
+    const education = document.getElementById('educationFilter');
+
+    const likeNew = document.getElementById('likeNewFilter');
+    const good = document.getElementById('goodFilter');
+    const fair = document.getElementById('fairFilter');
+    const damaged = document.getElementById('damagedFilter');
+
+    if(homeGoods.checked === true) {
+        console.log('homeGoods');
+    } else {
+        console.log('no');
+    }; 
+}
+
+window.checkFilter = checkFilter;

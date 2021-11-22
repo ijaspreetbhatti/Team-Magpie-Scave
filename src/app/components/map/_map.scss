@@ -21,6 +21,19 @@
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
+
+    .filterActive {
+        background: $grey4;
+    
+        h4 {
+            color: $white;
+            // border-radius: inherit;
+        }
+        svg {
+            fill: $white;
+            // background: inherit;
+        }
+    }
 }
 
 .filter {
@@ -174,7 +187,7 @@
             input:checked ~ .check:after {
                 display: block;
             }
-              
+
             input:checked ~ .check {
                 height: 12px;
                 width: 12px;
@@ -193,11 +206,9 @@
             transform: rotate(45deg);
             transform: rotate(45deg);
             transform: rotate(45deg);
-          }
+        }
     }
-
 }
-
 // Filter Overlay Desktop *****************************************************************************
 
 @media screen and (min-width: 1000px) {
