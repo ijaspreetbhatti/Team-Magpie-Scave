@@ -50,7 +50,7 @@ function addFilter(buttonDiv, map) {
     filterUI.addEventListener("click", () => {
         const filterView = document.getElementById('filterOverlay');
 
-        if(filterView.style.display === 'none') {
+        if (filterView.style.display === 'none') {
             filterView.style.display = 'flex';
             filterUI.classList.add("filterActive");
         } else {
@@ -86,15 +86,15 @@ function initGoogleMap() {
         disableDefaultUI: true,
         zoom: 14,
         styles: [
-                {
-                    featureType: "poi",
-                    stylers: [{ visibility: "off" }],
-                },
-                {
-                    featureType: "transit",
-                    stylers: [{ visibility: "off" }],
-                },
-            ],
+            {
+                featureType: "poi",
+                stylers: [{ visibility: "off" }],
+            },
+            {
+                featureType: "transit",
+                stylers: [{ visibility: "off" }],
+            },
+        ],
     });
 
     // create map UI buttons from above funcs
@@ -136,8 +136,8 @@ function initGoogleMap() {
                         let mk1 = { lat: listings[i].lat, lng: listings[i].lng };
                         let mk2 = pos;
 
-                        let line =
-                            new google.maps.Polyline({ path: [mk1, mk2], map: map });
+                        // let line =
+                        //     new google.maps.Polyline({ path: [mk1, mk2], map: map });
 
                         let distance = haversine_distance(mk1, mk2);
                         console.log("Distance between markers: " + distance.toFixed(2) + " km.");
@@ -216,10 +216,10 @@ function deployMarkers() {
 
 function getRenderableDistance(distance) {
     let dist = 0;
-    if(Number(distance) > 1) {
+    if (Number(distance) > 1) {
         dist = Number(distance).toFixed(2) + " km";
     } else {
-        dist = (Number(distance)*1000).toFixed(2) + " m";
+        dist = (Number(distance) * 1000).toFixed(2) + " m";
     }
     return dist;
 }
@@ -264,7 +264,7 @@ function hideFilter() {
     $('#filterOverlay').hide();
 }
 
-document.getElementById('closeFilter').addEventListener('click', ()=> {
+document.getElementById('closeFilter').addEventListener('click', () => {
     hideFilter();
 })
 
@@ -281,7 +281,7 @@ function checkFilter() {
     const fair = document.getElementById('fairFilter');
     const damaged = document.getElementById('damagedFilter');
 
-    if(homeGoods.checked === true) {
+    if (homeGoods.checked === true) {
         console.log('homeGoods');
     } else {
         console.log('no');
