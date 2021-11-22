@@ -9,7 +9,7 @@ let currentUser;
 window.currentUser = currentUser;
 const views = [
     "addItemView",
-    // "mapView",
+    "mapView",
     "listView",
     "menuListingView",
     "createAccountView",

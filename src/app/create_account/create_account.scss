@@ -1,21 +1,16 @@
 @import "../../_variables.scss";
 @import "../../_font_styles.scss";
 @import "../../_mixins.scss";
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-* {
-    margin: 0;
-}
-
-.create-account {
+#createAccountView {
     .header {
+        text-align: center;
         #logoSignup {
             width: 94px;
             height: auto;
-            align-self: center;
         }
+        
         #signupH1 {
-            margin-left: 24px;
             margin-top: 24px;
             font-size: 24px;
             width: 100vw;
