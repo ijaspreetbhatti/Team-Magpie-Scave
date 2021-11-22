@@ -29,6 +29,7 @@ body {
 .display-area {
     flex-grow: 1;
     position: relative;
+    overflow: hidden;
 
     > div#mapView {
         width: 100%;
@@ -64,7 +65,8 @@ body {
 #mapView {
     width: 100%;
     height: 100%;
-    position: relative;
+    // position: relative;
+    overflow: hidden;
 }
 
 .filter {
@@ -73,14 +75,6 @@ body {
 
 // Desktop
 @media screen and (min-width: 1000px) {
-    // .display-area {
-    //     display: grid;
-    //     grid-template-columns: 65% 35%;
-    // }    
-
-    // #mapView {
-    //     width: 65%;
-    // }
     .display-area {
         width: 80%;
         align-self: flex-end;
@@ -97,10 +91,6 @@ body {
             }
         }
     }
-
-    // .page-container .viewBtn {
-    //     display: none;
-    // }
 }
 
 .viewBtn {

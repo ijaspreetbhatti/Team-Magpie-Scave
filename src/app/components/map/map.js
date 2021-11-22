@@ -41,12 +41,18 @@ function addFilter(buttonDiv, map) {
 
     const filterUI = document.createElement("div");
     filterUI.className = 'viewBtn filter';
-    filterUI.setAttribute('id', 'viewBtn');
+    filterUI.setAttribute('id', 'filterBtn');
     filterUI.innerHTML = `<h4>Filter</h4> ${icon}`;
     buttonDiv.appendChild(filterUI);
 
     filterUI.addEventListener("click", () => {
-        console.log('click');
+        const filterView = document.getElementById('filterOverlay');
+
+        if(filterView.style.display === 'none') {
+            filterView.style.display = 'flex';
+        } else {
+            filterView.style.display = 'none';
+        }
     });
 };
 
@@ -234,3 +240,11 @@ function init() {
 }
 
 init();
+
+function hideFilter() {
+    $('#filterOverlay').hide();
+}
+
+document.getElementById('closeFilter').addEventListener('click', ()=> {
+    hideFilter();
+})

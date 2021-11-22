@@ -44,7 +44,19 @@ window.loadDetails = loadDetails;
 
 let listContainer = document.querySelector(".list-container");
 
-document.getElementById("filterBtn").addEventListener("click", () => { });
+function toggleFilter() {
+    const filterView = document.getElementById('filterOverlay');
+
+    if(filterView.style.display === 'none') {
+        filterView.style.display = 'flex';
+    } else {
+        filterView.style.display = 'none';
+    }
+};
+
+document.getElementById("filterBtn").addEventListener("click", () => { 
+    toggleFilter();
+});
 
 document.getElementById("listBtn").addEventListener("click", () => {
     location.hash = "listView";
