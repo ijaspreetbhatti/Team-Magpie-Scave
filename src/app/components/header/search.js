@@ -12,6 +12,15 @@ const search = instantsearch({
   searchClient,
 });
 
+// index.search('query', {
+//   facets:   ['category', 'condition']
+//   filters: 
+//             'attribute:value AND | OR attribute:value'
+//             'category: Home Goods'
+//             'category: '
+// });
+
+
 // Populate Items
 function populateSearch(hits) {
     console.log('populating');
