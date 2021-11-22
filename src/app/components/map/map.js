@@ -50,8 +50,10 @@ function addFilter(buttonDiv, map) {
 
         if(filterView.style.display === 'none') {
             filterView.style.display = 'flex';
+            filterUI.classList.add("filterActive");
         } else {
             filterView.style.display = 'none';
+            filterUI.classList.remove("filterActive");
         }
     });
 };
@@ -128,31 +130,36 @@ function initGoogleMap() {
                         map
                     });
 
-                    let mk1 = { lat: listings[0].lat, lng: listings[0].lng };
-                    let mk2 = pos
+                    for (let i = 0; i < listings.length; i++) {
+                        let mk1 = { lat: listings[i].lat, lng: listings[i].lng };
+                        let mk2 = pos;
 
-                    let line =
-                        new google.maps.Polyline({ path: [mk1, mk2], map: map });
+                        let line =
+                            new google.maps.Polyline({ path: [mk1, mk2], map: map });
 
-                    let distance = haversine_distance(mk1, mk2);
-                    console.log("Distance between markers: " + distance.toFixed(2) + " km.");
+                        let distance = haversine_distance(mk1, mk2);
+                        console.log("Distance between markers: " + distance.toFixed(2) + " km.");
+                        // let distanceInput = document.getElementById('itemDistance');
+                        // distanceInput.innerHTML = distance.toFixed(2) + "km";
 
-                    function haversine_distance(mk1, mk2) {
-                        let R = 6371.0710; // Radius of the Earth in miles
-                        let rlat1 = mk1.lat * (Math.PI / 180);
-                        // Convert degrees to radians
-                        let rlat2 = mk2.lat * (Math.PI / 180);
-                        // Convert degrees to radians
-                        let difflat = rlat2 - rlat1; // Radian difference (latitudes)
-                        let difflon = (mk2.lng - mk1.lng)
-                            * (Math.PI / 180); // Radian difference (longitudes)
+                        function haversine_distance(mk1, mk2) {
+                            let R = 6371.0710; // Radius of the Earth in miles
+                            let rlat1 = mk1.lat * (Math.PI / 180);
+                            // Convert degrees to radians
+                            let rlat2 = mk2.lat * (Math.PI / 180);
+                            // Convert degrees to radians
+                            let difflat = rlat2 - rlat1; // Radian difference (latitudes)
+                            let difflon = (mk2.lng - mk1.lng)
+                                * (Math.PI / 180); // Radian difference (longitudes)
 
-                        let d = 2 * R
-                            * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2)
-                                + Math.cos(rlat1) * Math.cos(rlat2)
-                                * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
-                        return d;
+                            let d = 2 * R
+                                * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2)
+                                    + Math.cos(rlat1) * Math.cos(rlat2)
+                                    * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
+                            return d;
+                        }
                     }
+
                 },
             );
 
@@ -165,8 +172,6 @@ function initGoogleMap() {
 
     });
 }
-
-
 
 function deployMarkers() {
 
@@ -248,3 +253,25 @@ function hideFilter() {
 document.getElementById('closeFilter').addEventListener('click', ()=> {
     hideFilter();
 })
+
+function checkFilter() {
+    
+    const homeGoods = document.getElementById('homeGoodsFilter');
+    const gardenOutdoor = document.getElementById('gardenOutdoorFilter');
+    const recreation = document.getElementById('recreationFilter');
+    const pets = document.getElementById('petFilter');
+    const education = document.getElementById('educationFilter');
+
+    const likeNew = document.getElementById('likeNewFilter');
+    const good = document.getElementById('goodFilter');
+    const fair = document.getElementById('fairFilter');
+    const damaged = document.getElementById('damagedFilter');
+
+    if(homeGoods.checked === true) {
+        console.log('homeGoods');
+    } else {
+        console.log('no');
+    }; 
+}
+
+window.checkFilter = checkFilter;

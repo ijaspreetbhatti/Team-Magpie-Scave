@@ -47,7 +47,7 @@ console.log(user);
 /* Leave Confirmation *****************************/
 function popupModal() {
   let popup = document.getElementById('js-popup');
-  if(!popup) return;
+  if (!popup) return;
 
   let blackBg = document.getElementById('js-black-bg');
   let stayBtn = document.getElementById('js-stay-btn');
@@ -57,8 +57,8 @@ function popupModal() {
   closePopUp(stayBtn);
   closePopUp(showBtn);
   function closePopUp(elem) {
-    if(!elem) return;
-    elem.addEventListener('click', function() {
+    if (!elem) return;
+    elem.addEventListener('click', function () {
       console.log("gomi");
       popup.classList.toggle('is-show');
     });

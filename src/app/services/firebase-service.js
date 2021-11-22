@@ -23,7 +23,7 @@ export async function getAllListings() {
     const listingsSnapshot = await getDocs(listingsCollection);
     console.log(listingsSnapshot);
     const listingsList = listingsSnapshot.docs.map(doc => {
-        return {id: doc.id, ...doc.data()};
+        return { id: doc.id, ...doc.data() };
     });
     return listingsList;
 };

@@ -12,6 +12,15 @@ const search = instantsearch({
   searchClient,
 });
 
+// index.search('query', {
+//   facets:   ['category', 'condition']
+//   filters: 
+//             'attribute:value AND | OR attribute:value'
+//             'category: Home Goods'
+//             'category: '
+// });
+
+
 // Populate Items
 function populateSearch(hits) {
     console.log('populating');
@@ -21,13 +30,26 @@ function populateSearch(hits) {
 
     container.innerHTML = "";
 
+
+    function searchDetails(id) {
+        const obj = hits.find(hits => hits.objectID === id);
+        if (obj) {
+            window.currentItem = obj
+            location.replace(`#detailsView`);
+            populateListing();
+        }
+        console.log('search click');
+    }
+
+    window.searchDetails = searchDetails;
+
     if(hits) {
         title.innerHTML = `Search results for "${searchItem}"`;
 
         hits.forEach(function (hits) {
             // const firstImg = hits.img;
             container.innerHTML += `
-            <div class="search-card" id="search-card">
+            <div class="search-card" id="search-card" onclick="searchDetails('${hits.objectID}')">
                 <div class="search-info">
                 <div class="search-sub-info">
                     <h3>${hits.title}</h3>
@@ -48,18 +70,6 @@ function populateSearch(hits) {
         container.innerHTML = "Your search did not return any results.";
     } 
 }
-
-function searchDetails(lat, lng) {
-    const obj = hits.find(hits => Number(hits.lat) === lat && Number(hits.lng) === lng);
-    if (obj) {
-        window.currentItem = obj
-        location.replace(`#detailsView`);
-        populateListing();
-    }
-    console.log('search click');
-}
-
-window.searchDetails = searchDetails;
 
 
 // Click event in search input
