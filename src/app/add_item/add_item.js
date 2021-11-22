@@ -97,8 +97,6 @@ const blobToBase64 = blob => {
 
 
 function submitAddItemForm() {
-    
-
     const formValue = {
         title: document.getElementById('item').value,
         category: document.getElementById('category').value,
@@ -107,7 +105,8 @@ function submitAddItemForm() {
         lng: locationAsArrayOfCoords[1],
         description: document.getElementById('description').value,
         date: (new Date()).toISOString(),
-        img: []
+        img: [],
+        author: currentUser.email
     }
 
     const images = [input1.files[0], input2.files[0], input3.files[0], input4.files[0], input5.files[0]];
