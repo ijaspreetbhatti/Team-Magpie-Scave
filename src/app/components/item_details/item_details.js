@@ -91,6 +91,16 @@ function smallMap() {
         disableDefaultUI: true,
         zoom: 14,
         center: { lat: currentItem.lat, lng: currentItem.lng },
+        styles: [
+            {
+                featureType: "poi",
+                stylers: [{ visibility: "off" }],
+            },
+            {
+                featureType: "transit",
+                stylers: [{ visibility: "off" }],
+            },
+        ],
     });
 }
 
