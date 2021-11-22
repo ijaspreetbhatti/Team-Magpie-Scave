@@ -41,17 +41,29 @@ function addFilter(buttonDiv, map) {
 
     const filterUI = document.createElement("div");
     filterUI.className = 'viewBtn filter';
-    filterUI.setAttribute('id', 'viewBtn');
+    filterUI.setAttribute('id', 'filterBtn');
     filterUI.innerHTML = `<h4>Filter</h4> ${icon}`;
     buttonDiv.appendChild(filterUI);
 
     filterUI.addEventListener("click", () => {
-        console.log('click');
+        const filterView = document.getElementById('filterOverlay');
+
+        if(filterView.style.display === 'none') {
+            filterView.style.display = 'flex';
+        } else {
+            filterView.style.display = 'none';
+        }
     });
 };
 
+
+
 // initiate map var
 let map, i;
+
+export function hello() {
+    console.log('Hello form init Map');
+}
 
 // initiate map func
 function initMap() {
@@ -62,12 +74,23 @@ function initMap() {
         deployMarkers();
     });
 }
+
 window.initMap = initMap;
 
 function initGoogleMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         disableDefaultUI: true,
         zoom: 14,
+        styles: [
+                {
+                    featureType: "poi",
+                    stylers: [{ visibility: "off" }],
+                },
+                {
+                    featureType: "transit",
+                    stylers: [{ visibility: "off" }],
+                },
+            ],
     });
 
     // create map UI buttons from above funcs
@@ -98,11 +121,38 @@ function initGoogleMap() {
                     };
                     map.setCenter(pos);
 
+
                     new google.maps.Marker({
                         position: pos,
                         icon: "https://res.cloudinary.com/scave2021/image/upload/v1637267964/scave/centerIcon_u2vkhz.png",
                         map
                     });
+
+                    let mk1 = { lat: listings[0].lat, lng: listings[0].lng };
+                    let mk2 = pos
+
+                    let line =
+                        new google.maps.Polyline({ path: [mk1, mk2], map: map });
+
+                    let distance = haversine_distance(mk1, mk2);
+                    console.log("Distance between markers: " + distance.toFixed(2) + " km.");
+
+                    function haversine_distance(mk1, mk2) {
+                        let R = 6371.0710; // Radius of the Earth in miles
+                        let rlat1 = mk1.lat * (Math.PI / 180);
+                        // Convert degrees to radians
+                        let rlat2 = mk2.lat * (Math.PI / 180);
+                        // Convert degrees to radians
+                        let difflat = rlat2 - rlat1; // Radian difference (latitudes)
+                        let difflon = (mk2.lng - mk1.lng)
+                            * (Math.PI / 180); // Radian difference (longitudes)
+
+                        let d = 2 * R
+                            * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2)
+                                + Math.cos(rlat1) * Math.cos(rlat2)
+                                * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
+                        return d;
+                    }
                 },
             );
 
@@ -111,53 +161,32 @@ function initGoogleMap() {
             console.log('Location Error');
             // handleLocationError(false, map.getCenter());
         }
+
+
     });
 }
+
+
+
 function deployMarkers() {
 
     for (i = 0; i < listings.length; i++) {
         function getIcon() {
             let icon;
 
-            if(listings[i].category == "Home Goods") {
+            if (listings[i].category == "Home Goods") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png";
-            } else if(listings[i].category == "Education") {
+            } else if (listings[i].category == "Education") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/educationIcon_ppcrfg.png";
-            } else if(listings[i].category == "Garden & Outdoor") {
+            } else if (listings[i].category == "Garden & Outdoor") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_14outdoor_ahf2g3.png";
-            } else if(listings[i].category == "Recreation") {
+            } else if (listings[i].category == "Recreation") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_15recreation_kb9dqe.png";
-            } else if(listings[i].category == "Pet Supplies") {
+            } else if (listings[i].category == "Pet Supplies") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/petIcon_adqpey.png";
             }
             return icon;
         }
-
-        // Get coords based on user address input - not working
-        function getLocation() {
-            let pos;
-
-            const latlng = {
-                "lat": "",
-                "lng": ""
-            };
-
-            const geocoder = new google.maps.Geocoder();
-
-            geocoder.geocode( { 'address': listings[i].location}, function(results, status) {
-        
-            if (status == google.maps.GeocoderStatus.OK) {
-                latlng.lat = results[0].geometry.location.lat();
-                latlng.lng = results[0].geometry.location.lng();
-
-                console.log(latlng);
-
-                pos = new google.maps.LatLng( latlng.lat, latlng.lng );
-                } 
-            }); 
-
-            return pos;
-            }
 
         const marker = new google.maps.Marker({
             // position: getLocation(),
@@ -169,7 +198,6 @@ function deployMarkers() {
         });
 
         marker.set('listing', listings[i]);
-
         console.log('deployMarkers');
 
         google.maps.event.addListener(marker, 'click', (e) => {
@@ -195,6 +223,7 @@ function showDetails(id) {
 itemImage.addEventListener('click', () => {
     location.replace(`#detailsView`);
     populateListing();
+    closeDetailsOverlay();
 });
 
 function showDetailsOverlay() {
@@ -206,6 +235,16 @@ function closeDetailsOverlay() {
 }
 window.closeDetailsOverlay = closeDetailsOverlay;
 
-(()=>{
+function init() {
     $('.itemDisplayOverlay').hide();
+}
+
+init();
+
+function hideFilter() {
+    $('#filterOverlay').hide();
+}
+
+document.getElementById('closeFilter').addEventListener('click', ()=> {
+    hideFilter();
 })

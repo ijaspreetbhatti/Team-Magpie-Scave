@@ -1,3 +1,7 @@
+// .listContainer #addItem {
+//     width: 100%;
+// }
+
 #addItem {
     display: flex;
     justify-content: center;
@@ -137,6 +141,7 @@
 .inputs, input, select {
     margin-bottom: 16px;
     @include formInput;
+    cursor: pointer;
 }
 
 #title {
@@ -182,6 +187,7 @@ select {
     border-radius: 8px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
     width: 342px;
+    max-width: 75%;
     height: 146px;
     background: $white;
     display: none;

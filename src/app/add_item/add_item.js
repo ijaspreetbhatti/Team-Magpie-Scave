@@ -97,6 +97,7 @@ const blobToBase64 = blob => {
 
 
 function submitAddItemForm() {
+    
 
     const formValue = {
         title: document.getElementById('item').value,
