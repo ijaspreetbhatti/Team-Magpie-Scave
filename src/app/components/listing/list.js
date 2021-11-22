@@ -20,7 +20,7 @@ function populateListings() {
                 <span>・</span>
                 <span class="condition">${listing.condition}</span>
             </div>
-            <span class="distance">${listing.distance}</span>
+            <span class="distance">${getRenderableDistance(listing.distance)}</span>
             </div>
             <div class="img">
                 <img src="${firstImg[0]}" />
@@ -54,7 +54,7 @@ function toggleFilter() {
     }
 };
 
-document.getElementById("filterBtn").addEventListener("click", () => { 
+document.getElementById("filterBtn").addEventListener("click", () => {
     toggleFilter();
 });
 

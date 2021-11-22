@@ -141,7 +141,7 @@ function initGoogleMap() {
                         console.log("Distance between markers: " + distance.toFixed(2) + " km.");
                         // let distanceInput = document.getElementById('itemDistance');
                         // distanceInput.innerHTML = distance.toFixed(2) + "km";
-
+                        listings[i].distance = distance;
                         function haversine_distance(mk1, mk2) {
                             let R = 6371.0710; // Radius of the Earth in miles
                             let rlat1 = mk1.lat * (Math.PI / 180);
@@ -212,6 +212,18 @@ function deployMarkers() {
     }
 }
 
+function getRenderableDistance(distance) {
+    let dist = 0;
+    if(Number(distance) > 1) {
+        dist = Number(distance).toFixed(2) + " km";
+    } else {
+        dist = (Number(distance)*1000).toFixed(2) + " m";
+    }
+    return dist;
+}
+
+window.getRenderableDistance = getRenderableDistance;
+
 function showDetails(id) {
     const listing = listings.find(listing => listing.id === id);
     if (listing) {
@@ -219,7 +231,7 @@ function showDetails(id) {
         itemTitle.innerHTML = listing.title;
         itemCategory.innerHTML = listing.category;
         itemCondition.innerHTML = listing.condition;
-        itemDistance.innerHTML = listing.distance + 'm';
+        itemDistance.innerHTML = getRenderableDistance(listing.distance);
         itemImage.src = listing.img[0];
     }
     showDetailsOverlay();
@@ -255,7 +267,7 @@ document.getElementById('closeFilter').addEventListener('click', ()=> {
 })
 
 function checkFilter() {
-    
+
     const homeGoods = document.getElementById('homeGoodsFilter');
     const gardenOutdoor = document.getElementById('gardenOutdoorFilter');
     const recreation = document.getElementById('recreationFilter');
@@ -271,7 +283,7 @@ function checkFilter() {
         console.log('homeGoods');
     } else {
         console.log('no');
-    }; 
+    };
 }
 
 window.checkFilter = checkFilter;
