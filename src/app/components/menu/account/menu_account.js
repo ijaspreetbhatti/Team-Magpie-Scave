@@ -1,4 +1,3 @@
-import "./menu_account.scss";
 import { app } from "../../../services/firebase-service";
 // import { getAuth } from "firebase/auth";
 
