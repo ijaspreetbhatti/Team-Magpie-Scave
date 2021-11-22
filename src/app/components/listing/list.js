@@ -66,3 +66,23 @@ document.getElementById("mapBtn").addEventListener("click", () => {
     location.hash = "mapView";
 });
 
+document.addEventListener('click', function(event) {
+    const listDisplay = document.getElementById('listView');
+
+    const elementArea = listDisplay.contains(event.target);
+    // const width = window.matchMedia("(max-width: 1000px)");
+
+    if(!elementArea) {
+        toggleList();
+    }
+});
+
+function toggleList() {
+    const listDisplay = document.getElementById('listView');
+
+    if (listDisplay.style.display === "none") {
+        listDisplay.style.display = "flex";
+    } else {
+        listDisplay.style.display = "none";
+    }
+};

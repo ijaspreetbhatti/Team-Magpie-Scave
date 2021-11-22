@@ -11,7 +11,9 @@ function addListView(buttonDiv, map) {
     buttonDiv.appendChild(listUI);
 
     listUI.addEventListener("click", () => {
+        document.getElementById('listView').style.display = "flex";
         location.hash = 'listView';
+        closeDetailsOverlay();
     });
 };
 
