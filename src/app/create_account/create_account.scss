@@ -4,113 +4,113 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
-    margin: 0;
+  margin: 0;
 }
 
 .create-account {
-    .header {
-        #logoSignup {
-            width: 94px;
-            height: auto;
-            align-self: center;
-        }
-        #signupH1 {
-            margin-left: 24px;
-            margin-top: 24px;
-            font-size: 24px;
-            width: 100vw;
-        }
+  .header {
+    #logoSignup {
+      width: 94px;
+      height: auto;
+      align-self: center;
     }
-
-    main {
-        text-align: center;
-        form {
-
-            display: inline-block;
-            margin: 0 auto;
-
-            label, input {
-                display: block;
-            }
-
-            label {
-                color: #263238;
-                font-size: 12px;
-                margin-bottom: 4px;
-                margin-top: 30px;
-                text-align: left;
-            }
-
-            input {
-                width: 342px;
-                height: 34px;
-                border: #90a4ae solid 1px;
-                border-radius: 8px;
-                border: 1px solid $grey2;
-                color: $grey2;
-                padding-left: 8px;
-                cursor: pointer;
-                outline: none !important;
-            }
-
-            input:focus {
-                border: 1px solid $primary;
-            }
-
-            input::placeholder {
-                color: #90a4ae;
-                font-size: 12px;
-                padding: 7px auto 7px 15px;
-            }
-
-            .policy {
-                width: 342px;
-                height: 36px;
-                margin: 20px auto;
-                p {
-                    font-size: 12px;
-                    color: #263238;
-                }
-            }
-
-            #signup-btn {
-                border-color: #00bcd4;
-                background: #00bcd4;
-                font-size: 12px;
-                color: white;
-            }
-            .signup-btn p {
-                font-size: 10px;
-                color: #263238;
-                margin: 10px auto 0 auto;
-                width: 169px;
-                height: 14px;
-                span {
-                    font-weight: bold;
-                }
-                a {
-                    text-decoration: none;
-                }
-            }
-            #wrongPass {
-                color: red;
-                font-weight: bold;
-                font-size: 1.2rem;
-                margin: 10px auto;
-            }
-        }
+    #signupH1 {
+      margin-left: 24px;
+      margin-top: 24px;
+      font-size: 24px;
+      width: 100vw;
     }
+  }
 
-    footer {
-        height: 56px;
-        border-top: 1px solid #cfd8dc;
-        margin-top: 120px;
+  main {
+    text-align: center;
+    form {
+      display: inline-block;
+      margin: 0 auto;
 
+      label,
+      input {
+        display: block;
+      }
+
+      label {
+        color: #263238;
+        font-size: 12px;
+        margin-bottom: 4px;
+        margin-top: 30px;
+        text-align: left;
+      }
+
+      input {
+        width: 342px;
+        height: 34px;
+        border: #90a4ae solid 1px;
+        border-radius: 8px;
+        border: 1px solid $grey2;
+        color: $grey2;
+        padding-left: 8px;
+        cursor: pointer;
+        outline: none !important;
+      }
+
+      input:focus {
+        border: 1px solid $primary;
+      }
+
+      input::placeholder {
+        color: #90a4ae;
+        font-size: 12px;
+        padding: 7px auto 7px 15px;
+      }
+
+      .policy {
+        width: 342px;
+        height: 36px;
+        margin: 20px auto;
         p {
-            text-align: center;
-            margin-top: 21px auto;
-            font-size: 10px;
-            color: #607d8b;
+          font-size: 12px;
+          color: #263238;
         }
+      }
+
+      #signup-btn {
+        border-color: #00bcd4;
+        background: #00bcd4;
+        font-size: 12px;
+        color: white;
+      }
+      .signup-btn p {
+        font-size: 10px;
+        color: #263238;
+        margin: 10px auto 0 auto;
+        width: 169px;
+        height: 14px;
+        span {
+          font-weight: bold;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+      #wrongPass {
+        color: red;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 10px auto;
+      }
     }
+  }
+
+  footer {
+    height: 56px;
+    border-top: 1px solid #cfd8dc;
+    margin-top: 120px;
+
+    p {
+      text-align: center;
+      margin-top: 21px auto;
+      font-size: 10px;
+      color: #607d8b;
+    }
+  }
 }
