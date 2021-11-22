@@ -1,27 +1,10 @@
 import "./menu_account.scss";
 import { app } from "../../../services/firebase-service";
-// import { getAuth } from "firebase/auth";
-
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 const auth = getAuth(app);
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
-
-
-
-// const auth = getAuth(app);
-// const user = auth.currentUser;
-// console.log(user);
+const user = auth.currentUser;
+console.log(user);
 // if (user !== null) {
 // The user object has basic properties such as display name, email, etc.
 // const displayName = user.displayName;
@@ -86,7 +69,7 @@ function popupModal() {
 
   let blackBg = document.getElementById('js-black-bg');
   let stayBtn = document.getElementById('js-stay-btn');
-  let showBtn = document.getElementById('mainLogo');
+  let showBtn = document.getElementById('js-show-popup');
 
   closePopUp(blackBg);
   closePopUp(stayBtn);
@@ -94,7 +77,7 @@ function popupModal() {
   function closePopUp(elem) {
     if(!elem) return;
     elem.addEventListener('click', function() {
-      console.log("NEMUI");
+      console.log("gomi");
       popup.classList.toggle('is-show');
     });
   }

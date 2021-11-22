@@ -9,6 +9,7 @@
     z-index: 1000;
     width: 12px;
     height: 12px;
+    cursor: pointer;
 }
 
 .mapOverlay {
@@ -38,7 +39,6 @@
 }
 
 .itemDisplayOverlay {
-    cursor: pointer;
     position: absolute;
     bottom: 0;
     background-color: $white;
@@ -79,6 +79,7 @@
         height:167px;
         object-fit: cover;
         border-radius: 8px;
+        cursor: pointer;
     }
 }
 

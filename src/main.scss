@@ -78,16 +78,16 @@ body {
     //     grid-template-columns: 65% 35%;
     // }    
 
-    #mapView {
-        width: 65%;
-    }
+    // #mapView {
+    //     width: 65%;
+    // }
     .display-area {
         width: 80%;
         align-self: flex-end;
         position: relative;
         .page-container {
             padding: 10px;
-            width: 35%;
+            width: 40%;
             box-sizing: border-box;
             > div {
                 border-radius: 8px;
@@ -98,9 +98,9 @@ body {
         }
     }
 
-    .page-container .viewBtn {
-        display: none;
-    }
+    // .page-container .viewBtn {
+    //     display: none;
+    // }
 }
 
 .viewBtn {

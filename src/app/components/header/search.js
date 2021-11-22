@@ -208,3 +208,7 @@ $('#listItem').on('click', () => {
 
     location.hash = 'addItemView';
 })
+
+document.getElementById('mainLogo').addEventListener('click', ()=>{
+    location.hash = 'mapView';
+})
