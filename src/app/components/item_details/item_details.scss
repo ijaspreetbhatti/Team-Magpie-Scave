@@ -140,10 +140,10 @@
     .imgs {
         max-width: 100%;
         position: relative;
-        margin: auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        text-align: center;
 
         .mySlides {
             width: 100%;
@@ -157,7 +157,7 @@
                 cursor: pointer;
                 width: 62px;
                 height: 62px;
-                object-fit: contain;
+                object-fit: cover;
                 border-radius: 4px;
             }
             .img:last-child {
