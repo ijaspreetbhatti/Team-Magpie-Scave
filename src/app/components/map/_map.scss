@@ -9,6 +9,7 @@
     z-index: 1000;
     width: 12px;
     height: 12px;
+    cursor: pointer;
 }
 
 .mapOverlay {
@@ -20,6 +21,19 @@
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
+
+    .filterActive {
+        background: $grey4;
+    
+        h4 {
+            color: $white;
+            // border-radius: inherit;
+        }
+        svg {
+            fill: $white;
+            // background: inherit;
+        }
+    }
 }
 
 .filter {
@@ -38,7 +52,6 @@
 }
 
 .itemDisplayOverlay {
-    cursor: pointer;
     position: absolute;
     bottom: 0;
     background-color: $white;
@@ -79,6 +92,7 @@
         height:167px;
         object-fit: cover;
         border-radius: 8px;
+        cursor: pointer;
     }
 }
 
@@ -88,6 +102,132 @@
 
         img {
             height: 80%;
+        }
+    }
+}
+
+// Styles for filter overlay ***********************************************************************
+
+#filterOverlay {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $white;
+    overflow: hidden;
+    z-index: 20;
+
+    #filterHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px;
+    }
+
+    img {
+        height: 12px;
+        width: 12px;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        margin-bottom: 8px;
+        margin-top: 32px;
+        padding: 0 30px;
+    }
+
+    #categoryFilters, #conditionFilters {
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+
+        .filterBox {
+            position: relative;
+            display: block;
+            align-items: center;
+            margin: 8px 0;
+            padding-left: 24px;
+            font-size: 16px;
+            font-weight: 400;
+
+            input {
+                align-self: baseline;
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+
+            .check {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 12px;
+                width: 12px;
+                background-color: $white;
+                border: 1px solid $grey5;
+                border-radius: 1px;
+            }
+
+            .check:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+
+            input:checked ~ .check:after {
+                display: block;
+            }
+
+            input:checked ~ .check {
+                height: 12px;
+                width: 12px;
+                background-color: $primary;
+                border: 1px solid $primary;
+            }
+        }
+
+        .filterBox .check:after {
+            left: 3.5px;
+            top: 0.5px;
+            width: 3px;
+            height: 7px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+}
+// Filter Overlay Desktop *****************************************************************************
+
+@media screen and (min-width: 1000px) {
+    #filterOverlay {
+        display: none;
+        width: 223px;
+        z-index: 1;
+        height: 488px;
+        margin: 56px 24px 24px 24px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        padding: 30px;
+
+        img {
+            display: none;
+        }
+
+        #filterHeader, #categoryFilters, #conditionFilters, h2 {
+            padding: 0;
         }
     }
 }

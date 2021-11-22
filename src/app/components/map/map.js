@@ -41,12 +41,20 @@ function addFilter(buttonDiv, map) {
 
     const filterUI = document.createElement("div");
     filterUI.className = 'viewBtn filter';
-    filterUI.setAttribute('id', 'viewBtn');
+    filterUI.setAttribute('id', 'filterBtn');
     filterUI.innerHTML = `<h4>Filter</h4> ${icon}`;
     buttonDiv.appendChild(filterUI);
 
     filterUI.addEventListener("click", () => {
-        console.log('click');
+        const filterView = document.getElementById('filterOverlay');
+
+        if(filterView.style.display === 'none') {
+            filterView.style.display = 'flex';
+            filterUI.classList.add("filterActive");
+        } else {
+            filterView.style.display = 'none';
+            filterUI.classList.remove("filterActive");
+        }
     });
 };
 
@@ -75,6 +83,16 @@ function initGoogleMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         disableDefaultUI: true,
         zoom: 14,
+        styles: [
+                {
+                    featureType: "poi",
+                    stylers: [{ visibility: "off" }],
+                },
+                {
+                    featureType: "transit",
+                    stylers: [{ visibility: "off" }],
+                },
+            ],
     });
 
     // create map UI buttons from above funcs
@@ -175,31 +193,6 @@ function deployMarkers() {
             return icon;
         }
 
-        // Get coords based on user address input - not working
-        function getLocation() {
-            let pos;
-
-            const latlng = {
-                "lat": "",
-                "lng": ""
-            };
-
-            const geocoder = new google.maps.Geocoder();
-            geocoder.geocode({ 'address': listings[i].location }, function (results, status) {
-
-                if (status == google.maps.GeocoderStatus.OK) {
-                    latlng.lat = results[0].geometry.location.lat();
-                    latlng.lng = results[0].geometry.location.lng();
-
-                    console.log(latlng);
-
-                    pos = new google.maps.LatLng(latlng.lat, latlng.lng);
-                }
-            });
-
-            return pos;
-        }
-
         const marker = new google.maps.Marker({
             // position: getLocation(),
             position: new google.maps.LatLng(listings[i].lat, listings[i].lng),
@@ -252,3 +245,33 @@ function init() {
 }
 
 init();
+
+function hideFilter() {
+    $('#filterOverlay').hide();
+}
+
+document.getElementById('closeFilter').addEventListener('click', ()=> {
+    hideFilter();
+})
+
+function checkFilter() {
+    
+    const homeGoods = document.getElementById('homeGoodsFilter');
+    const gardenOutdoor = document.getElementById('gardenOutdoorFilter');
+    const recreation = document.getElementById('recreationFilter');
+    const pets = document.getElementById('petFilter');
+    const education = document.getElementById('educationFilter');
+
+    const likeNew = document.getElementById('likeNewFilter');
+    const good = document.getElementById('goodFilter');
+    const fair = document.getElementById('fairFilter');
+    const damaged = document.getElementById('damagedFilter');
+
+    if(homeGoods.checked === true) {
+        console.log('homeGoods');
+    } else {
+        console.log('no');
+    }; 
+}
+
+window.checkFilter = checkFilter;

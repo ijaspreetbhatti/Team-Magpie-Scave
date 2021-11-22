@@ -12,6 +12,15 @@ const search = instantsearch({
   searchClient,
 });
 
+// index.search('query', {
+//   facets:   ['category', 'condition']
+//   filters: 
+//             'attribute:value AND | OR attribute:value'
+//             'category: Home Goods'
+//             'category: '
+// });
+
+
 // Populate Items
 function populateSearch(hits) {
     console.log('populating');
@@ -27,18 +36,18 @@ function populateSearch(hits) {
         hits.forEach(function (hits) {
             // const firstImg = hits.img;
             container.innerHTML += `
-            <div class="search-card">
+            <div class="search-card" id="search-card">
                 <div class="search-info">
                 <div class="search-sub-info">
                     <h3>${hits.title}</h3>
                     <span class="category">${hits.category}</span>
-                    <span>.</span>
+                    <span>・</span>
                     <span class="condition">${hits.condition}</span>
                 </div>
                 <span class="distance">${hits.distance}</span>
                 </div>
                 <div class="img">
-                    <img src="${hits.img}" />
+                    <img src="${hits.img[0]}" />
                 </div>
             </div>
             `;
@@ -49,10 +58,24 @@ function populateSearch(hits) {
     } 
 }
 
+function searchDetails(lat, lng) {
+    const obj = hits.find(hits => Number(hits.lat) === lat && Number(hits.lng) === lng);
+    if (obj) {
+        window.currentItem = obj
+        location.replace(`#detailsView`);
+        populateListing();
+    }
+    console.log('search click');
+}
+
+window.searchDetails = searchDetails;
+
+
 // Click event in search input
 document.getElementById('searchSubmit').addEventListener('click', () => {
     searchFunc();
     console.log('searched');
+    location.hash = 'searchView';
 })
 
 // Search function
@@ -60,11 +83,7 @@ const searchFunc = () => {
         let searchItem = document.getElementById('searchInput').value;
 
         index.search(searchItem).then(({ hits }) => {
-        console.log(hits);
         populateSearch(hits);
-        document.getElementById('searchSubmit').addEventListener("click", () => {
-            location.hash = 'searchView';
-        });
     });
 }
 
@@ -207,4 +226,8 @@ $('#listItem').on('click', () => {
     form.reset();
 
     location.hash = 'addItemView';
+})
+
+document.getElementById('mainLogo').addEventListener('click', ()=>{
+    location.hash = 'mapView';
 })
