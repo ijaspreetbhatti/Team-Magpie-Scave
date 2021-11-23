@@ -126,6 +126,14 @@ function smallMap() {
             },
         ],
     });
+
+    new google.maps.Marker({
+        position: { lat: currentItem.lat, lng: currentItem.lng },
+        icon: "https://res.cloudinary.com/scave2021/image/upload/v1637267964/scave/centerIcon_u2vkhz.png",
+        map,
+    })
 }
+
+
 
 window.smallMap = smallMap;
