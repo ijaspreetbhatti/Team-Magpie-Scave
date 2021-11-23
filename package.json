@@ -38,6 +38,7 @@
     "algoliasearch": "^4.11.0",
     "firebase": "^9.1.2",
     "instantsearch.js": "^4.33.1",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "moment": "^2.29.1"
   }
 }
