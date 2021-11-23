@@ -1,24 +1,23 @@
-import { getAllListings } from "../../services/firebase-service";
-
-let listings = [];
-
-getAllListings().then((res) => {
-    console.log(res);
-    listings = res;
-    populateListings();
-});
-
-function populateListings() {
-    listings.forEach(function (listing) {
+window.populateListings = () => {
+    let listForView = listings;
+    console.log(filterObj)
+    if(filterObj.category.length > 0) {
+        listForView = listForView.filter(listing => filterObj.category.includes(listing.category));
+    }
+    if (filterObj.condition.length > 0 ) {
+        listForView = listForView.filter(listing => filterObj.condition.includes(listing.condition));
+    }
+    listContainer.innerHTML = '';
+    listForView.forEach(function (listing) {
         const firstImg = listing.img;
         listContainer.innerHTML += `
         <div class="list-card" onclick="loadDetails(${listing.lat},${listing.lng})">
             <div class="list-info">
             <div class="list-sub-info">
                 <h3>${listing.title}</h3>
-                <span class="category">${listing.category}</span>
+                <span class="category">${categoryList[listing.category]}</span>
                 <span>・</span>
-                <span class="condition">${listing.condition}</span>
+                <span class="condition">${conditionList[listing.condition]}</span>
             </div>
             <span class="distance">${getRenderableDistance(listing.distance)}</span>
             </div>
@@ -28,6 +27,9 @@ function populateListings() {
         </div>
         `;
     });
+    console.log('List to print', listForView)
+    hideAllMarkers();
+    deployMarkers(listForView);
 }
 
 // gets the detials of a selected item using the lat and lng properties
@@ -66,23 +68,29 @@ document.getElementById("mapBtn").addEventListener("click", () => {
     location.hash = "mapView";
 });
 
-document.addEventListener('click', function(event) {
-    const listDisplay = document.getElementById('listView');
+// document.addEventListener('click', function(event) {
+//     const listDisplay = document.getElementById('listView');
 
-    const elementArea = listDisplay.contains(event.target);
-    // const width = window.matchMedia("(max-width: 1000px)");
+//     const elementArea = listDisplay.contains(event.target);
+//     // const width = window.matchMedia("(max-width: 1000px)");
 
-    if(!elementArea) {
-        toggleList();
-    }
-});
+//     if(!elementArea) {
+//         location.hash = "mapView";
+//     } 
+// });
 
-function toggleList() {
-    const listDisplay = document.getElementById('listView');
+// function toggleList() {
+//     const listDisplay = document.getElementById('listView');
 
-    if (listDisplay.style.display === "none") {
-        listDisplay.style.display = "flex";
-    } else {
-        listDisplay.style.display = "none";
-    }
-};
+//     if (listDisplay.style.display === "none") {
+//         location.hash = "mapView";
+//     } 
+//     //     listDisplay.style.display = "flex";
+//     // } else {
+//     //     listDisplay.style.display = "none";
+//     // }
+// };
+
+// function hideList() {
+//     $('#listView').hide();
+// }

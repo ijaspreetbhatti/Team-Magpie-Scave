@@ -4,8 +4,8 @@ import "./item_details.scss";
 function populateListing() {
     const firstList = currentItem.img;
     document.getElementById("itemDetailTitle").innerHTML = currentItem.title;
-    document.getElementById("itemDetailCategory").innerHTML = currentItem.category;
-    document.getElementById("itemDetailCondition").innerHTML = currentItem.condition;
+    document.getElementById("itemDetailCategory").innerHTML = categoryList[currentItem.category];
+    document.getElementById("itemDetailCondition").innerHTML = conditionList[currentItem.condition];
     document.getElementById("itemDetailPostDate").innerHTML = currentItem.date;
     mySlides.innerHTML = "";
     firstList.forEach((list) => {
