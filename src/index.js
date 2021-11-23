@@ -9,14 +9,13 @@ let currentUser;
 window.currentUser = currentUser;
 const views = [
     "addItemView",
-    "mapView",
     "listView",
     "menuListingView",
     "createAccountView",
     "menuAccountView",
     "notificationView",
     "detailsView",
-    "searchView"
+    "searchView",
 ];
 
 // init method
