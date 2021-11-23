@@ -23,29 +23,53 @@ function populateListing() {
         .getElementById("mySlides")
         .addEventListener("click", mySlidesHandler);
 
-    // function timeSince(timeStamp) {
-    //     let now = new Date(),
-    //         secondsPast = (now.getTime() - timeStamp) / 1000;
-    //     if (secondsPast < 60) {
-    //         return parseInt(secondsPast) + 's';
-    //     }
-    //     if (secondsPast < 3600) {
-    //         return parseInt(secondsPast / 60) + 'm';
-    //     }
-    //     if (secondsPast <= 86400) {
-    //         return parseInt(secondsPast / 3600) + 'h';
-    //     }
-    //     if (secondsPast > 86400) {
-    //         day = timeStamp.getDate();
-    //         month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ", "");
-    //         year = timeStamp.getFullYear() == now.getFullYear() ? "" : " " + timeStamp.getFullYear();
-    //         return day + " " + month + year;
-    //     }
-    // }
 
-    // const postedTime = currentItem.date;
-    // const posted = timeSince(postedTime);
-    // console.log(posted)
+    function timeDifference(current, previous) {
+
+        var msPerMinute = 60 * 1000;
+        var msPerHour = msPerMinute * 60;
+        var msPerDay = msPerHour * 24;
+        var msPerMonth = msPerDay * 30;
+        var msPerYear = msPerDay * 365;
+
+        var elapsed = current - previous;
+
+        if (elapsed < msPerMinute) {
+            return Math.round(elapsed / 1000) + ' seconds ago';
+        }
+
+        else if (elapsed < msPerHour) {
+            return Math.round(elapsed / msPerMinute) + ' minutes ago';
+        }
+
+        else if (elapsed < msPerDay) {
+            return Math.round(elapsed / msPerHour) + ' hours ago';
+        }
+
+        else if (elapsed < msPerMonth) {
+            return 'approximately ' + Math.round(elapsed / msPerDay) + ' days ago';
+        }
+
+        else if (elapsed < msPerYear) {
+            return 'approximately ' + Math.round(elapsed / msPerMonth) + ' months ago';
+        }
+
+        else {
+            return 'approximately ' + Math.round(elapsed / msPerYear) + ' years ago';
+        }
+    }
+
+    const d = new Date().toJSON();
+    // let time = d.getTime();
+    const previous = currentItem.date
+    const postedTime = timeDifference(d, previous);
+    currentItem.posted = postedTime
+
+    const diff = d - previous
+
+    console.log(previous);
+    console.log(d);
+    console.log(diff);
 
     smallMap();
 }
