@@ -1,4 +1,5 @@
 import "./item_details.scss";
+import * as moment from "moment";
 
 // uses the currentItem object declared in global namespace and load details in the UI
 function populateListing() {
@@ -6,7 +7,7 @@ function populateListing() {
     document.getElementById("itemDetailTitle").innerHTML = currentItem.title;
     document.getElementById("itemDetailCategory").innerHTML = categoryList[currentItem.category];
     document.getElementById("itemDetailCondition").innerHTML = conditionList[currentItem.condition];
-    document.getElementById("itemDetailPostDate").innerHTML = currentItem.date;
+    document.getElementById("itemDetailPostDate").innerHTML = moment(new Date(currentItem.date)).fromNow();
     mySlides.innerHTML = "";
     firstList.forEach((list) => {
         const smallImg = document.createElement('img');
