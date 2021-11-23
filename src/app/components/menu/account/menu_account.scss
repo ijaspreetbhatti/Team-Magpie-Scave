@@ -3,15 +3,19 @@
 
     form {
         display: inline-block;
+        width: 100%;
+        margin: 0 auto;
 
         .container,
         .acc-btn {
-            margin: 32px auto 0 auto;
+            margin: 32px 3% 0 11%;
+            text-align: center;
         }
 
         label,
         input {
             display: block;
+            width: 86%;
         }
 
         label {
@@ -22,7 +26,6 @@
         }
 
         input {
-            width: 342px;
             height: 34px;
             border: #90a4ae solid 1px;
             border-radius: 8px;
