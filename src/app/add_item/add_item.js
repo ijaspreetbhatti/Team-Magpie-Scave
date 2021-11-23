@@ -119,7 +119,7 @@ function submitAddItemForm() {
         if (imagesToUpload.length === formValue.img.length) {
             console.log(formValue);
             saveListing(formValue).then((response) => {
-                alert('Item Created!');
+                populateListings();
                 location.hash = "mapView";
             }).catch((error) => {
                 console.log(error);

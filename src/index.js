@@ -4,9 +4,10 @@ import "./main.scss";
 import * as $ from "jquery";
 import { app } from "./app/services/firebase-service";
 import { getAuth } from "firebase/auth";
+import { getAllListings } from "./app/services/firebase-service";
 
-let currentUser;
-window.currentUser = currentUser;
+window.currentUser = {};
+
 const views = [
   "addItemView",
   // "mapView",
@@ -19,12 +20,32 @@ const views = [
   "searchView",
 ];
 
+window.categoryList = {
+    homeGoods: 'Home Goods' ,
+    gardenOutdoor: 'Garden Outdoor' ,
+    recreation: 'Recreation' ,
+    pet: 'Pet' ,
+    education: 'Education' ,
+};
+
+window.conditionList = {
+  likeNew: 'Like New',
+  good: 'Good',
+  fair: 'Fair',
+  damaged: 'Damaged',
+};
+
 // init method
 function init() {
   console.log("initializing");
   checkLoginState();
   location.hash = "mapView";
   switchView(location.hash);
+  getAllListings().then((res) => {
+      console.log(res);
+      listings = res;
+      populateListings();
+  });
 }
 
 init();
