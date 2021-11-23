@@ -104,9 +104,26 @@ function smallMap() {
         ],
     });
 
+    function icon() {
+        let icon;
+
+        if (currentItem.category == "homeGoods") {
+            icon = "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png";
+        } else if (currentItem.category == "education") {
+            icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/educationIcon_ppcrfg.png";
+        } else if (currentItem.category == "gardenOutdoor") {
+            icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_14outdoor_ahf2g3.png";
+        } else if (currentItem.category == "recreation") {
+            icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_15recreation_kb9dqe.png";
+        } else if (currentItem.category == "pet") {
+            icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/petIcon_adqpey.png";
+        }
+        return icon;
+    }
+
     new google.maps.Marker({
         position: { lat: currentItem.lat, lng: currentItem.lng },
-        icon: "https://res.cloudinary.com/scave2021/image/upload/v1637267964/scave/centerIcon_u2vkhz.png",
+        icon: icon(),
         map,
     })
 }
