@@ -22,7 +22,7 @@ const views = [
 
 window.categoryList = {
     homeGoods: 'Home Goods' ,
-    gardenOutdoor: 'Garden Outdoor' ,
+    gardenOutdoor: 'Garden & Outdoor' ,
     recreation: 'Recreation' ,
     pet: 'Pet' ,
     education: 'Education' ,

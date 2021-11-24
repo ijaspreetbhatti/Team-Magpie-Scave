@@ -90,6 +90,10 @@ body {
                 overflow: auto;
                 box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
             }
+
+            #listView .filterBtnDesktop {
+                display: none;
+            }
         }
     }
 }

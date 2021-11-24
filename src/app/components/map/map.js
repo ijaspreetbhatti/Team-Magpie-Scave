@@ -222,6 +222,7 @@ function deployMarkers(listingsForMarkers) {
         google.maps.event.addListener(marker, 'click', (e) => {
             console.log('marker click', marker.data);
             showDetails(marker.data.id);
+            location.hash = 'mapView';
         });
     }
 }
@@ -252,6 +253,7 @@ function showDetails(id) {
     }
     showDetailsOverlay();
 }
+
 
 itemImage.addEventListener('click', () => {
     location.replace(`#detailsView`);

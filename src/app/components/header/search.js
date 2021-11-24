@@ -53,11 +53,11 @@ function populateSearch(hits) {
                 <div class="search-info">
                 <div class="search-sub-info">
                     <h3>${hits.title}</h3>
-                    <span class="category">${hits.category}</span>
+                    <span class="category">${categoryList[hits.category]}</span>
                     <span>・</span>
-                    <span class="condition">${hits.condition}</span>
+                    <span class="condition">${conditionList[hits.condition]}</span>
                 </div>
-                <span class="distance">${hits.distance}</span>
+                <span class="distance">${getRenderableDistance(hits.distance)}</span>
                 </div>
                 <div class="img">
                     <img src="${hits.img[0]}" />
