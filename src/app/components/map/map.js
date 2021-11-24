@@ -65,13 +65,16 @@ function addFilter(buttonDiv, map) {
 
     filterUI.addEventListener("click", () => {
         const filterView = document.getElementById('filterOverlay');
+        // const check = document.querySelectorAll('.filterCheckbox');
+
 
         if (filterView.style.display === 'none') {
             filterView.style.display = 'flex';
-            filterUI.classList.add("filterActive");
+        // } else if(check.checked) {
+        //     filterUI.classList.add("filterActive");
         } else {
             filterView.style.display = 'none';
-            filterUI.classList.remove("filterActive");
+            // filterUI.classList.remove("filterActive");
         }
     });
 };
@@ -310,3 +313,27 @@ $('.filterCheckbox').bind('change', (e) => {
     console.log(e)
     checkFilter(e.currentTarget.id);
 } )
+
+document.getElementById('filterSubmitBtn').addEventListener('click', () => {
+    const check = document.querySelectorAll("input[type='checkbox']");
+    const filterView = document.querySelectorAll('.filter');
+
+    if(check.checked = true) {
+        console.log('checked');
+        
+        for(i=0; i < filterView.length; i++) {
+            filterView[i].classList.add('filterActive');
+        }
+    } else if(check.checked = false) {
+        console.log('not checked');
+        
+        for(i=0; i < filterView.length; i++) {
+            filterView[i].classList.remove('filterActive');
+        }
+    };
+
+    
+    
+    
+    hideFilter();
+})
