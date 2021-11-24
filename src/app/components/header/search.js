@@ -12,6 +12,15 @@ const search = instantsearch({
   searchClient,
 });
 
+// index.search('query', {
+//   facets:   ['category', 'condition']
+//   filters: 
+//             'attribute:value AND | OR attribute:value'
+//             'category: Home Goods'
+//             'category: '
+// });
+
+
 // Populate Items
 function populateSearch(hits) {
     console.log('populating');
@@ -21,24 +30,37 @@ function populateSearch(hits) {
 
     container.innerHTML = "";
 
+
+    function searchDetails(id) {
+        const obj = hits.find(hits => hits.objectID === id);
+        if (obj) {
+            window.currentItem = obj
+            location.replace(`#detailsView`);
+            populateListing();
+        }
+        console.log('search click');
+    }
+
+    window.searchDetails = searchDetails;
+
     if(hits) {
         title.innerHTML = `Search results for "${searchItem}"`;
 
         hits.forEach(function (hits) {
             // const firstImg = hits.img;
             container.innerHTML += `
-            <div class="search-card">
+            <div class="search-card" id="search-card" onclick="searchDetails('${hits.objectID}')">
                 <div class="search-info">
                 <div class="search-sub-info">
                     <h3>${hits.title}</h3>
-                    <span class="category">${hits.category}</span>
-                    <span>.</span>
-                    <span class="condition">${hits.condition}</span>
+                    <span class="category">${categoryList[hits.category]}</span>
+                    <span>・</span>
+                    <span class="condition">${conditionList[hits.condition]}</span>
                 </div>
-                <span class="distance">${hits.distance}</span>
+                <span class="distance">${getRenderableDistance(hits.distance)}</span>
                 </div>
                 <div class="img">
-                    <img src="${hits.img}" />
+                    <img src="${hits.img[0]}" />
                 </div>
             </div>
             `;
@@ -49,10 +71,12 @@ function populateSearch(hits) {
     } 
 }
 
+
 // Click event in search input
 document.getElementById('searchSubmit').addEventListener('click', () => {
     searchFunc();
     console.log('searched');
+    location.hash = 'searchView';
 })
 
 // Search function
@@ -60,11 +84,7 @@ const searchFunc = () => {
         let searchItem = document.getElementById('searchInput').value;
 
         index.search(searchItem).then(({ hits }) => {
-        console.log(hits);
         populateSearch(hits);
-        document.getElementById('searchSubmit').addEventListener("click", () => {
-            location.hash = 'searchView';
-        });
     });
 }
 

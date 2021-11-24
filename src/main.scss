@@ -8,13 +8,14 @@
 @import "app/components/menu/notification/notification.scss";
 @import "app/components/menu/notification/empty.scss";
 @import "src/app/login/login.scss";
-@import "src/app/components/home/home.scss";
+@import "src/app/home/home.scss";
 @import "src/app/components/item_details/item_details.scss";
 @import "src/app/components/menu/account/menu_account.scss";
 @import "src/app/create_account/create_account.scss";
 @import "src/app/components/header/search_display/_search_results.scss";
 @import "src/app/create_account/create_account.scss";
 @import "src/app/components/listing/list.scss";
+@import "src/app/components/menu_listing/menu_listing.scss";
 
 html,
 body {
@@ -29,6 +30,7 @@ body {
 .display-area {
     flex-grow: 1;
     position: relative;
+    overflow: hidden;
 
     > div#mapView {
         width: 100%;
@@ -64,7 +66,8 @@ body {
 #mapView {
     width: 100%;
     height: 100%;
-    position: relative;
+    // position: relative;
+    overflow: hidden;
 }
 
 .filter {
@@ -73,14 +76,6 @@ body {
 
 // Desktop
 @media screen and (min-width: 1000px) {
-    // .display-area {
-    //     display: grid;
-    //     grid-template-columns: 65% 35%;
-    // }    
-
-    // #mapView {
-    //     width: 65%;
-    // }
     .display-area {
         width: 80%;
         align-self: flex-end;
@@ -95,12 +90,12 @@ body {
                 overflow: auto;
                 box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
             }
+
+            #listView .filterBtnDesktop {
+                display: none;
+            }
         }
     }
-
-    // .page-container .viewBtn {
-    //     display: none;
-    // }
 }
 
 .viewBtn {

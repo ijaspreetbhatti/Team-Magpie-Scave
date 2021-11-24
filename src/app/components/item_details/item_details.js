@@ -1,12 +1,13 @@
 import "./item_details.scss";
+import * as moment from "moment";
 
 // uses the currentItem object declared in global namespace and load details in the UI
 function populateListing() {
     const firstList = currentItem.img;
     document.getElementById("itemDetailTitle").innerHTML = currentItem.title;
-    document.getElementById("itemDetailCategory").innerHTML = currentItem.category;
-    document.getElementById("itemDetailCondition").innerHTML = currentItem.condition;
-    document.getElementById("itemDetailPostDate").innerHTML = currentItem.date;
+    document.getElementById("itemDetailCategory").innerHTML = categoryList[currentItem.category];
+    document.getElementById("itemDetailCondition").innerHTML = conditionList[currentItem.condition];
+    document.getElementById("itemDetailPostDate").innerHTML = moment(new Date(currentItem.date)).fromNow();
     mySlides.innerHTML = "";
     firstList.forEach((list) => {
         const smallImg = document.createElement('img');
@@ -91,7 +92,42 @@ function smallMap() {
         disableDefaultUI: true,
         zoom: 14,
         center: { lat: currentItem.lat, lng: currentItem.lng },
+        styles: [
+            {
+                featureType: "poi",
+                stylers: [{ visibility: "off" }],
+            },
+            {
+                featureType: "transit",
+                stylers: [{ visibility: "off" }],
+            },
+        ],
     });
+
+    function icon() {
+        let icon;
+
+        if (currentItem.category == "homeGoods") {
+            icon = "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png";
+        } else if (currentItem.category == "education") {
+            icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/educationIcon_ppcrfg.png";
+        } else if (currentItem.category == "gardenOutdoor") {
+            icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_14outdoor_ahf2g3.png";
+        } else if (currentItem.category == "recreation") {
+            icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_15recreation_kb9dqe.png";
+        } else if (currentItem.category == "pet") {
+            icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/petIcon_adqpey.png";
+        }
+        return icon;
+    }
+
+    new google.maps.Marker({
+        position: { lat: currentItem.lat, lng: currentItem.lng },
+        icon: icon(),
+        map,
+    })
 }
+
+
 
 window.smallMap = smallMap;

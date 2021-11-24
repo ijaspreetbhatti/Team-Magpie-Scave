@@ -1,7 +1,18 @@
-import { getAllListings } from "../../services/firebase-service";
 import * as $ from 'jquery';
 
-let listings = [];
+window.listings = [];
+window.markersOnMap = [];
+window.filterObj = {
+    category: [],
+    condition: []
+};
+
+window.hideAllMarkers = () => {
+    for (let i = 0; i < markersOnMap.length; i++) {
+        markersOnMap[i].setMap(null);
+    }
+    markersOnMap = [];
+}
 
 // Create List Button
 function addListView(buttonDiv, map) {
@@ -12,8 +23,15 @@ function addListView(buttonDiv, map) {
 
     listUI.addEventListener("click", () => {
         location.hash = 'listView';
+        closeDetailsOverlay();
     });
 };
+
+function showList() {
+    $('#listView').show();
+}
+
+window.showList = showList;
 
 // Create Map Button
 function addMapView(buttonDiv, map) {
@@ -41,12 +59,20 @@ function addFilter(buttonDiv, map) {
 
     const filterUI = document.createElement("div");
     filterUI.className = 'viewBtn filter';
-    filterUI.setAttribute('id', 'viewBtn');
+    filterUI.setAttribute('id', 'filterBtn');
     filterUI.innerHTML = `<h4>Filter</h4> ${icon}`;
     buttonDiv.appendChild(filterUI);
 
     filterUI.addEventListener("click", () => {
-        console.log('click');
+        const filterView = document.getElementById('filterOverlay');
+
+        if (filterView.style.display === 'none') {
+            filterView.style.display = 'flex';
+            filterUI.classList.add("filterActive");
+        } else {
+            filterView.style.display = 'none';
+            filterUI.classList.remove("filterActive");
+        }
     });
 };
 
@@ -62,11 +88,6 @@ export function hello() {
 // initiate map func
 function initMap() {
     initGoogleMap();
-    getAllListings().then((res) => {
-        listings = res;
-        console.log(listings);
-        deployMarkers();
-    });
 }
 
 window.initMap = initMap;
@@ -76,15 +97,15 @@ function initGoogleMap() {
         disableDefaultUI: true,
         zoom: 14,
         styles: [
-                {
+            {
                 featureType: "poi",
                 stylers: [{ visibility: "off" }],
-                },
-                {
+            },
+            {
                 featureType: "transit",
                 stylers: [{ visibility: "off" }],
-                },
-            ],
+            },
+        ],
     });
 
     // create map UI buttons from above funcs
@@ -122,31 +143,36 @@ function initGoogleMap() {
                         map
                     });
 
-                    let mk1 = { lat: listings[0].lat, lng: listings[0].lng };
-                    let mk2 = pos
+                    for (let i = 0; i < listings.length; i++) {
+                        let mk1 = { lat: listings[i].lat, lng: listings[i].lng };
+                        let mk2 = pos;
 
-                    let line =
-                        new google.maps.Polyline({ path: [mk1, mk2], map: map });
+                        // let line =
+                        //     new google.maps.Polyline({ path: [mk1, mk2], map: map });
 
-                    let distance = haversine_distance(mk1, mk2);
-                    console.log("Distance between markers: " + distance.toFixed(2) + " km.");
+                        let distance = haversine_distance(mk1, mk2);
+                        console.log("Distance between markers: " + distance.toFixed(2) + " km.");
+                        // let distanceInput = document.getElementById('itemDistance');
+                        // distanceInput.innerHTML = distance.toFixed(2) + "km";
+                        listings[i].distance = distance;
+                        function haversine_distance(mk1, mk2) {
+                            let R = 6371.0710; // Radius of the Earth in miles
+                            let rlat1 = mk1.lat * (Math.PI / 180);
+                            // Convert degrees to radians
+                            let rlat2 = mk2.lat * (Math.PI / 180);
+                            // Convert degrees to radians
+                            let difflat = rlat2 - rlat1; // Radian difference (latitudes)
+                            let difflon = (mk2.lng - mk1.lng)
+                                * (Math.PI / 180); // Radian difference (longitudes)
 
-                    function haversine_distance(mk1, mk2) {
-                        let R = 6371.0710; // Radius of the Earth in miles
-                        let rlat1 = mk1.lat * (Math.PI / 180);
-                        // Convert degrees to radians
-                        let rlat2 = mk2.lat * (Math.PI / 180);
-                        // Convert degrees to radians
-                        let difflat = rlat2 - rlat1; // Radian difference (latitudes)
-                        let difflon = (mk2.lng - mk1.lng)
-                            * (Math.PI / 180); // Radian difference (longitudes)
-
-                        let d = 2 * R
-                            * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2)
-                                + Math.cos(rlat1) * Math.cos(rlat2)
-                                * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
-                        return d;
+                            let d = 2 * R
+                                * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2)
+                                    + Math.cos(rlat1) * Math.cos(rlat2)
+                                    * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
+                            return d;
+                        }
                     }
+
                 },
             );
 
@@ -160,84 +186,74 @@ function initGoogleMap() {
     });
 }
 
-
-
-function deployMarkers() {
-
-    for (i = 0; i < listings.length; i++) {
+function deployMarkers(listingsForMarkers) {
+    console.log('deploying Markers', listingsForMarkers)
+    for (i = 0; i < listingsForMarkers.length; i++) {
         function getIcon() {
             let icon;
 
-            if (listings[i].category == "Home Goods") {
+            if (listingsForMarkers[i].category == "homeGoods") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1635198526/scave/Component_16_dlxaya.png";
-            } else if (listings[i].category == "Education") {
+            } else if (listingsForMarkers[i].category == "education") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/educationIcon_ppcrfg.png";
-            } else if (listings[i].category == "Garden & Outdoor") {
+            } else if (listingsForMarkers[i].category == "gardenOutdoor") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_14outdoor_ahf2g3.png";
-            } else if (listings[i].category == "Recreation") {
+            } else if (listingsForMarkers[i].category == "recreation") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636925924/scave/Component_15recreation_kb9dqe.png";
-            } else if (listings[i].category == "Pet Supplies") {
+            } else if (listingsForMarkers[i].category == "pet") {
                 icon = "https://res.cloudinary.com/scave2021/image/upload/v1636926752/scave/petIcon_adqpey.png";
             }
             return icon;
         }
 
-        // Get coords based on user address input - not working
-        // function getLocation() {
-        //     let pos;
-
-        //     const latlng = {
-        //         "lat": "",
-        //         "lng": ""
-        //     };
-
-        //     const geocoder = new google.maps.Geocoder();
-        //     geocoder.geocode({ 'address': listings[i].location }, function (results, status) {
-
-        //         if (status == google.maps.GeocoderStatus.OK) {
-        //             latlng.lat = results[0].geometry.location.lat();
-        //             latlng.lng = results[0].geometry.location.lng();
-
-        //             console.log(latlng);
-
-        //             pos = new google.maps.LatLng(latlng.lat, latlng.lng);
-        //         }
-        //     });
-
-        //     return pos;
-        // }
-
         const marker = new google.maps.Marker({
             // position: getLocation(),
-            position: new google.maps.LatLng(listings[i].lat, listings[i].lng),
+            position: new google.maps.LatLng(listingsForMarkers[i].lat, listingsForMarkers[i].lng),
             icon: getIcon(),
-            title: listings[i].title,
+            title: listingsForMarkers[i].title,
             map: map,
-            data: listings[i]
+            data: listingsForMarkers[i]
         });
 
-        marker.set('listing', listings[i]);
+        marker.set('listing', listingsForMarkers[i]);
+        markersOnMap.push(marker);
         console.log('deployMarkers');
 
         google.maps.event.addListener(marker, 'click', (e) => {
             console.log('marker click', marker.data);
             showDetails(marker.data.id);
+            location.hash = 'mapView';
         });
     }
 }
+
+window.deployMarkers = deployMarkers;
+
+function getRenderableDistance(distance) {
+    let dist = 0;
+    if (Number(distance) > 1) {
+        dist = Number(distance).toFixed(2) + " km";
+    } else {
+        dist = (Number(distance) * 1000).toFixed(2) + " m";
+    }
+    return dist;
+}
+
+window.getRenderableDistance = getRenderableDistance;
 
 function showDetails(id) {
     const listing = listings.find(listing => listing.id === id);
     if (listing) {
         window.currentItem = listing;
         itemTitle.innerHTML = listing.title;
-        itemCategory.innerHTML = listing.category;
-        itemCondition.innerHTML = listing.condition;
-        itemDistance.innerHTML = listing.distance + 'm';
+        itemCategory.innerHTML = categoryList[listing.category];
+        itemCondition.innerHTML = conditionList[listing.condition];
+        itemDistance.innerHTML = getRenderableDistance(listing.distance);
         itemImage.src = listing.img[0];
     }
     showDetailsOverlay();
 }
+
 
 itemImage.addEventListener('click', () => {
     location.replace(`#detailsView`);
@@ -259,3 +275,38 @@ function init() {
 }
 
 init();
+
+function hideFilter() {
+    $('#filterOverlay').hide();
+}
+
+document.getElementById('closeFilter').addEventListener('click', () => {
+    hideFilter();
+})
+
+function checkFilter(id) {
+
+    const theId = id.replace('Filter','');
+    if(Object.keys(window.categoryList).includes(theId)) {
+        if(filterObj.category.includes(theId)) {
+            filterObj.category = filterObj.category.filter( cat => cat != theId);
+        } else {
+            filterObj.category.push(theId);
+        }
+    } else if(Object.keys(window.conditionList).includes(theId)) {
+        if(filterObj.condition.includes(theId)) {
+            filterObj.condition = filterObj.condition.filter( cat => cat != theId);
+        } else {
+            filterObj.condition.push(theId);
+        }
+    }
+
+    populateListings();
+
+    console.log(filterObj);
+}
+
+$('.filterCheckbox').bind('change', (e) => {
+    console.log(e)
+    checkFilter(e.currentTarget.id);
+} )

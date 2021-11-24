@@ -47,23 +47,23 @@ function updateAccount() {
 
 /* Leave Confirmation *****************************/
 function popupModal() {
-    let popup = document.getElementById("js-popup");
-    if (!popup) return;
+  let popup = document.getElementById('js-popup');
+  if (!popup) return;
 
     let blackBg = document.getElementById("js-black-bg");
     let stayBtn = document.getElementById("js-stay-btn");
     let showBtn = document.getElementById("mainLogo");
 
-    closePopUp(blackBg);
-    closePopUp(stayBtn);
-    closePopUp(showBtn);
-    function closePopUp(elem) {
-        if (!elem) return;
-        elem.addEventListener("click", function () {
-            console.log("gomi");
-            popup.classList.toggle("is-show");
-        });
-    }
+  closePopUp(blackBg);
+  closePopUp(stayBtn);
+  closePopUp(showBtn);
+  function closePopUp(elem) {
+    if (!elem) return;
+    elem.addEventListener('click', function () {
+      console.log("gomi");
+      popup.classList.toggle('is-show');
+    });
+  }
 }
 popupModal();
 
