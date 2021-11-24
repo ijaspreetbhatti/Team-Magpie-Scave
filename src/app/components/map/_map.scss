@@ -74,6 +74,12 @@
         .overlayDetailsLeft {
             display: flex;
             flex-direction: column;
+
+            h2 {
+                margin: 0;
+                padding: 0;
+                margin-bottom: 8px;
+            }
         }
         .overlayDetailsRight {
             z-index: 5;
