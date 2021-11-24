@@ -4,6 +4,18 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
+body {
+  margin: 0;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100vh;
+}
+
 .logoTop {
   display: flex;
   justify-content: center;
@@ -18,7 +30,7 @@
   background-image: url("https://res.cloudinary.com/scave2021/image/upload/v1635474174/scave/illustration_e7eoev.png");
   width: 342px;
   height: 237.31px;
-  margin-top: 98px;
+  // margin-top: 98px;
 }
 .title {
   width: 100%;
@@ -97,7 +109,7 @@ a {
   border-top: 1px solid $grey1;
   display: flex;
   text-align: center;
-  margin-top: 116px;
+  // margin-top: 116px;
 }
 .copyright {
   justify-content: center;
