@@ -1,65 +1,33 @@
 @import "../../_variables.scss";
 @import "../../_font_styles.scss";
 @import "../../_mixins.scss";
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-// * {
-//     margin: 0;
-// }
-
-.create-account {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+#createAccountView {
     .header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
+        text-align: center;
         #logoSignup {
-            padding: 0;
             width: 94px;
             height: auto;
-            align-self: center;
-            margin: 12px;
         }
-        // #signupH1 {
-        //     padding-left: 24px;
-        //     padding-top: 24px;
-        //     font-size: 24px;
-        //     width: 100vw;
-        //     border-top: 1px solid $grey1;
-        // }
+        
+        #signupH1 {
+            margin-top: 24px;
+            font-size: 24px;
+            width: 100vw;
+        }
     }
 
     main {
         text-align: center;
-        
-        #signupH1 {
-            padding-top: 24px;
-            font-size: 24px;
-            width: 100vw;
-            border-top: 1px solid $grey1;
-            display: block;
-        }
-
         form {
-            // padding-top: 24px;
-            padding: 0;
-            display: flex;
+
+            display: inline-block;
             margin: 0 auto;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
 
             label, input {
                 display: block;
             }
 
-            #firstLabel {
-                margin-top: 4px;
-            }
             label {
                 color: #263238;
                 font-size: 12px;
