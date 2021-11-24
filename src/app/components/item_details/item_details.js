@@ -7,7 +7,9 @@ function populateListing() {
     document.getElementById("itemDetailTitle").innerHTML = currentItem.title;
     document.getElementById("itemDetailCategory").innerHTML = categoryList[currentItem.category];
     document.getElementById("itemDetailCondition").innerHTML = conditionList[currentItem.condition];
+        document.getElementById('itemDetailDescription').innerHTML = currentItem.description;
     document.getElementById("itemDetailPostDate").innerHTML = moment(new Date(currentItem.date)).fromNow();
+    
     mySlides.innerHTML = "";
     firstList.forEach((list) => {
         const smallImg = document.createElement('img');
@@ -23,6 +25,7 @@ function populateListing() {
     document
         .getElementById("mySlides")
         .addEventListener("click", mySlidesHandler);
+
 
     smallMap();
 }
