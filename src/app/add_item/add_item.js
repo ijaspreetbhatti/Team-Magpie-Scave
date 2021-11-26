@@ -326,9 +326,13 @@ function fillInAddress() {
 document.getElementById('discard-item-btn').addEventListener('click', () => {
     const modal = document.getElementById('addItemPopUp');
     const background = document.getElementById('addItemOverlay');
+    const width = window.matchMedia("(max-width: 999px)");
+
+    if(width.matches) {
+        background.style.display = "block";
+    };
 
     modal.style.display = "flex";
-    background.style.display = "block";
 });
 
 document.getElementById('keepEditingAddItem').addEventListener('click', () => {
