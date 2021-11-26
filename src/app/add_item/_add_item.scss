@@ -241,3 +241,12 @@ select {
         }
     }
 }
+
+#addItemOverlay {
+    display: none;
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    background: $grey5;
+    opacity: 0.5;
+}

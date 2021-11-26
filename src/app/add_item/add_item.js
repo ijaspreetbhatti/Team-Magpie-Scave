@@ -325,17 +325,26 @@ function fillInAddress() {
 // ************************************** Show/Close Modal ********************************************** //
 document.getElementById('discard-item-btn').addEventListener('click', () => {
     const modal = document.getElementById('addItemPopUp');
+    const background = document.getElementById('addItemOverlay');
+
     modal.style.display = "flex";
+    background.style.display = "block";
 });
 
 document.getElementById('keepEditingAddItem').addEventListener('click', () => {
     const modal = document.getElementById('addItemPopUp');
+    const background = document.getElementById('addItemOverlay');
+
     modal.style.display = "none";
+    background.style.display = "none";
 });
 
 document.getElementById('leaveAddItem').addEventListener('click', () => {
     const modal = document.getElementById('addItemPopUp');
+    const background = document.getElementById('addItemOverlay');
+
     modal.style.display = "none";
+    background.style.display = "none";
 
     location.hash = "mapView";
 });

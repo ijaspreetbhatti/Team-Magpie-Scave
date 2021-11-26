@@ -1,101 +1,101 @@
+    <div id="listingContainer">
 
+        <script src="js/add_item.js" defer></script>
 
-<div id="listingContainer">
+        <h1>List Item</h1>
 
-    <script src="js/add_item.js" defer></script>
+        <div id="photoContainer">
+            <label for="input1" id="mainInput">
+                <div id="photoContainerText">
+                    <h2>Select Photos</h2>
+                    <p>You can add up to five photos.</p>
+                </div>
 
-    <h1>List Item</h1>
-
-    <div id="photoContainer">
-        <label for="input1" id="mainInput">
-            <div id="photoContainerText">
-                <h2>Select Photos</h2>
-                <p>You can add up to five photos.</p>
+            <div class="photoInsert" id="p1">
+                <label for="input1" id='img1'>
+                    <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
+                </label>
+                <input type="file" class="hide" id="input1">
+                <img src="" id="insert1" class="insert">
+                <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c1" alt="">
             </div>
 
-        <div class="photoInsert" id="p1">
-            <label for="input1" id='img1'>
-                <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
-            </label>
-            <input type="file" class="hide" id="input1">
-            <img src="" id="insert1" class="insert">
-            <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c1" alt="">
+            <div class="photoInsert" id="p2">
+                <label for="input2" id='img2'>
+                    <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
+                </label>
+                <input type="file" class="hide" id="input2">
+                <img src="" id="insert2" class="insert">
+                <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c2" alt="">
+            </div>
+
+            <div class="photoInsert" id="p3">
+                <label for="input3" id='img3'>
+                    <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
+                </label>
+                <input type="file" class="hide" id="input3">
+                <img src="" id="insert3" class="insert">
+                <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c3" alt="">
+            </div>
+
+            <div class="photoInsert" id="p4">
+                <label for="input4" id='img4'>
+                    <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
+                </label>
+                <input type="file" class="hide" id="input4">
+                <img src="" id="insert4" class="insert">
+                <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c4" alt="">
+            </div>
+
+            <div class="photoInsert" id="p5">
+                <label for="input5" id='img5'>
+                    <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
+                </label>
+                <input type="file" class="hide" id="input5" class="insert">
+                <img src="" id="insert5" class="insert">
+                <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c5" alt="">
+            </div>
+        </label>
         </div>
 
-        <div class="photoInsert" id="p2">
-            <label for="input2" id='img2'>
-                <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
-            </label>
-            <input type="file" class="hide" id="input2">
-            <img src="" id="insert2" class="insert">
-            <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c2" alt="">
-        </div>
+        <form id="itemListing" action="javascript:void(0);submitAddItemForm();">
+            <label for="item">Item:</label>
+            <input type="text" id="item" placeholder="Create a title for your listing" class="inputs" required>
 
-        <div class="photoInsert" id="p3">
-            <label for="input3" id='img3'>
-                <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
-            </label>
-            <input type="file" class="hide" id="input3">
-            <img src="" id="insert3" class="insert">
-            <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c3" alt="">
-        </div>
+            <label for="category">Category:</label>
+            <select name="category" id="category" required>
+                <option value="" class="placeholder select" disabled selected hidden>Select a category</option>
+                <option value="homeGoods">Home Goods</option>
+                <option value="electronics">Education</option>
+                <option value="gardenOutdoor">Garden & Outdoor</option>
+                <option value="recreation">Recreation</option>
+                <option value="pet">Pet Supplies</option>
+            </select>
 
-        <div class="photoInsert" id="p4">
-            <label for="input4" id='img4'>
-                <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
-            </label>
-            <input type="file" class="hide" id="input4">
-            <img src="" id="insert4" class="insert">
-            <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c4" alt="">
-        </div>
+            <label for="condition">Condition:</label>
+            <select name="condition" id="condition" required>
+                <option value="" class="placeholder select" disabled selected hidden>Select a condition</option>
+                <option value="likeNew">Like New</option>
+                <option value="good">Good</option>
+                <option value="fair">Fair</option>
+                <option value="damaged">Damaged</option>
+            </select>
 
-        <div class="photoInsert" id="p5">
-            <label for="input5" id='img5'>
-                <img src="https://res.cloudinary.com/scave2021/image/upload/v1635208249/scave/add_icon_flh0lx.svg" class="imgAdd" alt="">
-            </label>
-            <input type="file" class="hide" id="input5" class="insert">
-            <img src="" id="insert5" class="insert">
-            <img src="https://res.cloudinary.com/scave2021/image/upload/v1636394516/scave/close_fefjnv_afs81k.svg" class="imgClose" id="c5" alt="">
-        </div>
-    </label>
+            <label for="location">Location:</label>
+            <input onclick="initAutocomplete()" type="" id="location" placeholder="Where is the item?" class="inputs">
+
+            <label for="description">Description:</label>
+            <textarea class="inputs" placeholder="Describe the item or add any relevent information about the item." rows="3" name="description" form="itemListing" id="description" required></textarea>
+
+
+            <p>Items listed in Scave are automatically deleted after 7 days. We do that because they are available for collection by anyone, even outside of this app.</p>
+
+            <button type="submit" id="add-item-btn">Submit</button>
+            <button type="button" id="discard-item-btn">Discard</button>
+        </form>
     </div>
 
-    <form id="itemListing" action="javascript:void(0);submitAddItemForm();">
-        <label for="item">Item:</label>
-        <input type="text" id="item" placeholder="Create a title for your listing" class="inputs" required>
-
-        <label for="category">Category:</label>
-        <select name="category" id="category" required>
-            <option value="" class="placeholder select" disabled selected hidden>Select a category</option>
-            <option value="homeGoods">Home Goods</option>
-            <option value="electronics">Education</option>
-            <option value="gardenOutdoor">Garden & Outdoor</option>
-            <option value="recreation">Recreation</option>
-            <option value="pet">Pet Supplies</option>
-        </select>
-
-        <label for="condition">Condition:</label>
-        <select name="condition" id="condition" required>
-            <option value="" class="placeholder select" disabled selected hidden>Select a condition</option>
-            <option value="likeNew">Like New</option>
-            <option value="good">Good</option>
-            <option value="fair">Fair</option>
-            <option value="damaged">Damaged</option>
-        </select>
-
-        <label for="location">Location:</label>
-        <input onclick="initAutocomplete()" type="" id="location" placeholder="Where is the item?" class="inputs">
-
-        <label for="description">Description:</label>
-        <textarea class="inputs" placeholder="Describe the item or add any relevent information about the item." rows="3" name="description" form="itemListing" id="description" required></textarea>
-
-
-        <p>Items listed in Scave are automatically deleted after 7 days. We do that because they are available for collection by anyone, even outside of this app.</p>
-
-        <button type="submit" id="add-item-btn">Submit</button>
-        <button type="button" id="discard-item-btn">Discard</button>
-    </form>
-
+    <div id="addItemOverlay"></div>
     <div id="addItemPopUp">
         <h3>Leave page?</h3>
         <p>You didn't submit your listing yet. Are you sure you want to leave without submitting?</p>
@@ -105,4 +105,3 @@
             <button type="button" id="keepEditingAddItem">Keep Editing</button>
         </div>
     </div>
-</div>
