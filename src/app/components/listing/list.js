@@ -20,7 +20,7 @@ window.populateListings = () => {
                 <span>・</span>
                 <span class="condition">${conditionList[listing.condition]}</span>
             </div>
-            <span class="distance">${listDistance(listing.lat, listing.lng)}</span>
+            <span class="distance">${getRenderableDistance(listing.distance)}</span>
             </div>
             <div class="img">
                 <img src="${firstImg[0]}" />
@@ -72,50 +72,50 @@ document.getElementById("mapBtn").addEventListener("click", () => {
 
 let distance;
 
-window.listDistance = (lat, lng) => {
+// window.listDistance = (lat, lng) => {
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(
+//             (position) => {
+//                 const pos = {
+//                     lat: position.coords.latitude,
+//                     lng: position.coords.longitude
+//                 };
 
-            const latInput = lat;
-            const lngInput = lng;
+//             const latInput = lat;
+//             const lngInput = lng;
 
-            let mk1 = { lat: latInput, lng: lngInput };
-            let mk2 = pos;
+//             let mk1 = { lat: latInput, lng: lngInput };
+//             let mk2 = pos;
 
-            let distance = haversine_distance(mk1, mk2);
-            console.log("Distance between markers: " + distance.toFixed(2) + " km.");
+//             let distance = haversine_distance(mk1, mk2);
+//             console.log("Distance between markers: " + distance.toFixed(2) + " km.");
 
-            // listings[i].distance = distance;
-            function haversine_distance(mk1, mk2) {
-                let R = 6371.0710; // Radius of the Earth in miles
-                let rlat1 = mk1.lat * (Math.PI / 180);
-                // Convert degrees to radians
-                let rlat2 = mk2.lat * (Math.PI / 180);
-                // Convert degrees to radians
-                let difflat = rlat2 - rlat1; // Radian difference (latitudes)
-                let difflon = (mk2.lng - mk1.lng)
-                    * (Math.PI / 180); // Radian difference (longitudes)
+//             // listings[i].distance = distance;
+//             function haversine_distance(mk1, mk2) {
+//                 let R = 6371.0710; // Radius of the Earth in miles
+//                 let rlat1 = mk1.lat * (Math.PI / 180);
+//                 // Convert degrees to radians
+//                 let rlat2 = mk2.lat * (Math.PI / 180);
+//                 // Convert degrees to radians
+//                 let difflat = rlat2 - rlat1; // Radian difference (latitudes)
+//                 let difflon = (mk2.lng - mk1.lng)
+//                     * (Math.PI / 180); // Radian difference (longitudes)
 
-                let d = 2 * R
-                    * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2)
-                        + Math.cos(rlat1) * Math.cos(rlat2)
-                        * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
-                return d;
-            }
+//                 let d = 2 * R
+//                     * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2)
+//                         + Math.cos(rlat1) * Math.cos(rlat2)
+//                         * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
+//                 return d;
+//             }
 
-            getRenderableDistance(distance);
-        },
-    ); 
-     } else {
-            console.log('location error');
-        }
-    } 
+//             getRenderableDistance(distance);
+//         },
+//     );
+//      } else {
+//             console.log('location error');
+//         }
+//     }
 
 
 // document.addEventListener('click', function(event) {
@@ -126,7 +126,7 @@ window.listDistance = (lat, lng) => {
 
 //     if(!elementArea) {
 //         location.hash = "mapView";
-//     } 
+//     }
 // });
 
 // function toggleList() {
@@ -134,7 +134,7 @@ window.listDistance = (lat, lng) => {
 
 //     if (listDisplay.style.display === "none") {
 //         location.hash = "mapView";
-//     } 
+//     }
 //     //     listDisplay.style.display = "flex";
 //     // } else {
 //     //     listDisplay.style.display = "none";

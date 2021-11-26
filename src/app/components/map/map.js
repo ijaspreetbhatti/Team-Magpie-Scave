@@ -149,14 +149,8 @@ function initGoogleMap() {
                     for (let i = 0; i < listings.length; i++) {
                         let mk1 = { lat: listings[i].lat, lng: listings[i].lng };
                         let mk2 = pos;
-
-                        // let line =
-                        //     new google.maps.Polyline({ path: [mk1, mk2], map: map });
-
                         let distance = haversine_distance(mk1, mk2);
-                        console.log("Distance between markers: " + distance.toFixed(2) + " km.");
-                        // let distanceInput = document.getElementById('itemDistance');
-                        // distanceInput.innerHTML = distance.toFixed(2) + "km";
+                        // console.log("Distance between markers: " + distance.toFixed(2) + " km.");
                         listings[i].distance = distance;
                         function haversine_distance(mk1, mk2) {
                             let R = 6371.0710; // Radius of the Earth in miles
@@ -175,7 +169,7 @@ function initGoogleMap() {
                             return d;
                         }
                     }
-
+                    populateListings();
                 },
             );
 
@@ -320,20 +314,20 @@ document.getElementById('filterSubmitBtn').addEventListener('click', () => {
 
     if(check.checked = true) {
         console.log('checked');
-        
+
         for(i=0; i < filterView.length; i++) {
             filterView[i].classList.add('filterActive');
         }
     } else if(check.checked = false) {
         console.log('not checked');
-        
+
         for(i=0; i < filterView.length; i++) {
             filterView[i].classList.remove('filterActive');
         }
     };
 
-    
-    
-    
+
+
+
     hideFilter();
 })

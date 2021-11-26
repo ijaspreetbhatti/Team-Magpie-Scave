@@ -145,3 +145,36 @@ body {
 .filter {
     margin: 12px 24px 12px 24px;
 }
+
+.notification {
+    z-index: 10;
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    margin-right: 5px;
+    height: 50px;
+    padding: 5px;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    transform: translateX(-50%);
+    @media screen and (min-width: 1000px) {
+        right: 0;
+        width: 30%;
+    }
+    color: white;
+    border-radius: 8px;
+    background-color: $primary;
+}
+
+.notification-active {
+    transition: transform .5s ease-in-out;
+    transform: translateY(-200%) translateX(-50%);
+}
+
+.notification-inactive {
+    transition: transform .5s ease-in-out;
+    transform: translateY(0%) translateX(-50%);
+}

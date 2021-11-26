@@ -21,11 +21,11 @@ const views = [
 ];
 
 window.categoryList = {
-    homeGoods: 'Home Goods' ,
-    gardenOutdoor: 'Garden & Outdoor' ,
-    recreation: 'Recreation' ,
-    pet: 'Pet' ,
-    education: 'Education' ,
+  homeGoods: 'Home Goods',
+  gardenOutdoor: 'Garden & Outdoor',
+  recreation: 'Recreation',
+  pet: 'Pet',
+  education: 'Education',
 };
 
 window.conditionList = {
@@ -35,17 +35,21 @@ window.conditionList = {
   damaged: 'Damaged',
 };
 
+window.loadListings = () => {
+  getAllListings().then((res) => {
+    console.log(res);
+    listings = res;
+    populateListings();
+  });
+}
+
 // init method
 function init() {
   console.log("initializing");
   checkLoginState();
   location.hash = "mapView";
   switchView(location.hash);
-  getAllListings().then((res) => {
-      console.log(res);
-      listings = res;
-      populateListings();
-  });
+  loadListings();
 }
 
 init();
@@ -93,7 +97,6 @@ function switchView(id) {
 
 function hideAllViews() {
   views.forEach((id) => {
-    console.log(`#${id}`);
     $(`#${id}`).hide();
   });
 }
@@ -101,3 +104,16 @@ function hideAllViews() {
 function showView(id) {
   $(`${id}`).fadeIn();
 }
+
+window.showNotification = function(message) {
+  let notificationRef = document.getElementById('notification');
+  notificationRef.classList.remove('notification-inactive');
+  notificationRef.classList.add('notification-active');
+  notificationRef.innerHTML = message;
+  setTimeout(() => {
+    notificationRef.classList.remove('notification-active');
+    notificationRef.classList.add('notification-inactive');
+  }, 2500);
+}
+
+showNotification('Welcome to Magpie`s Scave!');
