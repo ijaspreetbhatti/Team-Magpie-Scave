@@ -328,10 +328,10 @@ document.getElementById('discard-item-btn').addEventListener('click', () => {
     const background = document.getElementById('addItemOverlay');
     const width = window.matchMedia("(max-width: 999px)");
 
-    if(width.matches) {
-        background.style.display = "block";
-    };
-
+    // if(width.matches) {
+    //     background.style.display = "block";
+    // };
+    background.style.display = "block";
     modal.style.display = "flex";
 });
 

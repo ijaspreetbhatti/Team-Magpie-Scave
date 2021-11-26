@@ -1,6 +1,31 @@
-// .listContainer #addItem {
-//     width: 100%;
-// }
+#addItemView {
+    width: 100%;
+    height: 100%;
+    background: $white;
+    overflow-x: auto;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@media screen and (min-width: 1000px) {
+    #addItemView {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        right: 50%;
+        width: 45%;
+        height: 90%;
+        box-sizing: border-box;
+        background: $white;
+        border-radius: 8px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+}
 
 #addItem {
     display: flex;
@@ -186,7 +211,7 @@ select {
 // Style Pop-Up Modal ************************************//
 
 #addItemPopUp {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -245,8 +270,9 @@ select {
 #addItemOverlay {
     display: none;
     height: 100vh;
-    position: absolute;
     width: 100%;
     background: $grey5;
     opacity: 0.5;
+    position: fixed;
+    top: 0;
 }
