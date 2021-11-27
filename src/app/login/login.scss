@@ -1,108 +1,109 @@
-@import '../../_variables.scss';
-@import '../../_font_styles.scss';
+@import "../../_variables.scss";
+@import "../../_font_styles.scss";
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
-    font-family: $font-family;
+  font-family: $font-family;
 }
 
 #mainLogo {
-    width: 94px;
-    height: auto;
-    align-self: center;
+  width: 94px;
+  height: auto;
+  align-self: center;
 }
 
 #btn {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 body {
+  margin: 0;
+  main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 
-    main {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+  .logo {
+    height: 56px;
+    border-bottom: #cfd8dc solid 1px;
+    display: flex;
+    justify-content: center;
+  }
+  .signin-title {
+    display: block;
+    margin-left: 24px;
+    margin-top: 24px;
+    font-size: 24px;
+  }
+
+  #login_form {
+    .container,
+    .btn {
+      margin: 32px 23px 0 25px;
     }
 
-    .logo {
-        height: 56px;
-        border-bottom: #cfd8dc solid 1px;
-        display: flex;
-        justify-content: center;
-    }
-    h1 {
-        margin-left: 24px;
-        margin-top: 24px;
-        font-size: 24px;
+    #btn {
+      @include primaryBtn;
     }
 
-    #login_form {
-        .container,
-        .btn {
-            margin: 32px 23px 0 25px;
-        }
-
-        #btn {
-            @include primaryBtn;
-        }
-
-        label,
-        input {
-            display: block;
-        }
-
-        label {
-            font-size: 12px;
-        }
-
-        input {
-            width: 342px;
-            height: 34px;
-            border-radius: 8px;
-            border: #90a4ae solid 1px;
-            @include formInput;
-        }
-
-        div.btn input {
-            background: #00bcd4;
-            // border-color: #00bcd4;
-        }
-
-        input[value="Sign in"] {
-            font-size: 12px;
-            color: white;
-        }
-
-        .btn p {
-            margin-top: 4px;
-            text-align: center;
-            span {
-                font-weight: bold;
-            }
-            a {
-                text-decoration: none;
-            }
-        }
-
-        div {
-            margin: 20px;
-        }
-
-        div p {
-            font-size: 10px;
-        }
+    label,
+    input {
+      display: block;
     }
 
-    footer {
-        height: 56px;
-        border-top: 1px solid #cfd8dc;
-        margin-top: 400px;
-
-        p {
-            text-align: center;
-            margin: 21px 24px;
-            font-size: 10px;
-            color: #607d8b;
-        }
+    label {
+      font-size: 12px;
     }
+
+    input {
+      width: 342px;
+      height: 34px;
+      border-radius: 8px;
+      border: #90a4ae solid 1px;
+      @include formInput;
+    }
+
+    div.btn input {
+      background: #00bcd4;
+      // border-color: #00bcd4;
+    }
+
+    input[value="Sign in"] {
+      font-size: 12px;
+      color: white;
+    }
+
+    .btn p {
+      margin-top: 4px;
+      text-align: center;
+      span {
+        font-weight: bold;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+
+    div {
+      margin: 20px;
+    }
+
+    div p {
+      font-size: 10px;
+    }
+  }
+
+  footer {
+    height: 56px;
+    border-top: 1px solid #cfd8dc;
+    margin-top: 400px;
+
+    p {
+      text-align: center;
+      margin: 21px 24px;
+      font-size: 10px;
+      color: #607d8b;
+    }
+  }
 }

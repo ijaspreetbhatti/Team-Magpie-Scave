@@ -9,19 +9,25 @@
 
 .create-account {
   .header {
+    display: flex;
+    justify-content: center;
+    height: 56px;
+    border-bottom: 1px solid #cfd8dc;
+
     #logoSignup {
+      margin-top: 17px;
       width: 94px;
       height: auto;
       align-self: center;
     }
-    #signupH1 {
-      margin-left: 24px;
-      margin-top: 24px;
-      font-size: 24px;
-      width: 100vw;
-    }
   }
 
+  #signupH1 {
+    margin-left: 24px;
+    margin-top: 24px;
+    font-size: 24px;
+    width: 100vw;
+  }
   main {
     text-align: center;
     form {
