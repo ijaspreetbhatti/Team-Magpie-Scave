@@ -48,7 +48,7 @@ function populateSearch(hits) {
                     <span>・</span>
                     <span class="condition">${conditionList[hits.condition]}</span>
                 </div>
-                <span class="distance">${getRenderableDistance(hits.distance)}</span>
+                <span class="distance">${getRenderableDistance(listings.distance)}</span>
                 </div>
                 <div class="img">
                     <img src="${hits.img[0]}" />
