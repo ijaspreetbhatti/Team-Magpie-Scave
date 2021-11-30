@@ -58,6 +58,14 @@
             width: 92%;
             margin-right: 32px;
             margin-top: 32px;
+
+            &:hover {
+                background-color: $primary-variant-dark;
+            }
+        
+            &:active {
+                background-color: $primary-variant-mid;
+            }
         }
     }
 }
