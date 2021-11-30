@@ -17,7 +17,7 @@ window.hideAllMarkers = () => {
 // Create List Button
 function addListView(buttonDiv, map) {
     const listUI = document.createElement("div");
-    listUI.className = 'viewBtn';
+    listUI.className = 'viewBtn listViewBtn';
     listUI.innerHTML = `<h4>List View</h4>`;
     buttonDiv.appendChild(listUI);
 
@@ -36,7 +36,7 @@ window.showList = showList;
 // Create Map Button
 function addMapView(buttonDiv, map) {
     const mapUI = document.createElement("div");
-    mapUI.className = 'viewBtn viewBtnActive';
+    mapUI.className = 'viewBtn viewBtnActive mapViewBtn';
     mapUI.innerHTML = `<h4>Map View</h4>`;
     buttonDiv.appendChild(mapUI);
 
