@@ -21,7 +21,6 @@ export const db = getFirestore(app);
 export async function getAllListings() {
     const listingsCollection = collection(db, 'listings');
     const listingsSnapshot = await getDocs(listingsCollection);
-    console.log(listingsSnapshot);
     const listingsList = listingsSnapshot.docs.map(doc => {
         return { id: doc.id, ...doc.data() };
     });

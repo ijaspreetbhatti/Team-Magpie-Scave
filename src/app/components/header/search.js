@@ -55,11 +55,11 @@ function populateSearch(hits) {
                 </div>
             </div>
             `;
-        }); 
+        });
     } else {
         title.innerHTML = `Your search for "${searchItem}" returned no results.`;
         container.innerHTML = "Your search did not return any results.";
-    } 
+    }
 }
 
 

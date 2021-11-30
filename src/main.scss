@@ -27,6 +27,23 @@ body {
     flex-direction: column;
 }
 
+.offline {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $grey1;
+    color: $grey4;
+    text-align: center;
+    h1 {
+        width: 80%;
+    }
+    button {
+        font-size: 1.2rem;
+    }
+}
+
 .display-area {
     flex-grow: 1;
     position: relative;

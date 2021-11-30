@@ -72,13 +72,36 @@ window.loadListings = () => {
   });
 }
 
+window.showNotification = function (message) {
+  let notificationRef = document.getElementById('notification');
+  notificationRef.classList.remove('notification-inactive');
+  notificationRef.classList.add('notification-active');
+  notificationRef.innerHTML = message;
+  setTimeout(() => {
+    notificationRef.classList.remove('notification-active');
+    notificationRef.classList.add('notification-inactive');
+  }, 2500);
+}
+
 // init method
 function init() {
-  console.log("initializing");
-  checkLoginState();
-  location.hash = "mapView";
-  switchView(location.hash);
-  loadListings();
+  if (window.navigator.onLine){
+
+    showNotification('Welcome to Magpie`s Scave!');
+    console.log("initializing");
+    checkLoginState();
+    location.hash = "mapView";
+    switchView(location.hash);
+    loadListings();
+  } else {
+    document.getElementsByTagName('body')[0].innerHTML = `
+    <div class="offline">
+      <img src="icons/icon-128.png"/>
+      <h1>You are Offline! <br> Scave needs internet connectivity to be operational!</h1>
+      <button onclick="location.reload()">Reconnect</button>
+    </div>
+    `;
+  }
 }
 
 init();
@@ -133,16 +156,3 @@ function hideAllViews() {
 function showView(id) {
   $(`${id}`).fadeIn();
 }
-
-window.showNotification = function (message) {
-  let notificationRef = document.getElementById('notification');
-  notificationRef.classList.remove('notification-inactive');
-  notificationRef.classList.add('notification-active');
-  notificationRef.innerHTML = message;
-  setTimeout(() => {
-    notificationRef.classList.remove('notification-active');
-    notificationRef.classList.add('notification-inactive');
-  }, 2500);
-}
-
-showNotification('Welcome to Magpie`s Scave!');
