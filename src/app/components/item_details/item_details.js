@@ -1,5 +1,5 @@
-import "./item_details.scss";
 import * as moment from "moment";
+import { setListingAsCollected } from "../../services/firebase-service";
 
 // uses the currentItem object declared in global namespace and load details in the UI
 function populateListing() {
@@ -9,7 +9,7 @@ function populateListing() {
     document.getElementById("itemDetailCondition").innerHTML = conditionList[currentItem.condition];
         document.getElementById('itemDetailDescription').innerHTML = currentItem.description;
     document.getElementById("itemDetailPostDate").innerHTML = moment(new Date(currentItem.date)).fromNow();
-    
+
     mySlides.innerHTML = "";
     firstList.forEach((list) => {
         const smallImg = document.createElement('img');
@@ -76,6 +76,7 @@ spanConfirm.onclick = function () {
     btn.style.backgroundColor = '#455A64';
     btn.style.color = '#ffffff'
     modal.style.display = 'none';
+    markAsCollected();
 }
 
 spanCancel.onclick = function () {
@@ -88,6 +89,14 @@ window.onclick = function (e) {
     if (e.target == modal) {
         modal.style.display = 'none';
     }
+}
+
+function markAsCollected() {
+    setListingAsCollected(currentItem.id).then((e)=>{
+        showNotification('Item Collected!');
+        loadListings();
+        location.hash = "mapView";
+    }).catch(error => { showNotification('Error: ' + error.message) })
 }
 
 function smallMap() {

@@ -69,7 +69,7 @@
             top: 50%;
             transform: translate(-50%, -50%);
             width: 342px;
-            height: 165px;
+            height: 185px;
             background-color: #fefefe;
             border-radius: 8px;
             overflow: hidden;
@@ -95,17 +95,26 @@
                     column-rule-color: #aaaaaa;
                     padding: 8px 60px;
                     font-weight: 600;
+                    cursor: pointer;
                 }
 
                 .cancel {
                     column-rule-color: #aaaaaa;
                     padding: 8px 60px;
                     font-weight: 600;
+                    cursor: pointer;
                 }
 
                 .confirm:hover,
-                .confirm:focus {
+                .cancel:hover {
                     color: #000;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+                .cancel:active,
+                .confirm:active {
+                    color: #000;
+                    background-color: $primary;
                     text-decoration: none;
                     cursor: pointer;
                 }

@@ -138,38 +138,11 @@ function initGoogleMap() {
                         lng: position.coords.longitude,
                     };
                     map.setCenter(pos);
-
-
                     new google.maps.Marker({
                         position: pos,
                         icon: "https://res.cloudinary.com/scave2021/image/upload/v1637267964/scave/centerIcon_u2vkhz.png",
                         map
                     });
-
-                    for (let i = 0; i < listings.length; i++) {
-                        let mk1 = { lat: listings[i].lat, lng: listings[i].lng };
-                        let mk2 = pos;
-                        let distance = haversine_distance(mk1, mk2);
-                        // console.log("Distance between markers: " + distance.toFixed(2) + " km.");
-                        listings[i].distance = distance;
-                        function haversine_distance(mk1, mk2) {
-                            let R = 6371.0710; // Radius of the Earth in miles
-                            let rlat1 = mk1.lat * (Math.PI / 180);
-                            // Convert degrees to radians
-                            let rlat2 = mk2.lat * (Math.PI / 180);
-                            // Convert degrees to radians
-                            let difflat = rlat2 - rlat1; // Radian difference (latitudes)
-                            let difflon = (mk2.lng - mk1.lng)
-                                * (Math.PI / 180); // Radian difference (longitudes)
-
-                            let d = 2 * R
-                                * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2)
-                                    + Math.cos(rlat1) * Math.cos(rlat2)
-                                    * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
-                            return d;
-                        }
-                    }
-                    populateListings();
                 },
             );
 
