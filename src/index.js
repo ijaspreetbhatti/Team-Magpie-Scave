@@ -1,6 +1,5 @@
 import "./app/components/header/search";
 import "./app/add_item/add_item";
-import "./main.scss";
 import * as $ from "jquery";
 import { app } from "./app/services/firebase-service";
 import { getAuth } from "firebase/auth";
