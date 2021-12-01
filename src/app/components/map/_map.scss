@@ -16,11 +16,16 @@
     height: auto;
     width: auto;
 }
+// .mapViewBtn {
+//     position:absolute;
+//     right: -25px;
+// }
 
 #map {
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
+
 
     .filterActive {
         background: $grey4;
@@ -33,12 +38,7 @@
             fill: $white;
             // background: inherit;
         }
-    }
-
-    .mapViewBtn {
-        position: absolute;
-        right: -22px;
-    }
+    }   
 }
 
 .filter {
