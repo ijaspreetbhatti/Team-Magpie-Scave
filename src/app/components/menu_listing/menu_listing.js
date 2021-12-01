@@ -1,5 +1,3 @@
-import "./menu_listing.scss";
-
 const goods = [
   {
     title: "Desk1",
@@ -33,7 +31,7 @@ const goods = [
   },
 ];
 
-let listContainer = document.querySelector(".list-container");
+let listContainer = document.querySelector(".yList");
 
 if (goods.length < 1) {
   listContainer.innerHTML += `<div class="noList">You don't have any listings</div>`;

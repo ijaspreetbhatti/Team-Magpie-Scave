@@ -18,14 +18,15 @@ const views = [
   "notificationView",
   "detailsView",
   "searchView",
+  "menu_listingView",
 ];
 
 window.categoryList = {
-    homeGoods: 'Home Goods' ,
-    gardenOutdoor: 'Garden Outdoor' ,
-    recreation: 'Recreation' ,
-    pet: 'Pet' ,
-    education: 'Education' ,
+  homeGoods: 'Home Goods',
+  gardenOutdoor: 'Garden Outdoor',
+  recreation: 'Recreation',
+  pet: 'Pet',
+  education: 'Education',
 };
 
 window.conditionList = {
@@ -42,9 +43,9 @@ function init() {
   location.hash = "mapView";
   switchView(location.hash);
   getAllListings().then((res) => {
-      console.log(res);
-      listings = res;
-      populateListings();
+    console.log(res);
+    listings = res;
+    populateListings();
   });
 }
 
