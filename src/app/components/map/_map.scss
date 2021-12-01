@@ -58,19 +58,26 @@
 
 .itemDisplayOverlay {
     position: absolute;
-    bottom: 0;
+    bottom: 151px;
+    right: 50%;
+    transform: translate(50%,50%);
     background-color: $white;
     margin: 10px;
     border-radius: 8px;
     overflow: hidden;
     max-height: 257px;
-    width: -webkit-fill-available;
     max-width: 98%;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     z-index: 1;
+    // width: webkit-fill-available;
+
+    @media screen and (min-width: 1000px) {
+        width: 400px;
+        max-width: 400px;
+    }
 
     .overlayDetails {
         display: flex;
