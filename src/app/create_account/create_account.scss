@@ -2,50 +2,74 @@
 @import "../../_font_styles.scss";
 @import "../../_mixins.scss";
 
+body {
+    margin: 0;
+}
 #createAccountView {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100%;
+
     .header {
         text-align: center;
+        padding: 24px 0;
+        border-bottom: 1px solid $grey1;
         #logoSignup {
             width: 94px;
             height: auto;
         }
         
+    }
+    
+    main {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        
         #signupH1 {
             margin-top: 24px;
             font-size: 24px;
-            width: 100vw;
+            // width: 100vw;
+            align-self: self-start;
         }
-    }
-
-    main {
-        text-align: center;
         form {
+            align-self: self-start;
+            display: flex;
+            flex-direction: column;
 
-            display: inline-block;
-            margin: 0 auto;
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
 
             label, input {
-                display: block;
+                width: 100%;
             }
 
             label {
                 color: #263238;
                 font-size: 12px;
-                margin-bottom: 4px;
-                margin-top: 30px;
+                // margin-bottom: 4px;
+                // margin-top: 30px;
                 text-align: left;
+                margin: 30px auto 4px auto;
             }
 
             input {
-                width: 342px;
+                max-width: 370px;
                 height: 34px;
                 border: #90a4ae solid 1px;
                 border-radius: 8px;
-                border: 1px solid $grey2;
-                color: $grey2;
+                border: 1px solid #90A4AE;
+                color: #90A4AE;
                 padding-left: 8px;
                 cursor: pointer;
                 outline: none !important;
+                // margin-bottom: 24px;
+                margin: 0px auto 0px auto;
             }
 
             input:focus {
@@ -59,9 +83,9 @@
             }
 
             .policy {
-                width: 342px;
-                height: 36px;
-                margin: 20px auto;
+                width: 370px;
+                // height: 36px;
+                margin: 32px auto 32px auto;
                 p {
                     font-size: 12px;
                     color: #263238;
@@ -69,15 +93,24 @@
             }
 
             #signup-btn {
-                border-color: #00bcd4;
+                border: none;
                 background: #00bcd4;
                 font-size: 12px;
                 color: white;
+                outline: none !important;
+
+                &:hover {
+                    background-color: $primary-variant-dark;
+                }
+            
+                &:active {
+                    background-color: $primary-variant-mid;
+                }
             }
             .signup-btn p {
                 font-size: 10px;
                 color: #263238;
-                margin: 10px auto 0 auto;
+                margin: 4px auto 0 auto;
                 width: 169px;
                 height: 14px;
                 span {
@@ -85,6 +118,7 @@
                 }
                 a {
                     text-decoration: none;
+                    color: inherit;
                 }
             }
             #wrongPass {
@@ -97,9 +131,11 @@
     }
 
     footer {
-        height: 56px;
         border-top: 1px solid #cfd8dc;
-        margin-top: 120px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 56px;
 
         p {
             text-align: center;
