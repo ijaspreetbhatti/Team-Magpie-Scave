@@ -16,13 +16,14 @@ body {
 
     #signInH1 {
         margin: 24px 0 32px 0;
+        align-self: self-start; 
     }
 
     main {
         padding: 0 24px;
         display: flex;
-        // align-items: center;
         flex-direction: column;
+
     }
 
     .logo {
@@ -38,42 +39,52 @@ body {
     }
 
     #login_form {
-        // .container,
-        // .btn {
-        //     // margin: 32px 23px 0 25px;
-        // }
-        .pass p {
-            margin: 4px 0 32px 0;
+        align-self: self-start;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .container, .btn {
+            width: 400px;
+            height: auto;
         }
-        .pass #pass {
+
+        // .pass p {
+        //     margin: 4px 0 32px 0;
+        // }
+        p {
+            margin-bottom: 32px;
+            margin-top: 2px;
+            font-size: 10px;
+        }
+
+        #pass {
             margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         #btn {
             @include primaryBtn;
-        }
-
-        label,
-        input {
-            display: block;
+            width: 100%;
         }
 
         label {
             font-size: 12px;
             margin-bottom: 4px;
+            color: #263238;
         }
 
         input {
-            width: 96%;
+            // width: 100%;
             height: 34px;
             border-radius: 8px;
             border: #90a4ae solid 1px;
             @include formInput;
             margin-bottom: 24px;
 
-            @media screen and (min-width: 1000px) {
-                width: 370px;
-            }
+            // @media screen and (min-width: 1000px) {
+            //     width: 370px;
+            // }
         }
 
         div.btn input {
@@ -97,10 +108,6 @@ body {
             }
         }
 
-        // div {
-        //     // margin: 20px;
-        // }
-
         div p {
             font-size: 10px;
         }
@@ -108,13 +115,30 @@ body {
         .btn #btn {
             margin-bottom: 0;
         }
+
+        .no-account {
+            text-align: center;
+            font-size: 10px;
+            color: #263238;
+
+            a {
+                text-decoration: none;
+                color: #263238;
+            }
+            span {
+                font-weight: 600;
+
+            }
+        }
     }
 
-    footer {
-        height: 56px;
+    #loginFooter {
+        // height: 56px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
         border-top: 1px solid #cfd8dc;
-        margin-top: 400px;
-
+        
         p {
             text-align: center;
             margin: 21px 24px;
@@ -126,15 +150,18 @@ body {
 
 body #login_form #btn {
     width: 100%;
+    margin-bottom: 0;
 
-    @media screen and (min-width: 1000px) {
-        width: 370px;
-    }
+    // @media screen and (min-width: 1000px) {
+    //     width: 370px;
+    // }
 }
 
 @media screen and (min-width: 1000px) {
     #loginBody {
         align-items: center;
+        margin: 0 25%;
+        // width: 25%;
     }
 }
 
