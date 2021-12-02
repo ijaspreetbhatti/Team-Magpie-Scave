@@ -157,11 +157,8 @@ body #login_form #btn {
     // }
 }
 
-@media screen and (min-width: 1000px) {
-    #loginBody {
-        align-items: center;
-        margin: 0 25%;
-        // width: 25%;
-    }
+#loginBody {
+    align-items: center;
+    margin: 0 auto;
+    max-width: 370px;
 }
-
