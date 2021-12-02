@@ -57,10 +57,6 @@
 }
 
 .itemDisplayOverlay {
-    position: absolute;
-    bottom: 151px;
-    right: 50%;
-    transform: translate(50%,50%);
     background-color: $white;
     margin: 10px;
     border-radius: 8px;
@@ -72,9 +68,14 @@
     flex-direction: column;
     gap: 10px;
     z-index: 1;
-    // width: webkit-fill-available;
-
+    position: absolute;
+    bottom: 0;
+    width: -webkit-fill-available;
+    
     @media screen and (min-width: 1000px) {
+        bottom: 151px;
+        right: 50%;
+        transform: translate(50%,50%);
         width: 400px;
         max-width: 400px;
     }
