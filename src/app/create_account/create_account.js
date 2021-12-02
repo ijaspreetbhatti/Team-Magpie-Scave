@@ -18,7 +18,7 @@ document.getElementById("signup-form").addEventListener("submit", (e) => {
         const password = SU_pass.value;
         createAccount(email, password);
     } else {
-        wrongPass.innerHTML = "Password needs to be 8 or longer";
+        wrongPass.innerHTML = "Password needs to be 8 characters or more";
     }
 });
 
