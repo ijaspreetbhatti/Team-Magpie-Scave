@@ -17,7 +17,7 @@ window.hideAllMarkers = () => {
 // Create List Button
 function addListView(buttonDiv, map) {
     const listUI = document.createElement("div");
-    listUI.className = 'viewBtn';
+    listUI.className = 'viewBtn listViewBtn';
     listUI.innerHTML = `<h4>List View</h4>`;
     buttonDiv.appendChild(listUI);
 
@@ -36,7 +36,7 @@ window.showList = showList;
 // Create Map Button
 function addMapView(buttonDiv, map) {
     const mapUI = document.createElement("div");
-    mapUI.className = 'viewBtn viewBtnActive';
+    mapUI.className = 'viewBtn viewBtnActive mapViewBtn';
     mapUI.innerHTML = `<h4>Map View</h4>`;
     buttonDiv.appendChild(mapUI);
 
@@ -65,13 +65,16 @@ function addFilter(buttonDiv, map) {
 
     filterUI.addEventListener("click", () => {
         const filterView = document.getElementById('filterOverlay');
+        // const check = document.querySelectorAll('.filterCheckbox');
+
 
         if (filterView.style.display === 'none') {
             filterView.style.display = 'flex';
-            filterUI.classList.add("filterActive");
+        // } else if(check.checked) {
+        //     filterUI.classList.add("filterActive");
         } else {
             filterView.style.display = 'none';
-            filterUI.classList.remove("filterActive");
+            // filterUI.classList.remove("filterActive");
         }
     });
 };
@@ -135,44 +138,11 @@ function initGoogleMap() {
                         lng: position.coords.longitude,
                     };
                     map.setCenter(pos);
-
-
                     new google.maps.Marker({
                         position: pos,
                         icon: "https://res.cloudinary.com/scave2021/image/upload/v1637267964/scave/centerIcon_u2vkhz.png",
                         map
                     });
-
-                    for (let i = 0; i < listings.length; i++) {
-                        let mk1 = { lat: listings[i].lat, lng: listings[i].lng };
-                        let mk2 = pos;
-
-                        // let line =
-                        //     new google.maps.Polyline({ path: [mk1, mk2], map: map });
-
-                        let distance = haversine_distance(mk1, mk2);
-                        console.log("Distance between markers: " + distance.toFixed(2) + " km.");
-                        // let distanceInput = document.getElementById('itemDistance');
-                        // distanceInput.innerHTML = distance.toFixed(2) + "km";
-                        listings[i].distance = distance;
-                        function haversine_distance(mk1, mk2) {
-                            let R = 6371.0710; // Radius of the Earth in miles
-                            let rlat1 = mk1.lat * (Math.PI / 180);
-                            // Convert degrees to radians
-                            let rlat2 = mk2.lat * (Math.PI / 180);
-                            // Convert degrees to radians
-                            let difflat = rlat2 - rlat1; // Radian difference (latitudes)
-                            let difflon = (mk2.lng - mk1.lng)
-                                * (Math.PI / 180); // Radian difference (longitudes)
-
-                            let d = 2 * R
-                                * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2)
-                                    + Math.cos(rlat1) * Math.cos(rlat2)
-                                    * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
-                            return d;
-                        }
-                    }
-
                 },
             );
 
@@ -222,6 +192,7 @@ function deployMarkers(listingsForMarkers) {
         google.maps.event.addListener(marker, 'click', (e) => {
             console.log('marker click', marker.data);
             showDetails(marker.data.id);
+            location.hash = 'mapView';
         });
     }
 }
@@ -252,6 +223,7 @@ function showDetails(id) {
     }
     showDetailsOverlay();
 }
+
 
 itemImage.addEventListener('click', () => {
     location.replace(`#detailsView`);
@@ -308,3 +280,27 @@ $('.filterCheckbox').bind('change', (e) => {
     console.log(e)
     checkFilter(e.currentTarget.id);
 } )
+
+document.getElementById('filterSubmitBtn').addEventListener('click', () => {
+    const check = document.querySelectorAll("input[type='checkbox']");
+    const filterView = document.querySelectorAll('.filter');
+
+    if(check.checked = true) {
+        console.log('checked');
+
+        for(i=0; i < filterView.length; i++) {
+            filterView[i].classList.add('filterActive');
+        }
+    } else if(check.checked = false) {
+        console.log('not checked');
+
+        for(i=0; i < filterView.length; i++) {
+            filterView[i].classList.remove('filterActive');
+        }
+    };
+
+
+
+
+    hideFilter();
+})

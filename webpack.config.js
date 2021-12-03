@@ -16,6 +16,7 @@ module.exports = {
     item_details: "./src/app/components/item_details/item_details.js",
     add_item: "./src/app/add_item/add_item.js",
     menu_listing:"./src/app/components/menu_listing/menu_listing.js",
+    styles: "./src/styles.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),

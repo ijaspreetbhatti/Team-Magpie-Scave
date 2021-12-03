@@ -119,7 +119,8 @@ function submitAddItemForm() {
         if (imagesToUpload.length === formValue.img.length) {
             console.log(formValue);
             saveListing(formValue).then((response) => {
-                populateListings();
+                loadListings();
+                showNotification("Item Created!");
                 location.hash = "mapView";
             }).catch((error) => {
                 console.log(error);
@@ -325,17 +326,30 @@ function fillInAddress() {
 // ************************************** Show/Close Modal ********************************************** //
 document.getElementById('discard-item-btn').addEventListener('click', () => {
     const modal = document.getElementById('addItemPopUp');
+    const background = document.getElementById('addItemOverlay');
+    const width = window.matchMedia("(max-width: 999px)");
+
+    // if(width.matches) {
+    //     background.style.display = "block";
+    // };
+    background.style.display = "block";
     modal.style.display = "flex";
 });
 
 document.getElementById('keepEditingAddItem').addEventListener('click', () => {
     const modal = document.getElementById('addItemPopUp');
+    const background = document.getElementById('addItemOverlay');
+
     modal.style.display = "none";
+    background.style.display = "none";
 });
 
 document.getElementById('leaveAddItem').addEventListener('click', () => {
     const modal = document.getElementById('addItemPopUp');
+    const background = document.getElementById('addItemOverlay');
+
     modal.style.display = "none";
+    background.style.display = "none";
 
     location.hash = "mapView";
 });

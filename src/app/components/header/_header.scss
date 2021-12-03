@@ -92,7 +92,7 @@
     a {
         text-decoration: none;
         display: flex;
-        margin-top: 20px;
+        // margin-top: 20px;
         align-items: center;
 
         img {
@@ -127,6 +127,10 @@
     width: 60%;
     display: none;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+
+    @media screen and (min-width: 700px) {
+        width: 30%;
+    }
 }
 
 #search {
@@ -136,6 +140,10 @@
 
 #searchInput {
     @include formInput;
+    width: 100%;
+    max-height: 32px;
+    margin: 0;
+    padding: 0;
     background: $white;
     background-image: url("https://res.cloudinary.com/scave2021/image/upload/v1635194649/scave/search_bkk9ug.svg");
     background-repeat: no-repeat;
@@ -144,14 +152,6 @@
     padding-left: 28px;
     border: 1px solid $grey2;
     border-radius: 8px 0 0 8px;
-}
-
-#searchInput {
-    width: 100%;
-    max-height: 32px;
-    margin: 0;
-    padding: 0;
-    padding-left: 4%;
 }
 
 #searchSubmit {
