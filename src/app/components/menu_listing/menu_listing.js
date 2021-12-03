@@ -14,7 +14,7 @@ function renderMyListings() {
     listContainer.innerHTML += `<div class="noList">You don't have any listings</div>`;
   } else {
     goods.forEach(function (good) {
-        listContainer.innerHTML += `
+      listContainer.innerHTML += `
             <div class="list-border">
               <div class="listCard" onclick="showListing('${good.id}')">
                   <div class="listInfo">
@@ -44,17 +44,3 @@ window.showListing = function (id) {
   }
 }
 
-let listContainer = document.querySelector(".yList");
-let editBtn = document.getElementById('editBtn');
-let cardDeleteBtn = document.getElementById('deleteBtn');
-let yrListModal = document.getElementById('popUp');
-let mdlDeleteBtn = document.querySelector('.delete');
-let cancelBtn = document.querySelector('.cancelBtn');
-
-cardDeleteBtn.onclick = function () {
-  yrListModal.style.display = 'block';
-}
-
-cancelBtn.onclick = function () {
-  yrListModal.style.display = 'none';
-}
