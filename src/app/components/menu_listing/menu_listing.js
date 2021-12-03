@@ -1,34 +1,34 @@
 const goods = [
-  {
-    title: "Desk1",
-    category: "Home Good",
-    condition: "Like New",
-    distance: "1200m",
-  },
-  {
-    title: "Desk2",
-    category: "Home Good",
-    condition: "Like New",
-    distance: "1200m",
-  },
-  {
-    title: "Desk3",
-    category: "Home Good",
-    condition: "Like New",
-    distance: "1200m",
-  },
-  {
-    title: "Desk4",
-    category: "Home Good",
-    condition: "Like New",
-    distance: "1200m",
-  },
-  {
-    title: "Desk5",
-    category: "Home Good",
-    condition: "Like New",
-    distance: "1200m",
-  },
+  // {
+  //   title: "Desk1",
+  //   category: "Home Good",
+  //   condition: "Like New",
+  //   distance: "1200m",
+  // },
+  // {
+  //   title: "Desk2",
+  //   category: "Home Good",
+  //   condition: "Like New",
+  //   distance: "1200m",
+  // },
+  // {
+  //   title: "Desk3",
+  //   category: "Home Good",
+  //   condition: "Like New",
+  //   distance: "1200m",
+  // },
+  // {
+  //   title: "Desk4",
+  //   category: "Home Good",
+  //   condition: "Like New",
+  //   distance: "1200m",
+  // },
+  // {
+  //   title: "Desk5",
+  //   category: "Home Good",
+  //   condition: "Like New",
+  //   distance: "1200m",
+  // },
 ];
 
 let listContainer = document.querySelector(".yList");
