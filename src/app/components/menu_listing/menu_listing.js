@@ -9,6 +9,7 @@ window.loadMyLists = function () {
   });
 };
 
+
 function renderMyListings() {
   if (goods.length < 1) {
     listContainer.innerHTML += `<div class="noList">You don't have any listings</div>`;
@@ -25,7 +26,9 @@ function renderMyListings() {
                       <span class="conditionItem">${good.condition}</span>
                   </div>
                   </div>
-                  <div class="imgItem"></div>
+                  <div class="imgItem">
+                    <img src=${good.img[0]}>
+                  </div>
                   </div>
                   <div class="line"></div>
                   </div>
@@ -44,3 +47,4 @@ window.showListing = function (id) {
   }
 }
 
+let listContainer = document.querySelector(".yList");
