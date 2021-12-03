@@ -54,10 +54,10 @@ if (goods.length < 1) {
           <div class="line"></div>
               <div class="button">
                   <div class="btn1">
-                      <button id="editBtn" class="editBtn">Edit</button>
+                      <span id="editBtn" class="editBtn">Edit</span>
                   </div>
                   <div class="btn2">
-                      <a class="deleteBtn" id="deleteBtn" href="#popUp">Delete</a>
+                      <span class="deleteBtn" id="deleteBtn">Delete</span>
                   </div>
               </div>
       </div>
@@ -65,4 +65,17 @@ if (goods.length < 1) {
   });
 
   console.log(goods);
+}
+let editBtn = document.getElementById('editBtn');
+let cardDeleteBtn = document.getElementById('deleteBtn');
+let yrListModal = document.getElementById('popUp');
+let mdlDeleteBtn = document.querySelector('.delete');
+let cancelBtn = document.querySelector('.cancelBtn');
+
+cardDeleteBtn.onclick = function () {
+  yrListModal.style.display = 'block';
+}
+
+cancelBtn.onclick = function () {
+  yrListModal.style.display = 'none';
 }

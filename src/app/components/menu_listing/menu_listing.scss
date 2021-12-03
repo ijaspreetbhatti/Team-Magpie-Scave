@@ -96,82 +96,129 @@ a {
 }
 
 .popUp {
-  background-color: #26323880;
+  display: none;
   position: fixed;
-  top: 0;
-  bottom: 0;
+  z-index: 1;
+  padding-top: 100px;
   left: 0;
-  right: 0;
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-}
-.popUp:target {
-  visibility: visible;
-  opacity: 1;
-}
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 
-.popCard {
-  position: relative;
-  top: 340px;
-  border-radius: 8px;
-  margin: 0 24px;
-  background-color: white;
-  .deleteCard {
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row;
-    padding: 24px;
+  .popCard{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 342px;
+    height: 146px;
+    background-color: #fefefe;
+    border-radius: 8px;
+    overflow: hidden;
 
-    .deleteInfo {
-      display: flex;
-      align-content: center;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+    .deleteCard{
+      margin: 24px 24px 0 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #cfd8dc;
 
-    h3 {
-      margin: 0;
-      font-size: 16px;
-    }
-    .deleteMsg {
-      margin-top: 8px;
+      h3{
+        margin-bottom: 8px;
+      }
 
-      font-size: 12px;
-      color: #455a64;
-      line-height: 18px;
-    }
-  }
-  .line {
-    border-top: 1px solid #cfd8dc;
-    margin: 0 24px;
-  }
-  .popButton {
-    display: flex;
-    justify-content: space-evenly;
-    .popBtn1 {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      padding: 8px 16px 8px 16px;
-      .popDelete {
-        background-color: white;
-        font-size: 12px;
-        line-height: 18px;
-        border: none;
+      .deleteMsg{
+        font-weight: 400;
       }
     }
-    .popBtn2 {
-      width: 100%;
+
+    .deleteBtn{
       display: flex;
       justify-content: center;
-      padding: 8px 16px 8px 16px;
+
+      .delete {
+        column-rule-color: #aaaaaa;
+        padding: 8px 60px;
+        font-weight: 600;
+        color: #FF5722;
+      }
+
       .cancelBtn {
-        background-color: white;
-        font-size: 12px;
-        line-height: 18px;
-        border: none;
+        column-rule-color: #aaaaaa;
+        padding: 8px 60px;
+        font-weight: 600;
       }
     }
   }
 }
+
+// .popUp:target {
+//   visibility: visible;
+//   opacity: 1;
+// }
+
+// .popCard {
+//   position: relative;
+//   top: 340px;
+//   border-radius: 8px;
+//   margin: 0 24px;
+//   background-color: white;
+//   .deleteCard {
+//     justify-content: space-between;
+//     display: flex;
+//     flex-direction: row;
+//     padding: 24px;
+
+//     .deleteInfo {
+//       display: flex;
+//       align-content: center;
+//       flex-direction: column;
+//       justify-content: space-between;
+//     }
+
+//     h3 {
+//       margin: 0;
+//       font-size: 16px;
+//     }
+//     .deleteMsg {
+//       margin-top: 8px;
+
+//       font-size: 12px;
+//       color: #455a64;
+//       line-height: 18px;
+//     }
+//   }
+//   .line {
+//     border-top: 1px solid #cfd8dc;
+//     margin: 0 24px;
+//   }
+//   .popButton {
+//     display: flex;
+//     justify-content: space-evenly;
+//     .popBtn1 {
+//       width: 100%;
+//       display: flex;
+//       justify-content: center;
+//       padding: 8px 16px 8px 16px;
+//       .popDelete {
+//         background-color: white;
+//         font-size: 12px;
+//         line-height: 18px;
+//         border: none;
+//       }
+//     }
+//     .popBtn2 {
+//       width: 100%;
+//       display: flex;
+//       justify-content: center;
+//       padding: 8px 16px 8px 16px;
+//       .cancelBtn {
+//         background-color: white;
+//         font-size: 12px;
+//         line-height: 18px;
+//         border: none;
+//       }
+//     }
+//   }
+// }
