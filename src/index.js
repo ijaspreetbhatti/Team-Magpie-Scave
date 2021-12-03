@@ -126,6 +126,7 @@ function checkLoginState() {
       : "Hello!";
     headerMailId.innerHTML = currentUser.email;
     console.log(currentUser);
+    loadMyLists();
   } else {
     location.replace("/home.html");
   }
