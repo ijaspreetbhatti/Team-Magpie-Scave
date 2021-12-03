@@ -11,12 +11,12 @@ const views = [
   "addItemView",
   // "mapView",
   "listView",
-  "menuListingView",
   "createAccountView",
   "menuAccountView",
   "notificationView",
   "detailsView",
   "searchView",
+  "menu_listingView",
 ];
 
 window.categoryList = {
@@ -84,7 +84,7 @@ window.showNotification = function (message) {
 
 // init method
 function init() {
-  if (window.navigator.onLine){
+  if (window.navigator.onLine) {
 
     showNotification('Welcome to Magpie`s Scave!');
     console.log("initializing");
