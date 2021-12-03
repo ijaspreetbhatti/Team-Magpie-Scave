@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from "firebase/firestore/lite";
-import { collection, doc, setDoc, getDocs, deleteDoc, getDoc } from "firebase/firestore/lite";
+import { collection, doc, setDoc, getDocs, deleteDoc, getDoc, query, where } from "firebase/firestore/lite";
 
 // Set the configuration for your app
 // TODO: Replace with your project's config object
@@ -25,6 +25,26 @@ export async function getAllListings() {
         return { id: doc.id, ...doc.data() };
     });
     return listingsList;
+};
+
+export async function getAllKindsListings() {
+    console.log('fn : getAllKindsListings')
+    // Create a reference to the cities collection
+    const listingsCollectionRef = collection(db, "listings");
+    const listingsCollectionQuery = query(listingsCollectionRef, where("author", "==", currentUser.email));
+    const listingsSnapshot = await getDocs(listingsCollectionQuery);
+    const listingsList = listingsSnapshot.docs.map(doc => {
+        return { id: doc.id, ...doc.data() };
+    });
+
+    const archivedListingsCollectionRef = collection(db, "archived_listings");
+    const archivedListingsCollectionQuery = query(archivedListingsCollectionRef, where("author", "==", currentUser.email));
+    const archivedListingsSnapshot = await getDocs(archivedListingsCollectionQuery);
+    const archivedListingsList = archivedListingsSnapshot.docs.map(doc => {
+        return { id: doc.id, ...doc.data(), archived: true };
+    });
+
+    return [ ...listingsList, ...archivedListingsList];
 };
 
 export async function saveListing(listing) {
