@@ -94,17 +94,6 @@ window.onclick = function (e) {
     }
 }
 
-<<<<<<< HEAD
-function smallMap() {
-    map = new google.maps.Map(document.getElementById('smallMap'), {
-        disableDefaultUI: true,
-        zoom: 14,
-        center: {lat: currentItem.lat, lng: currentItem.lng},
-    });
-}
-
-window.smallMap = smallMap;
-=======
 function markAsCollected() {
     setListingAsCollected(currentItem.id).then((e)=>{
         showNotification('Item Collected!');
@@ -157,4 +146,3 @@ function smallMap() {
 
 
 window.smallMap = smallMap;
->>>>>>> develop
