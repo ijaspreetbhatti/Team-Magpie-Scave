@@ -1,15 +1,32 @@
+const cacheName = 'magpie-scave-2021';
+const appShellFiles = [
+  '/icons/icon-32.png',
+  '/icons/icon-128.png',
+  '/icons/icon-512.png',
+  'index.html',
+  'js/main.js'
+];
 
-self.addEventListener('install', event => {
-    // console.log(`Event fired: ${event.type}`);
-    // console.dir(event);
-});
+const contentToCache = appShellFiles;
 
-self.addEventListener('activate', event => {
-    // console.log(`Event fired: ${event.type}`);
-    // console.dir(event);
-});
+self.addEventListener('install', (e) => {
+    console.log('[Service Worker] Install');
+    e.waitUntil((async () => {
+      const cache = await caches.open(cacheName);
+      console.log('[Service Worker] Caching app shell');
+      await cache.addAll(contentToCache);
+    })());
+  });
 
-self.addEventListener('fetch', event => {
-    // console.log(`Fetching ${event.request.url}`);
-    event.respondWith(fetch(event.request));
-});
+self.addEventListener('fetch', (e) => {
+    e.respondWith((async () => {
+      const r = await caches.match(e.request);
+      console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
+      if (r) { return r; }
+      const response = await fetch(e.request);
+      const cache = await caches.open(cacheName);
+      console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
+      cache.put(e.request, response.clone());
+      return response;
+    })());
+  });

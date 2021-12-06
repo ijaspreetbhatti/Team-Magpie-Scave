@@ -1,4 +1,4 @@
-<div id="menu_account">
+<div class="menuAccountView">
 
     <!-- Leave Confirmation -->
     <div class="popup" id="js-popup">
@@ -9,7 +9,7 @@
             </div>
             <div class="btn-container">
                 <div class="leave-btn" id="js-leave-btn">
-                    <p>Leave</p>
+                    <a href="#map"><p>Leave</p></a>
                 </div>
                 <div class="stay-btn" id="js-stay-btn">
                     <p>Keep editing</p>
@@ -19,16 +19,15 @@
         <div class="black-background" id="js-black-bg"></div>
     </div>
 
-    <button id="js-show-popup">Show Leave Confirmation</button>
-
+    <!-- End of Leave Confirmation -->
 
     <div>
         <h1 id="account">Account</h1>
     </div>
 
-    <!-- End of Leave Confirmation -->
+    
 
-    <form method="post">
+    <form action="javascript: void(0)" id="updateAccountForm" >
         <div class="container">
             <label for="acc_fName">First name</label>
             <input type="text" id="acc_fName" placeholder="John">
@@ -42,6 +41,7 @@
         <div class="container">
             <label for="acc_email">Email</label>
             <input type="email" id="acc_email" placeholder="jondoe@mail.com">
+            
         </div>
 
         <div class="container acc-btn">

@@ -1,38 +1,93 @@
-// import algoliasearch from 'algoliasearch/lite';
-// import instantsearch from 'instantsearch.js';
-// import { searchBox, hits } from 'instantsearch.js/es/widgets';
+import algoliasearch from 'algoliasearch/lite';
+import instantsearch from 'instantsearch.js';
+import { searchBox, hits } from 'instantsearch.js/es/widgets';
 import * as $ from 'jquery';
 
+// Search Client
+const searchClient = algoliasearch('W5144GWNC7', '007a65abffcee913949d61c3aa980ed8');
+const index = searchClient.initIndex('Scave');
 
-// const searchClient = algoliasearch('W5144GWNC7', '007a65abffcee913949d61c3aa980ed8');
-// const index = searchClient.initIndex('Scave');
+const search = instantsearch({
+  indexName: 'Scave',
+  searchClient,
+});
 
-// const search = instantsearch({
-//   indexName: 'Scave',
-//   searchClient,
-// });
+// Populate Items
+function populateSearch(hits) {
+    console.log('populating');
+    const container = document.getElementById('searchContainer');
+    const title = document.getElementById('yourSearch');
+    const searchItem = document.getElementById('searchInput').value;
 
-// // only query string
-
-// document.getElementById('searchSubmit').addEventListener('click', () => {
-//     searchFunc();
-//     console.log('searched');
-// })
-
-// const searchFunc = () => {
-//         let searchItem = document.getElementById('searchInput').value;
-
-//         index.search(searchItem).then(({ hits }) => {
-//         console.log(hits);
-//         console.log('searching')
-//     });
-// }
+    container.innerHTML = "";
 
 
-// search.start();
+    function searchDetails(id) {
+        const obj = hits.find(hits => hits.objectID === id);
+        if (obj) {
+            window.currentItem = obj
+            location.replace(`#detailsView`);
+            populateListing();
+        }
+        console.log('search click');
+    }
+
+    window.searchDetails = searchDetails;
+
+    if(hits) {
+        title.innerHTML = `Search results for "${searchItem}"`;
+
+        hits.forEach(function (hits) {
+            // const firstImg = hits.img;
+            container.innerHTML += `
+            <div class="search-card" id="search-card" onclick="searchDetails('${hits.objectID}')">
+                <div class="search-info">
+                <div class="search-sub-info">
+                    <h3>${hits.title}</h3>
+                    <span class="category">${categoryList[hits.category]}</span>
+                    <span>・</span>
+                    <span class="condition">${conditionList[hits.condition]}</span>
+                </div>
+                <span class="distance">${getRenderableDistance(listings.distance)}</span>
+                </div>
+                <div class="img">
+                    <img src="${hits.img[0]}" />
+                </div>
+            </div>
+            `;
+        });
+    } else {
+        title.innerHTML = `Your search for "${searchItem}" returned no results.`;
+        container.innerHTML = "Your search did not return any results.";
+    }
+}
 
 
+// Click event in search input
+document.getElementById('searchSubmit').addEventListener('click', () => {
+    searchFunc();
+    console.log('searched');
+    location.hash = 'searchView';
+})
+
+// Search function
+const searchFunc = () => {
+        let searchItem = document.getElementById('searchInput').value;
+
+        index.search(searchItem).then(({ hits }) => {
+        populateSearch(hits);
+    });
+}
+
+// declare funcs in window
+window.populateSearch = populateSearch;
+window.searchFunc = searchFunc;
+search.start();
+
+
+// ********************************************************* //
 // Search input display and hide functions and Nav Display Func
+// ********************************************************* //
 
 function toggleSearch() {
 
@@ -63,6 +118,17 @@ function toggleSearch() {
 
 window.toggleSearch = toggleSearch;
 
+document.addEventListener('click', function(event) {
+    const navDisplay = document.getElementById('header');
+
+    const elementArea = navDisplay.contains(event.target);
+    const width = window.matchMedia("(max-width: 1000px)");
+
+    if(!elementArea && width.matches) {
+        closeNav();
+    }
+});
+
 function closeSearch() {
 
     const width = window.matchMedia("(min-width: 1000px)");
@@ -90,8 +156,18 @@ function closeSearch() {
 
 window.closeSearch = closeSearch;
 
-function toggleNav() {
+function closeNav() {
 
+    const nav = document.getElementById("navItems");
+
+    if (nav.style.display === "block") {
+        nav.style.display = "none";
+    }
+};
+
+window.closeNav = closeNav;
+
+function toggleNav() {
     const nav = document.getElementById("navItems");
 
     if (nav.style.display === "none") {
@@ -137,5 +213,13 @@ headerFix(width);
 width.addListener(headerFix)
 
 $('#listItem').on('click', () => {
+
+    const form = document.getElementById('itemListing');
+    form.reset();
+
     location.hash = 'addItemView';
+})
+
+document.getElementById('mainLogo').addEventListener('click', ()=>{
+    location.hash = 'mapView';
 })

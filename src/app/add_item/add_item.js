@@ -6,6 +6,10 @@ import { uploadImage } from '../services/cloudinary-service';
 import { saveListing } from '../services/firebase-service';
 
 
+// ******************************** Variable Declarations ******************************** //
+let locationAsArrayOfCoords = [0,0];
+
+
 // ****************************************************************************************************** //
 // ******************************** Funcs to Upload/Remove Images on UI ********************************* //
 // ****************************************************************************************************** //
@@ -54,6 +58,27 @@ function removeImg(img, show, hide, hide2, background) {
     hide2.style.display = "none";
 };
 
+// ****************************************************************************************************** //
+// ************************************** Get Geolocation Event Listeners ******************************* //
+// ****************************************************************************************************** //
+
+function getLocation(address) {
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode( { 'address': address}, function(results, status) {
+
+  if (status == google.maps.GeocoderStatus.OK) {
+      const latitude = results[0].geometry.location.lat();
+      const longitude = results[0].geometry.location.lng();
+      const location = [
+          latitude, longitude
+      ];
+
+      locationAsArrayOfCoords = location;
+      console.log(locationAsArrayOfCoords);
+      return location;
+      }
+  });
+}
 
 
 // ****************************************************************************************************** //
@@ -70,16 +95,18 @@ const blobToBase64 = blob => {
     });
 };
 
-function submitAddItemForm() {
 
+function submitAddItemForm() {
     const formValue = {
         title: document.getElementById('item').value,
         category: document.getElementById('category').value,
         condition: document.getElementById('condition').value,
-        location: getLocation(document.getElementById('location').value),
+        lat: locationAsArrayOfCoords[0],
+        lng: locationAsArrayOfCoords[1],
         description: document.getElementById('description').value,
         date: (new Date()).toISOString(),
-        img: []
+        img: [],
+        author: currentUser.email
     }
 
     const images = [input1.files[0], input2.files[0], input3.files[0], input4.files[0], input5.files[0]];
@@ -92,7 +119,8 @@ function submitAddItemForm() {
         if (imagesToUpload.length === formValue.img.length) {
             console.log(formValue);
             saveListing(formValue).then((response) => {
-                alert('Item Created!');
+                loadListings();
+                showNotification("Item Created!");
                 location.hash = "mapView";
             }).catch((error) => {
                 console.log(error);
@@ -198,7 +226,7 @@ document.getElementById('c1').addEventListener('click', () => {
     const insert1 = document.getElementById('insert1');
     const c1 = document.getElementById('c1');
     const p1 = document.getElementById('p1');
-    
+
     document.getElementById("input1").disabled = false;
 
     removeImg(insert1, img1, c1, insert1, p1);
@@ -244,52 +272,6 @@ document.getElementById('c5').addEventListener('click', () => {
     removeImg(insert5, img5, c5, insert5, p5);
 })
 
-// ****************************************************************************************************** //
-// ************************************** Get Geolocation Event Listeners ******************************* //
-// ****************************************************************************************************** //
-
-// const input = document.getElementById('location');
-
-// function getLocation() {
-//     let lat;
-//     let lng;
-
-//     if(navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showPosition);
-//         console.log('working');
-//     } else {
-//         input.value = "Please enable geolocation."
-//     }
-// }
-
-// function showPosition(position) {
-//     const lat = position.coords.latitude;
-//     const lng = position.coords.longitude;
-
-//     const location = [
-//         lat, lng
-//     ]
-
-//     return location;
-// }
-
-const getLocation =  function(address) {
-  var geocoder = new google.maps.Geocoder();
-  geocoder.geocode( { 'address': address}, function(results, status) {
-
-  if (status == google.maps.GeocoderStatus.OK) {
-      const latitude = results[0].geometry.location.lat();
-      const longitude = results[0].geometry.location.lng();
-
-      const location = [
-          latitude, longitude
-      ];
-
-      console.log(location); 
-      return location;
-      } 
-  }); 
-}
 
 // ************************************** Location Autocomplete ***************************************** //
 
@@ -338,15 +320,45 @@ function fillInAddress() {
     }
   }
     address.value = address1;
+    getLocation(address1);
 }
+
+// ************************************** Show/Close Modal ********************************************** //
+document.getElementById('discard-item-btn').addEventListener('click', () => {
+    const modal = document.getElementById('addItemPopUp');
+    const background = document.getElementById('addItemOverlay');
+    const width = window.matchMedia("(max-width: 999px)");
+
+    // if(width.matches) {
+    //     background.style.display = "block";
+    // };
+    background.style.display = "block";
+    modal.style.display = "flex";
+});
+
+document.getElementById('keepEditingAddItem').addEventListener('click', () => {
+    const modal = document.getElementById('addItemPopUp');
+    const background = document.getElementById('addItemOverlay');
+
+    modal.style.display = "none";
+    background.style.display = "none";
+});
+
+document.getElementById('leaveAddItem').addEventListener('click', () => {
+    const modal = document.getElementById('addItemPopUp');
+    const background = document.getElementById('addItemOverlay');
+
+    modal.style.display = "none";
+    background.style.display = "none";
+
+    location.hash = "mapView";
+});
 
 // ************************************** Intialize Funcs in Window ************************************* //
 
-window.getLocation = getLocation;
 window.initAutocomplete = initAutocomplete;
 window.fillInAddress = fillInAddress;
-// window.showPosition = showPosition;
-// window.getLocation = getLocation;
+window.getLocation = getLocation;
 window.photoUpload = photoUpload;
 window.hideHelpText = hideHelpText;
 window.removeImg = removeImg;

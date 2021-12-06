@@ -1,0 +1,127 @@
+@import "../../_variables";
+@import "../../_font_styles.scss";
+@import "../../_mixins.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+  margin: 0;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100vh;
+}
+
+.logoTop {
+  display: flex;
+  justify-content: center;
+  height: 56px;
+  border-bottom: 1px solid $grey1;
+  img {
+    width: 94px;
+  }
+}
+.homeImg {
+  margin: 0 auto;
+  background-image: url("https://res.cloudinary.com/scave2021/image/upload/v1635474174/scave/illustration_e7eoev.png");
+  width: 342px;
+  height: 237.31px;
+  // margin-top: 98px;
+}
+.title {
+  width: 100%;
+  height: 56px;
+  text-align: center;
+  margin-top: 28px;
+  font-family: $font-family;
+  font-weight: 600;
+  font-size: 24px;
+  color: #263238;
+  line-height: 28px;
+  font-style: normal;
+}
+
+.content {
+  margin: 0 auto;
+  width: 342px;
+  height: 72px;
+  text-align: center;
+  margin-top: 16px;
+  font-family: $font-family;
+  font-size: 12px;
+  color: #263238;
+  font-weight: 400;
+  line-height: 18px;
+  font-style: normal;
+}
+
+.joinbtn {
+  margin: 0 auto;
+  margin-top: 32.69px;
+  width: 342px;
+  height: 34px;
+  border-radius: 8px;
+  background-color: $primary;
+  color: white;
+  font-family: $font-family;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+.signBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.signin {
+  width: 73px;
+  height: 34px;
+  border-radius: 8px;
+  justify-content: center;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.footer {
+  width: 100%;
+  height: 56px;
+  justify-content: center;
+  border-top: 1px solid $grey1;
+  display: flex;
+  text-align: center;
+  // margin-top: 116px;
+}
+.copyright {
+  justify-content: center;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: $grey3;
+}
+
+@media screen and (max-device-width: 768px) {
+}

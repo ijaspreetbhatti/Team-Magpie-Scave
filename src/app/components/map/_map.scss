@@ -5,19 +5,44 @@
     cursor: pointer;
 }
 
+#detailsClose {
+    z-index: 1000;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
 .mapOverlay {
     height: auto;
     width: auto;
 }
+// .mapViewBtn {
+//     position:absolute;
+//     right: -25px;
+// }
 
 #map {
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
+
+
+    .filterActive {
+        background: $grey4;
+    
+        h4 {
+            color: $white;
+            // border-radius: inherit;
+        }
+        svg {
+            fill: $white;
+            // background: inherit;
+        }
+    }   
 }
 
 .filter {
-    margin-left: 24px;
+    margin-left: 8px;
     display: flex;
     cursor: pointer;
     justify-content: center;
@@ -32,22 +57,29 @@
 }
 
 .itemDisplayOverlay {
-    cursor: pointer;
-    position: absolute;
-    bottom: 0;
     background-color: $white;
     margin: 10px;
-    border-radius: 14px;
+    border-radius: 8px;
     overflow: hidden;
-    min-height: 400px;
-    max-height: 50%;
-    width: -webkit-fill-available;
+    max-height: 257px;
     max-width: 98%;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     z-index: 1;
+    position: absolute;
+    bottom: 0;
+    width: -webkit-fill-available;
+    
+    @media screen and (min-width: 1000px) {
+        bottom: 151px;
+        right: 50%;
+        transform: translate(50%,50%);
+        width: 400px;
+        max-width: 400px;
+    }
+
     .overlayDetails {
         display: flex;
         flex-direction: row;
@@ -55,9 +87,18 @@
         .overlayDetailsLeft {
             display: flex;
             flex-direction: column;
+
+            h2 {
+                margin: 0;
+                padding: 0;
+                margin-bottom: 8px;
+            }
         }
         .overlayDetailsRight {
             z-index: 5;
+            justify-content: space-between;
+            align-items: flex-end;
+
             h2:nth-child(1){
                 text-align: center;
             }
@@ -67,8 +108,173 @@
     }
     img{
         width: 100%;
-        height:348px;
+        height:167px;
         object-fit: cover;
-        border-radius: 15px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .itemDisplayOverlay {
+        height: 350px;
+
+        img {
+            height: 80%;
+        }
+    }
+}
+
+// Styles for filter overlay ***********************************************************************
+
+#filterOverlay {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $white;
+    overflow: hidden;
+    z-index: 20;
+
+    #filterSubmitBtn {
+        @include primaryBtn;
+        margin-top: 32px;
+        text-align: center;
+        height: auto;
+
+        width: 254px;
+        margin-left: 32px;
+    }
+
+    #filterHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 30px 32px 30px;
+    }
+
+    img {
+        height: 12px;
+        width: 12px;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        margin-bottom: 8px;
+        margin-top: 0;
+        padding: 0 30px;
+    }
+
+    #conditionH2 {
+        margin-top: 28px;
+    }
+
+    #categoryFilters, #conditionFilters {
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+
+        .filterBox {
+            position: relative;
+            display: block;
+            align-items: center;
+            margin: 8px 0;
+            padding-left: 24px;
+            font-size: 16px;
+            font-weight: 400;
+
+            input {
+                align-self: baseline;
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+
+            .check {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 12px;
+                width: 12px;
+                background-color: $white;
+                border: 1px solid $grey5;
+                border-radius: 1px;
+            }
+
+            .check:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+
+            input:checked ~ .check:after {
+                display: block;
+            }
+
+            input:checked ~ .check {
+                height: 12px;
+                width: 12px;
+                background-color: $primary;
+                border: 1px solid $primary;
+            }
+        }
+
+        .filterBox .check:after {
+            left: 3.5px;
+            top: 0.5px;
+            width: 3px;
+            height: 7px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+}
+// Filter Overlay Desktop *****************************************************************************
+
+@media screen and (min-width: 1000px) {
+    #filterOverlay {
+        display: none;
+        width: 223px;
+        z-index: 1;
+        height: auto;
+        margin: 56px 24px 24px 24px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        padding: 30px;
+
+        img {
+            display: none;
+        }
+
+        #filterHeader, #categoryFilters, #conditionFilters, h2 {
+            padding: 0;
+        }
+
+        #filterHeader {
+            margin-bottom: 32px;
+        }
+
+        #filterSubmitBtn {
+            @include primaryBtn;
+            margin-top: 32px;
+            text-align: center;
+            height: auto;
+    
+            width: auto;
+            margin-left: 0;
+        }
     }
 }
