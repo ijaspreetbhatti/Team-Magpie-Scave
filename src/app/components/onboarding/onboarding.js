@@ -5,12 +5,12 @@ showSlides(slideIndex);
 
 function plusSlides(n) {
   showSlides((slideIndex += n));
-  console.log("working");
+  console.log("plus");
 }
 
 function currentSlide(n) {
   showSlides((slideIndex = n));
-  console.log("working");
+  console.log("current");
 }
 
 function showSlides(n) {
@@ -33,5 +33,9 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
-document.querySelector(".prev").addEventListener(plusSlides(-1));
-document.querySelector(".next").addEventListener(currentSlide(1));
+document.querySelector(".prev").addEventListener("click", () => {
+  plusSlides(-1);
+});
+document.querySelector(".next").addEventListener("click", () => {
+  currentSlide(-1);
+});

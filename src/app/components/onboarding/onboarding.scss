@@ -26,6 +26,7 @@
     #cardImg {
       margin-top: 24px;
       width: 294px;
+      height: 204px;
     }
     .onboard-info {
       margin: 0 24px;
@@ -80,11 +81,11 @@
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 146px;
   width: auto;
   margin-top: -30px;
   padding: 16px;
-  color: #888;
+  color: #cfd8dc;
   font-weight: bold;
   font-size: 20px;
   border-radius: 0 3px 3px 0;
@@ -93,19 +94,18 @@
 .next {
   position: absolute;
   border-radius: 3px 0 0 3px;
-  right: 100px;
+  right: 1px;
 }
 prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+  color: #90a4ae;
 }
 .dot-container {
   text-align: center;
-  margin: 24px 0;
+  margin: 20px 0;
 }
-.dot1,
-.dot2 {
+.dot,
+.dot {
   cursor: pointer;
   height: 8px;
   width: 8px;
@@ -117,9 +117,6 @@ prev:hover,
 }
 /* Add a background color to the active dot/circle */
 .active,
-.dot1:hover {
-  background-color: #90a4ae;
-}
-.dot2:hover {
+.dot:hover {
   background-color: #90a4ae;
 }
