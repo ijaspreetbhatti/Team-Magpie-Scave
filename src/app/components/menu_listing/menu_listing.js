@@ -21,9 +21,9 @@ function renderMyListings() {
                   <div class="listInfo">
                   <div class="listSubInfo">
                       <h3>${good.title}</h3>
-                      <span class="categoryItem">${good.category}</span>
+                      <span class="categoryItem">${categoryList[good.category]}</span>
                       <span>⋅</span>
-                      <span class="conditionItem">${good.condition}</span>
+                      <span class="conditionItem">${conditionList[good.condition]}</span>
                   </div>
                   </div>
                   <div class="imgItem">
