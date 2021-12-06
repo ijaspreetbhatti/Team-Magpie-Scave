@@ -26,10 +26,6 @@ function populateListing() {
         .getElementById("mySlides")
         .addEventListener("click", mySlidesHandler);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
     smallMap();
 }
 
