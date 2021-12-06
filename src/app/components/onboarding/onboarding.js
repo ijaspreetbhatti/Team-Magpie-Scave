@@ -35,5 +35,3 @@ function showSlides(n) {
 
 document.querySelector(".prev").addEventListener(plusSlides(-1));
 document.querySelector(".next").addEventListener(currentSlide(1));
-document.querySelector(".dot1").addEventListener(plusSlides(-1));
-document.querySelector(".dot").addEventListener(currentSlide(1));
